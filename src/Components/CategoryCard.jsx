@@ -12,9 +12,6 @@ const Wrapper = styled.div`
 
     &::before {
         content: "";
-        /* position: absolute; */
-        /* top: 0;
-        left: 0; */
         width: 100%;
         height: 100%;
         background-image: url(${(props) => props.backgroundUrl});
@@ -34,8 +31,10 @@ const Wrapper = styled.div`
 `;
 
 export const CategoryCard = ({ category }) => {
+    const basePath = process.env.REACT_APP_BASE_PATH || "";
+
     return (
-        <Wrapper $backgroundUrl={category.url}>
+        <Wrapper $backgroundUrl={`${basePath + category.url}`}>
             <h6>{category.name}</h6>
             {/* <img src={category.url} alt={category.name} /> */}
         </Wrapper>
