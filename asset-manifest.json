@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/FavPictures/static/css/main.7d1b713a.css",
-    "main.js": "/FavPictures/static/js/main.ac6c8c3b.js",
-    "static/media/logo.png": "/FavPictures/static/media/logo.9fea477b9b9256ac6134.png",
-    "index.html": "/FavPictures/index.html",
-    "main.7d1b713a.css.map": "/FavPictures/static/css/main.7d1b713a.css.map",
-    "main.ac6c8c3b.js.map": "/FavPictures/static/js/main.ac6c8c3b.js.map"
+    "main.css": "/laconcheta/static/css/main.7d1b713a.css",
+    "main.js": "/laconcheta/static/js/main.1c553fa4.js",
+    "static/media/logo.png": "/laconcheta/static/media/logo.9fea477b9b9256ac6134.png",
+    "index.html": "/laconcheta/index.html",
+    "main.7d1b713a.css.map": "/laconcheta/static/css/main.7d1b713a.css.map",
+    "main.1c553fa4.js.map": "/laconcheta/static/js/main.1c553fa4.js.map"
   },
   "entrypoints": [
     "static/css/main.7d1b713a.css",
-    "static/js/main.ac6c8c3b.js"
+    "static/js/main.1c553fa4.js"
   ]
 }
