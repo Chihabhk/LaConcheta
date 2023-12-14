@@ -2,7 +2,7 @@ import "./App.css";
 
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { styled } from "styled-components";
+import styled from "styled-components";
 
 import { CategoryCard } from "./Components/CategoryCard.jsx";
 import { getAllCategories } from "./features/menuSlice";
