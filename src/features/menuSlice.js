@@ -4,6 +4,7 @@ import menuData from "../db/menu.json";
 const initialState = {
     menuCategories: {},
     menuItems: [],
+    selectedCategory: {},
 };
 
 export const menuSlice = createSlice({
@@ -12,6 +13,9 @@ export const menuSlice = createSlice({
     reducers: {
         getAllCategories: (state) => {
             state.menuCategories = Object.entries(menuData);
+        },
+        selectCategory: (state, action) => {
+            state.selectedCategory = action.payload.data;
         },
         getMenuItemsByCategory: (state, action) => {
             const category = action.payload;
@@ -25,6 +29,7 @@ export const menuSlice = createSlice({
     },
 });
 
-export const { getAllCategories, getMenuItemsByCategory } = menuSlice.actions;
+export const { getAllCategories, getMenuItemsByCategory, selectCategory } =
+    menuSlice.actions;
 
 export default menuSlice.reducer;
