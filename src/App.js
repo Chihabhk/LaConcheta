@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
 
 import { CategoryCard } from "./Components/CategoryCard.jsx";
-import { getAllCategories } from "./features/menuSlice";
+import { getAllCategories, selectCategory } from "./features/menuSlice";
 import logo from "./assets/logo.png";
 
 const AppWrapper = styled.div`
@@ -43,8 +43,8 @@ const TelContact = styled.div`
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
-    padding: 0.5em 0;
-
+    padding: 0.5em;
+    gap: 1em;
     > a {
         text-decoration: none;
         color: #007bff;
@@ -98,6 +98,13 @@ const ItemsWrapper = styled.section`
     grid-gap: 1.5em;
     padding: 1em;
     transition: grid-gap 0.3s ease;
+
+    > span {
+        width: 15%;
+        border-radius: 10px;
+        background-color: #007bff;
+        padding: 1em;
+    }
 `;
 
 function App() {
@@ -111,20 +118,21 @@ function App() {
         dispatch(getAllCategories());
     }, [dispatch]);
 
-    const handleOnClick = () => {};
+    const handleOnClick = () => {
+        dispatch(selectCategory({ data: null }));
+    };
     return (
         <AppWrapper>
             <Header>
                 <img src={logo} alt="LaConcheta-logo" onClick={handleOnClick} />
                 <TelContact>
-                    <label htmlFor="callUs">
-                        Quieres reservar mesa o tienes dudas?
-                    </label>
+                    <label htmlFor="callUs">Quieres reservar mesa?</label>
                     <a href="tel:962121602">LLámanos!</a>
                 </TelContact>
             </Header>
             {selectedCategory && selectedCategory.length > 0 ? (
                 <ItemsWrapper>
+                    <span onClick={handleOnClick}>Atrás</span>
                     {selectedCategory.map((item) => {
                         return (
                             <div key={item.name}>
