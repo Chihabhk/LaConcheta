@@ -376,41 +376,6 @@
             }
         ]
     },
-    "Menus a compartir": {
-        "url": "",
-        "data": [
-            {
-                "menu_1": {
-                    "starter": [
-                        "Ensalda de la casa",
-                        "Tabla de jamón ibérico y queso manchego",
-                        "Chipirones a la andaluza",
-                        "Buñuelos de bacalao"
-                    ],
-                    "entree": [
-                        "Fideuá",
-                        "Arroz de secreto con boletus y ajos tiernos",
-                        "Arroz del señoret"
-                    ],
-                    "drinks": "Refresco, cerveza, zumo o agua",
-                    "desert": ["Bandeja de postre a compartir", "Café"],
-                    "price": "24€/persona"
-                }
-            },
-            {
-                "menu_2": {
-                    "starter": [
-                        "Súrtido de ibéricos y queso manchego",
-                        "Ensalada de la casa"
-                    ],
-                    "entree": "Buey a la piedra 300g",
-                    "drinks": "Refresco, cerveza, zumo o agua",
-                    "desert": ["Bandeja de postre a compartir", "Café"],
-                    "price": "27€/persona"
-                }
-            }
-        ]
-    },
     "Bocadillos": {
         "url": "",
         "data": [
@@ -473,21 +438,6 @@
                 "description": "Tomate en rodajas, jamón y queso manchego",
                 "Allergies": "",
                 "price": "7.5€"
-            }
-        ]
-    },
-    "Menus Infantiles": {
-        "url": "",
-        "data": [
-            {
-                "options": [
-                    "Mini hamburguesas",
-                    "Fingers de pollo",
-                    "Barritas de merluza"
-                ],
-                "drinks": "Refresco, zumo o agua",
-                "desert": "copa con bola de helado de chocolate, vainilla, fresa o limón",
-                "price": "10€"
             }
         ]
     }
