@@ -126,7 +126,9 @@ function App() {
             <Header>
                 <img src={logo} alt="LaConcheta-logo" onClick={handleOnClick} />
                 <TelContact>
-                    <label htmlFor="callUs">Quieres reservar mesa?</label>
+                    <label htmlFor="callUs">
+                        ¿Te gustaría reservar una mesa?
+                    </label>
                     <a href="tel:962121602">LLámanos!</a>
                 </TelContact>
             </Header>
