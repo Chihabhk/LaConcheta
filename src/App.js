@@ -14,11 +14,15 @@ import { getAllCategories, selectCategory } from "./features/menuSlice";
 import { CategoryCard } from "./Components/CategoryCard.jsx";
 import { Button } from "@mui/material";
 import { red } from "@mui/material/colors";
+import Card from "@mui/material/Card";
+import CardHeader from "@mui/material/CardHeader";
+// import CardMedia from "@mui/material/CardMedia";
+import CardContent from "@mui/material/CardContent";
 
 const theme = createTheme({
     palette: {
         primary: {
-            main: red[500],
+            main: red[400],
         },
     },
 });
@@ -54,11 +58,13 @@ function App() {
                         <span onClick={handleOnClick}>Atrás</span>
                         {selectedCategory.map((item) => {
                             return (
-                                <div key={item.name}>
-                                    <h6>{item.name}</h6>
-                                    <p>{item.description}</p>
-                                    <p>{item.price}</p>
-                                </div>
+                                <Card variant="outlined" key={item.name}>
+                                    <CardHeader>{item.name}</CardHeader>
+                                    <CardContent>
+                                        {item.description}
+                                        <p>{item.price}</p>
+                                    </CardContent>
+                                </Card>
                             );
                         })}
                     </ItemsWrapper>
