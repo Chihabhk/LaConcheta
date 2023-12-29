@@ -4,7 +4,8 @@ import menuData from "../db/menu.json";
 const initialState = {
     menuCategories: {},
     menuItems: [],
-    selectedCategory: {},
+    selectedCategory: null,
+    isCartView: false,
 };
 
 export const menuSlice = createSlice({
@@ -26,10 +27,17 @@ export const menuSlice = createSlice({
                 state.menuItems = [];
             }
         },
+        setCartView: (state, action) => {
+            state.isCartView = !state.isCartView;
+        },
     },
 });
 
-export const { getAllCategories, getMenuItemsByCategory, selectCategory } =
-    menuSlice.actions;
+export const {
+    getAllCategories,
+    getMenuItemsByCategory,
+    selectCategory,
+    setCartView,
+} = menuSlice.actions;
 
 export default menuSlice.reducer;
