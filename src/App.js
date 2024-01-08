@@ -51,7 +51,7 @@ function App() {
                         justifyContent: "space-evenly",
                         backgroundImage: `url(${LogoPaella})`,
                         backgroundSize: "cover",
-                        backgroundPosition: "top left", // Cambia esto para ajustar la posición de la imagen de fondo
+                        backgroundPosition: "top left",
                         backdropFilter: "blur(30px)",
                         padding: "0.5rem 0",
                         mb: "1em",
@@ -60,11 +60,11 @@ function App() {
                         level="h1"
                         onClick={handleLogoOnClick}
                         sx={{
-                            color: "#fff", // Cambia el color del texto a blanco
-                            fontFamily: "Arial, sans-serif", // Usa una fuente moderna
-                            fontWeight: "bold", // Haz que el texto sea negrita
-                            textShadow: "2px 2px 4px rgba(0, 0, 0, 0.5)", // Agrega una sombra de texto para hacer que el texto resalte
-                            letterSpacing: "0.05em", // Espacia un poco las letras para un look más moderno
+                            color: "#fff",
+                            fontFamily: "Arial, sans-serif",
+                            fontWeight: "bold",
+                            textShadow: "2px 2px 4px rgba(0, 0, 0, 0.5)",
+                            letterSpacing: "0.05em",
                         }}>
                         La Concheta
                     </Typography>
@@ -72,10 +72,10 @@ function App() {
                         <ShoppingBasket
                             sx={{
                                 p: "0.5em",
-                                color: "#fff", // Cambia el color del icono a blanco
-                                border: "2px solid #fff", // Agrega un borde blanco alrededor del icono
-                                borderRadius: "50%", // Hace que el icono sea circular
-                                boxShadow: "0 0 10px rgba(0, 0, 0, 0.5)", // Agrega una sombra al icono para que resalte
+                                color: "#fff",
+                                border: "2px solid #fff",
+                                borderRadius: "50%",
+                                boxShadow: "0 0 10px rgba(0, 0, 0, 0.5)",
                             }}
                         />
                     </IconButton>{" "}
@@ -85,6 +85,7 @@ function App() {
                         display: "flex",
                         justifyContent: "space-evenly",
                         mb: "1em",
+                        maxHeight: "2em",
                     }}
                     variant="plain">
                     <label htmlFor="callUs">
@@ -97,6 +98,14 @@ function App() {
                         startIcon={<Phone />}>
                         LLámanos!
                     </Button>
+                    {/*
+                    <a
+                        href="https://wa.me/+34643981658?text=Hola, tengo una duda!"
+                        rel="noreferrer"
+                        target="_blank">
+                        Enviar mensaje a WhatsApp
+                    </a>
+                    */}
                 </Box>
             </Sheet>
             {Array.isArray(selectedCategory) ? (
