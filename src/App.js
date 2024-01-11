@@ -10,13 +10,13 @@ import {
     setCartView,
 } from "./features/menuSlice";
 import { Button } from "@mui/joy";
-import { Card, CardContent } from "@mui/joy";
 import { Box, IconButton, Typography } from "@mui/joy";
 
 import { CartPage } from "./Components/CartPage.js";
 import { Phone, ShoppingBasket } from "@mui/icons-material";
 import { CategoriesPage } from "./Components/CategoriesPage.js";
 import { useColorScheme } from "@mui/joy";
+import { ItemCard } from "./Components/ItemCard.jsx";
 
 function App() {
     const { setMode } = useColorScheme();
@@ -107,16 +107,17 @@ function App() {
                         display: "flex",
                         justifyContent: "space-evenly",
                         position: "sticky",
-                        top: "-1px",
+                        top: "0",
                         zIndex: 1000,
                         maxHeight: "2em",
                         p: "1em",
+                        mb: "4.5em",
                         backdropFilter: "blur(20px)",
                         transform: ocultarHeader
                             ? "translateY(0)"
                             : "translateY(100%)",
                         transition:
-                            "transform 0.3s cubic-bezier(0.22, 0.61, 0.36, 1)",
+                            "transform 0.2s cubic-bezier(0.22, 0.61, 0.36, 1)",
                     }}
                     variant="plain">
                     <Typography>¿Te gustaría reservar una mesa?</Typography>
@@ -132,24 +133,8 @@ function App() {
 
             {Array.isArray(selectedCategory) ? (
                 <>
-                    {selectedCategory.map((item) => {
-                        return (
-                            <Card variant="outlined" key={item.name}>
-                                <Typography level="title-lg">
-                                    {item.name}
-                                </Typography>
-                                <CardContent>
-                                    {item.description}
-                                    {/* <IconButton>
-                                        <Add />
-                                    </IconButton> */}
-                                    <Typography level="body-xs">
-                                        Precio:
-                                        {" " + item.price}
-                                    </Typography>
-                                </CardContent>
-                            </Card>
-                        );
+                    {selectedCategory.map((item, key) => {
+                        return <ItemCard item={item} key={key} />;
                     })}
                 </>
             ) : isCartView ? (

@@ -18,9 +18,12 @@ export const CategoryCard = ({ category }) => {
                 onClick={handleOnClick}
                 sx={{
                     backgroundColor: "transparent",
-                    backdropFilter: "blur(7px)",
+                    backdropFilter: "blur(50px)",
+                    cursor: "pointer",
                 }}>
-                <Typography color="neutral">{category.name}</Typography>
+                <Typography color="neutral" level="h2" variant="outlined">
+                    {category.name}
+                </Typography>
                 {/* <Img
                     // src="https://via.assets.so/img.jpg?w=400&h=150&tc=blue&bg=#cecece"
                     alt={category.name}

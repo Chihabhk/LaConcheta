@@ -1,9 +1,31 @@
-export const ItemCard = (item) => {
+import { Add } from "@mui/icons-material";
+import { Typography, Card, CardContent, IconButton } from "@mui/joy";
+
+export const ItemCard = ({ item }) => {
     return (
-        <div className="item-card">
-            <h2>{item.name}</h2>
-            <p>{item.description}</p>
-            <p>{item.price}</p>
-        </div>
+        <Card
+            variant="outlined"
+            key={item.name}
+            sx={{
+                background:
+                    "radial-gradient(circle, rgba(235,194,94,0.6689655172413793) 0%, rgba(58,59,61,1) 100%)",
+                backdropFilter: "blur(50px)",
+                cursor: "pointer",
+                m: "1em",
+            }}>
+            <Typography level="h3">{item.name}</Typography>
+            <CardContent>
+                <Typography level="body-lg">{item.description}</Typography>
+            </CardContent>
+            <CardContent orientation="horizontal">
+                <Typography level="body-md">
+                    Precio:
+                    {" " + item.price}
+                </Typography>
+                <IconButton aria-label="Add to cart">
+                    <Add />
+                </IconButton>
+            </CardContent>
+        </Card>
     );
 };
