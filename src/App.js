@@ -1,30 +1,40 @@
 import "./App.css";
+
 import * as React from "react";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-import LogoPaella from "./assets/LogoPaella.jpg";
 import {
     getAllCategories,
     selectCategory,
     setCartView,
 } from "./features/menuSlice";
-import { CategoryCard } from "./Components/CategoryCard.jsx";
-import { Button } from "@mui/material";
-import { Card, CardHeader, CardContent } from "@mui/material";
-import Add from "@mui/icons-material/Add";
-import { Box, IconButton, Sheet, Typography } from "@mui/joy";
+import { Button } from "@mui/joy";
+import { Card, CardContent } from "@mui/joy";
+import { Box, IconButton, Typography } from "@mui/joy";
+
 import { CartPage } from "./Components/CartPage.js";
 import { Phone, ShoppingBasket } from "@mui/icons-material";
+import { CategoriesPage } from "./Components/CategoriesPage.js";
+import { useColorScheme } from "@mui/joy";
 
 function App() {
+    const { setMode } = useColorScheme();
     const dispatch = useDispatch();
-    const { selectedCategory, menuCategories, isCartView } = useSelector(
-        (state) => state.menu
-    );
+
+    const { selectedCategory, isCartView } = useSelector((state) => state.menu);
+
     useEffect(() => {
+        if (
+            window.matchMedia &&
+            window.matchMedia("(prefers-color-scheme: dark)").matches
+        ) {
+            setMode("dark");
+        } else {
+            setMode("light");
+        }
         dispatch(getAllCategories());
-    }, [dispatch]);
+    }, [dispatch, setMode]);
 
     const handleLogoOnClick = () => {
         dispatch(selectCategory({ data: null }));
@@ -33,28 +43,41 @@ function App() {
         dispatch(selectCategory({ data: null }));
         dispatch(setCartView());
     };
+
+    const [ocultarHeader, setOcultarHeader] = React.useState(false);
+
+    useEffect(() => {
+        let ultimoScrollTop = 0;
+        const handleScroll = () => {
+            const currentScrollPos = window.scrollY;
+            if (currentScrollPos > ultimoScrollTop) {
+                setOcultarHeader(true);
+            } else {
+                setOcultarHeader(false);
+            }
+            ultimoScrollTop = currentScrollPos;
+        };
+
+        window.addEventListener("scroll", handleScroll);
+
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
+
     return (
         <>
-            <Sheet
-                sx={{
-                    display: "flex",
-                    flexDirection: "column",
-                    justifyContent: "center",
-                    position: "sticky",
-                    top: "0",
-                    zIndex: "999",
-                }}>
+            <>
                 <Box
                     component="header"
                     sx={{
+                        width: "100%",
                         display: "flex",
                         justifyContent: "space-evenly",
-                        backgroundImage: `url(${LogoPaella})`,
-                        backgroundSize: "cover",
-                        backgroundPosition: "top left",
-                        backdropFilter: "blur(30px)",
                         padding: "0.5rem 0",
-                        mb: "1em",
+                        position: "fixed",
+                        top: "0",
+                        zIndex: 1100,
+                        backgroundColor: "rgba(0,0,0,0.7)",
+                        backdropFilter: "blur(20px)",
                     }}>
                     <Typography
                         level="h1"
@@ -71,74 +94,68 @@ function App() {
                     <IconButton variant="plain" onClick={handleCartIconClick}>
                         <ShoppingBasket
                             sx={{
-                                p: "0.5em",
                                 color: "#fff",
                                 border: "2px solid #fff",
                                 borderRadius: "50%",
                                 boxShadow: "0 0 10px rgba(0, 0, 0, 0.5)",
                             }}
                         />
-                    </IconButton>{" "}
+                    </IconButton>
                 </Box>
                 <Box
                     sx={{
                         display: "flex",
                         justifyContent: "space-evenly",
-                        mb: "1em",
+                        position: "sticky",
+                        top: "-1px",
+                        zIndex: 1000,
                         maxHeight: "2em",
+                        p: "1em",
+                        backdropFilter: "blur(20px)",
+                        transform: ocultarHeader
+                            ? "translateY(0)"
+                            : "translateY(100%)",
+                        transition:
+                            "transform 0.3s cubic-bezier(0.22, 0.61, 0.36, 1)",
                     }}
                     variant="plain">
-                    <label htmlFor="callUs">
-                        ¿Te gustaría reservar una mesa?
-                    </label>
+                    <Typography>¿Te gustaría reservar una mesa?</Typography>
                     <Button
                         component="a"
                         href="tel:962121602"
                         variant="outlined"
-                        startIcon={<Phone />}>
+                        startDecorator={<Phone />}>
                         LLámanos!
                     </Button>
-                    {/*
-                    <a
-                        href="https://wa.me/+34643981658?text=Hola, tengo una duda!"
-                        rel="noreferrer"
-                        target="_blank">
-                        Enviar mensaje a WhatsApp
-                    </a>
-                    */}
                 </Box>
-            </Sheet>
+            </>
+
             {Array.isArray(selectedCategory) ? (
-                <Box>
+                <>
                     {selectedCategory.map((item) => {
                         return (
                             <Card variant="outlined" key={item.name}>
-                                <CardHeader title={item.name} />
+                                <Typography level="title-lg">
+                                    {item.name}
+                                </Typography>
                                 <CardContent>
                                     {item.description}
                                     {/* <IconButton>
                                         <Add />
                                     </IconButton> */}
-                                    <p>{item.price}</p>
+                                    <Typography level="body-xs">
+                                        Precio:
+                                        {" " + item.price}
+                                    </Typography>
                                 </CardContent>
                             </Card>
                         );
                     })}
-                </Box>
+                </>
             ) : isCartView ? (
                 <CartPage />
             ) : (
-                <Box>
-                    {menuCategories &&
-                        Object.values(menuCategories).map(([key, value]) => {
-                            return (
-                                <CategoryCard
-                                    category={{ name: key, ...value }}
-                                    key={key}
-                                />
-                            );
-                        })}
-                </Box>
+                <CategoriesPage />
             )}
         </>
     );
