@@ -79,7 +79,7 @@ export const Header = () => {
                     top: "4em",
                     zIndex: 1000,
                     p: ".5em",
-                    // mb: "4.5em",
+                    mb: ".5em",
                     backdropFilter: "blur(20px)",
                     transform: ocultarHeader
                         ? "translateY(-100%)"

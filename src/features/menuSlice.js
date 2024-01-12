@@ -29,10 +29,10 @@ export const menuSlice = createSlice({
             }
         },
         setCartView: (state, action) => {
-            state.isCartView = !state.isCartView;
+            state.isCartView = action.payload;
         },
         setLogginIn: (state, action) => {
-            state.isLoggedIn = !state.isLoggedIn;
+            state.isLoggedIn = action.payload;
         },
     },
 });
