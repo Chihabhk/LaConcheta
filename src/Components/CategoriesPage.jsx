@@ -6,6 +6,7 @@ export const CategoriesPage = () => {
     const { menuCategories } = useSelector((state) => state.menu);
     return (
         <Sheet
+            component={"ul"}
             sx={{
                 display: "flex",
                 flexDirection: "column",
