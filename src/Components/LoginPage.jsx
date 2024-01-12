@@ -66,6 +66,7 @@ export const LoginPage = () => {
                     autoComplete="true"
                     name="email"
                     label="Correo electrónico"
+                    placeholder="Correo@electrónico"
                     variant="outlined"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}

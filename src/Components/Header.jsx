@@ -40,7 +40,7 @@ export const Header = () => {
                     display: "flex",
                     justifyContent: "space-evenly",
                     padding: "0.5rem 0",
-                    position: "fixed",
+                    position: "sticky",
                     top: "0",
                     zIndex: 1100,
                     backgroundColor: "rgba(0,0,0,0.7)",
@@ -75,16 +75,15 @@ export const Header = () => {
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "space-evenly",
-                    // gap: ".7em",
                     position: "sticky",
-                    top: "0",
+                    top: "4em",
                     zIndex: 1000,
                     p: ".5em",
-                    mb: "4.5em",
+                    // mb: "4.5em",
                     backdropFilter: "blur(20px)",
                     transform: ocultarHeader
-                        ? "translateY(0)"
-                        : "translateY(100%)",
+                        ? "translateY(-100%)"
+                        : "translateY(0%)",
                     transition:
                         "transform 0.2s cubic-bezier(0.22, 0.61, 0.36, 1)",
                 }}>
