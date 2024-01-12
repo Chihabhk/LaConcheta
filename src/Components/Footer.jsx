@@ -8,7 +8,8 @@ export const Footer = () => {
                 {" by "}
                 <Link
                     color="inherit"
-                    href="https://www.linkedin.com/in/chihabhk/">
+                    href="https://www.linkedin.com/in/chihabhk/"
+                    target="_blanc">
                     Chihab
                 </Link>
             </Typography>
