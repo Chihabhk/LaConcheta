@@ -6,6 +6,7 @@ import { Header } from "./Header.jsx";
 import { CategoriesPage } from "./CategoriesPage.jsx";
 import { CartPage } from "./CartPage.jsx";
 import ProductsPage from "./ProductsPage.jsx";
+import { Footer } from "./Footer.jsx";
 export const Main = () => {
     const dispatch = useDispatch();
     useEffect(() => {
@@ -24,6 +25,7 @@ export const Main = () => {
             ) : (
                 <CategoriesPage />
             )}
+            <Footer />
         </>
     );
 };

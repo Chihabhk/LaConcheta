@@ -51,6 +51,7 @@ export const LoginPage = () => {
                     alignItems: "center",
                     mt: "9em",
                     width: "100%",
+                    height: "100vh",
                     gap: 2,
                     backgroundColor: "transparent",
                 }}>
