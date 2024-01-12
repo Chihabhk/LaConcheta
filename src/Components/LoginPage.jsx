@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import { Box, Input, Button, Typography } from "@mui/joy";
 import { setLogginIn } from "../features/menuSlice.js";
 import { Snackbar } from "@mui/joy";
+import { InfoOutlined } from "@mui/icons-material";
 
 export const LoginPage = () => {
     const [email, setEmail] = useState("");
@@ -49,15 +50,14 @@ export const LoginPage = () => {
                     alignSelf: "center",
                     alignItems: "center",
                     mt: "9em",
-                    height: "100vh",
                     width: "100%",
                     gap: 2,
                     backgroundColor: "transparent",
                 }}>
                 <Typography
                     level="h4"
-                    variant="outlined"
-                    backgroundColor="rgb(157, 115, 76)"
+                    variant="solid"
+                    color="warning"
                     sx={{ p: ".5em 1em", textWrap: "nowrap" }}>
                     {" "}
                     Iniciar sesión
@@ -82,6 +82,13 @@ export const LoginPage = () => {
                     onChange={(e) => setPassword(e.target.value)}
                     required
                 />
+                <Typography
+                    startDecorator={<InfoOutlined />}
+                    level="body-md"
+                    variant="solid"
+                    color="warning">
+                    Solo miembros VIP de LaConcheta
+                </Typography>
                 <Button type="submit" variant="solid" color="neutral">
                     Iniciar sesión
                 </Button>
