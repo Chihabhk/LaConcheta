@@ -6,6 +6,7 @@ const initialState = {
     menuItems: [],
     selectedCategory: null,
     isCartView: false,
+    isLoggedIn: false,
 };
 
 export const menuSlice = createSlice({
@@ -30,6 +31,9 @@ export const menuSlice = createSlice({
         setCartView: (state, action) => {
             state.isCartView = !state.isCartView;
         },
+        setLogginIn: (state, action) => {
+            state.isLoggedIn = !state.isLoggedIn;
+        },
     },
 });
 
@@ -38,6 +42,7 @@ export const {
     getMenuItemsByCategory,
     selectCategory,
     setCartView,
+    setLogginIn,
 } = menuSlice.actions;
 
 export default menuSlice.reducer;
