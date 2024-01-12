@@ -57,7 +57,6 @@ export const LoginPage = () => {
                 <Typography
                     level="h4"
                     variant="outlined"
-                    color="primary"
                     backgroundColor="rgb(157, 115, 76)"
                     sx={{ p: ".5em 1em", textWrap: "nowrap" }}>
                     {" "}
