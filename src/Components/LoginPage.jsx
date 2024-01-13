@@ -10,7 +10,7 @@ export const LoginPage = () => {
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    const [open, setOpen] = useState(false);
+    const [snackBarOpen, setSnackBarOpen] = useState(false);
 
     useEffect(() => {
         const user = JSON.parse(localStorage.getItem("user"));
@@ -30,24 +30,16 @@ export const LoginPage = () => {
 
     const handleLogin = (event) => {
         event.preventDefault();
-        if (email === "admin@admin.com" && password === "admin") {
+        if (email === "admin@admin.com" && password === "laconcheta") {
             localStorage.setItem(
                 "user",
                 JSON.stringify({ email, timestamp: new Date().getTime() })
             );
             dispatch(setLogginIn(true));
         } else {
-            setOpen(true);
+            setSnackBarOpen(true);
         }
     };
-
-    // const handleClose = (event, reason) => {
-    //     if (reason === "clickaway") {
-    //         return;
-    //     }
-
-    //     setOpen(false);
-    // };
 
     return (
         <>
@@ -55,8 +47,7 @@ export const LoginPage = () => {
                 autoHideDuration={3000}
                 color="danger"
                 variant="solid"
-                open={open}
-                // onClose={handleClose}
+                open={snackBarOpen}
                 anchorOrigin={{ vertical: "bottom", horizontal: "center" }}>
                 Usuario no encontrado
             </Snackbar>
