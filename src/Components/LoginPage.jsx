@@ -19,7 +19,7 @@ export const LoginPage = () => {
             const userTime = user.timestamp;
             const diffTime = currentTime - userTime;
 
-            if (diffTime > 7 * 24 * 60 * 60 * 1000) {
+            if (diffTime > 60 * 60 * 1000) {
                 localStorage.removeItem("user");
                 dispatch(setLogginIn(false));
             } else {
