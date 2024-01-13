@@ -18,7 +18,7 @@ export const Header = () => {
         let ultimoScrollTop = 0;
         const handleScroll = () => {
             const currentScrollPos = window.scrollY;
-            if (currentScrollPos > ultimoScrollTop) {
+            if (currentScrollPos > ultimoScrollTop && currentScrollPos > 50) {
                 setOcultarHeader(true);
             } else {
                 setOcultarHeader(false);

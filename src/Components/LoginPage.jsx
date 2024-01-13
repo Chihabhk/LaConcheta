@@ -41,13 +41,13 @@ export const LoginPage = () => {
         }
     };
 
-    const handleClose = (event, reason) => {
-        if (reason === "clickaway") {
-            return;
-        }
+    // const handleClose = (event, reason) => {
+    //     if (reason === "clickaway") {
+    //         return;
+    //     }
 
-        setOpen(false);
-    };
+    //     setOpen(false);
+    // };
 
     return (
         <>
@@ -56,7 +56,7 @@ export const LoginPage = () => {
                 color="danger"
                 variant="solid"
                 open={open}
-                onClose={handleClose}
+                // onClose={handleClose}
                 anchorOrigin={{ vertical: "bottom", horizontal: "center" }}>
                 Usuario no encontrado
             </Snackbar>

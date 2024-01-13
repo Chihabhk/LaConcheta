@@ -1,9 +1,9 @@
-import { Typography, Link } from "@mui/material";
+import { Typography, Link } from "@mui/joy";
 
 export const Footer = () => {
     return (
         <footer>
-            <Typography variant="body1" color="textSecondary" align="center">
+            <Typography align="center">
                 {"Made "}
                 {" by "}
                 <Link
