@@ -30,7 +30,7 @@ export const LoginPage = () => {
 
     const handleLogin = (event) => {
         event.preventDefault();
-        if (email === "admin@admin.com" && password === "laconcheta") {
+        if (email === "admin@admin.com" && password === "laaconcheta") {
             localStorage.setItem(
                 "user",
                 JSON.stringify({ email, timestamp: new Date().getTime() })
