@@ -1,32 +1,17 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { Box, Input, Button, Typography } from "@mui/joy";
 import { setLogginIn } from "../features/menuSlice.js";
 import { Snackbar } from "@mui/joy";
 import { InfoOutlined } from "@mui/icons-material";
 
-export const LoginPage = () => {
+const LoginPage = () => {
     const dispatch = useDispatch();
-
+    const navigate = useNavigate();
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [snackBarOpen, setSnackBarOpen] = useState(false);
-
-    useEffect(() => {
-        const user = JSON.parse(localStorage.getItem("user"));
-        if (user) {
-            const currentTime = new Date().getTime();
-            const userTime = user.timestamp;
-            const diffTime = currentTime - userTime;
-
-            if (diffTime > 60 * 60 * 1000) {
-                localStorage.removeItem("user");
-                dispatch(setLogginIn(false));
-            } else {
-                dispatch(setLogginIn(true));
-            }
-        }
-    }, [dispatch]);
 
     const handleLogin = (event) => {
         event.preventDefault();
@@ -36,6 +21,7 @@ export const LoginPage = () => {
                 JSON.stringify({ email, timestamp: new Date().getTime() })
             );
             dispatch(setLogginIn(true));
+            navigate("/");
         } else {
             setSnackBarOpen(true);
         }
@@ -107,3 +93,4 @@ export const LoginPage = () => {
         </>
     );
 };
+export default LoginPage;

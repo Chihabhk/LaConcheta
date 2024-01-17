@@ -1,8 +1,8 @@
 import { useSelector } from "react-redux";
 import { Sheet } from "@mui/joy";
-import { CategoryCard } from "./CategoryCard";
+import CategoryCard from "../Components/CategoryCard";
 
-export const CategoriesPage = () => {
+const CategoriesPage = () => {
     const { menuCategories } = useSelector((state) => state.menu);
     return (
         <Sheet
@@ -26,3 +26,4 @@ export const CategoriesPage = () => {
         </Sheet>
     );
 };
+export default CategoriesPage;

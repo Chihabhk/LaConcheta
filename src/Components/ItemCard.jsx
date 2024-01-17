@@ -1,7 +1,7 @@
 import { Add } from "@mui/icons-material";
 import { Typography, Card, CardContent, IconButton } from "@mui/joy";
 
-export const ItemCard = ({ item }) => {
+const ItemCard = ({ item }) => {
     return (
         <Card
             variant="outlined"
@@ -29,3 +29,4 @@ export const ItemCard = ({ item }) => {
         </Card>
     );
 };
+export default ItemCard;

@@ -3,7 +3,10 @@
     padding: 0;
 }
 
-body {
+#root {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
     font-family: Raleway, sans-serif;
     box-sizing: border-box;
     background-image: url("./assets/backgroundImg.jpg");

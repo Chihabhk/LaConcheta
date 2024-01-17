@@ -1,6 +1,6 @@
-import { Tabs, Tab, TabList } from "@mui/joy";
+import { Tabs, TabList } from "@mui/joy";
 
-export const CartPage = () => {
+const CartPage = () => {
     return (
         <Tabs aria-label="Scrollable tabs" defaultValue={0} sx={{ width: 1 }}>
             <TabList
@@ -12,3 +12,4 @@ export const CartPage = () => {
         </Tabs>
     );
 };
+export default CartPage;

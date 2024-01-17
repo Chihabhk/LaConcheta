@@ -1,13 +1,15 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { Box, Typography, IconButton, Button } from "@mui/joy";
 import { selectCategory, setCartView } from "../features/menuSlice";
 import { Phone, ShoppingBasket } from "@mui/icons-material";
 
-export const Header = () => {
+const Header = () => {
+    const navigate = useNavigate();
     const dispatch = useDispatch();
     const handleLogoOnClick = () => {
-        dispatch(selectCategory({ data: null }));
+        navigate("/");
     };
     const handleCartIconClick = () => {
         dispatch(selectCategory({ data: null }));
@@ -29,7 +31,7 @@ export const Header = () => {
         window.addEventListener("scroll", handleScroll);
 
         return () => window.removeEventListener("scroll", handleScroll);
-    }, []);
+    });
 
     return (
         <>
@@ -103,3 +105,4 @@ export const Header = () => {
         </>
     );
 };
+export default Header;
