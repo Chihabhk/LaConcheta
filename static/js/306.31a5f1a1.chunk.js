@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunklaconcheta=self.webpackChunklaconcheta||[]).push([[306],{1306:(a,l,e)=>{e.r(l),e.d(l,{default:()=>o});var s=e(8650),c=e(2654),t=e(184);const o=()=>(0,t.jsx)(s.Z,{"aria-label":"Scrollable tabs",defaultValue:0,sx:{width:1},children:(0,t.jsx)(c.Z,{sx:{overflow:"auto",scrollSnapType:"x mandatory","&::-webkit-scrollbar":{display:"none"}}})})}}]);
+//# sourceMappingURL=306.31a5f1a1.chunk.js.map
