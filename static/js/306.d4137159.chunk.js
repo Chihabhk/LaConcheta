@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunklaconcheta=self.webpackChunklaconcheta||[]).push([[306],{1306:(a,l,e)=>{e.r(l),e.d(l,{default:()=>r});var s=e(8650),t=e(2654),c=e(2527),o=e(184);const r=()=>((0,c.j)("LaConcheta - Carrito"),(0,o.jsx)(s.Z,{"aria-label":"Scrollable tabs",defaultValue:0,sx:{width:1},children:(0,o.jsx)(t.Z,{sx:{overflow:"auto",scrollSnapType:"x mandatory","&::-webkit-scrollbar":{display:"none"}}})}))}}]);
+//# sourceMappingURL=306.d4137159.chunk.js.map
