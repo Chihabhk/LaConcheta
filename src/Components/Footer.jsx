@@ -34,7 +34,6 @@ export default function ColorInversionFooter() {
                 borderRadius: { xs: 0, sm: "sm" },
                 position: "static",
                 bottom: 0,
-                width: "100%",
             }}>
             <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
                 <IconButton
@@ -89,7 +88,7 @@ export default function ColorInversionFooter() {
                     size="sm"
                     sx={{
                         flexDirection: { xs: "row", md: "column" },
-                        minWidth: { xs: "100%", md: "auto" },
+                        minWidth: { xs: "90%", md: "auto" },
                         gap: 1,
                     }}>
                     <AspectRatio

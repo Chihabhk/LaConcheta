@@ -14,14 +14,14 @@ const HomePage = () => {
 
     return (
         <>
-            <Typography variant="h2" component="h1" gutterBottom>
+            <Typography level="h2" component="h1" gutterBottom>
                 Bienvenido a nuestro restaurante La Concheta
             </Typography>
-            <Typography variant="body1" gutterBottom>
+            <Typography level="body1" gutterBottom>
                 Ofrecemos una variedad de deliciosos platos para satisfacer
                 todos los gustos.
             </Typography>
-            <Typography variant="h4" component="h2" gutterBottom>
+            <Typography level="h4" component="h2" gutterBottom>
                 Nuestras categorías
             </Typography>
             <Grid container>

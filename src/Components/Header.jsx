@@ -1,35 +1,33 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
 import { Box, Typography, IconButton, Button } from "@mui/joy";
-import { selectCategory, setCartView } from "../features/menuSlice";
 import { Phone, ShoppingBasket } from "@mui/icons-material";
 
 const Header = () => {
     const navigate = useNavigate();
-    const dispatch = useDispatch();
     const handleLogoOnClick = () => {
         navigate("/");
     };
     const handleCartIconClick = () => {
-        dispatch(selectCategory({ data: null }));
-        dispatch(setCartView());
+        navigate("/cart");
     };
     const [ocultarHeader, setOcultarHeader] = useState(false);
     useEffect(() => {
-        let ultimoScrollTop = 0;
+        let lastScrollY = window.scrollY;
         const handleScroll = () => {
-            const currentScrollPos = window.scrollY;
-            if (currentScrollPos > ultimoScrollTop && currentScrollPos > 50) {
+            const currentScrollY = window.scrollY;
+            const scrollDifference = currentScrollY - lastScrollY;
+            console.log(scrollDifference);
+            if (scrollDifference > 50) {
                 setOcultarHeader(true);
-            } else {
+            } else if (scrollDifference < -10) {
                 setOcultarHeader(false);
             }
-            ultimoScrollTop = currentScrollPos;
+
+            lastScrollY = currentScrollY;
         };
 
         window.addEventListener("scroll", handleScroll);
-
         return () => window.removeEventListener("scroll", handleScroll);
     });
 
