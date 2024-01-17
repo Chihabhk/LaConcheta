@@ -1,7 +1,10 @@
 import React from "react";
 import { Typography, Sheet, Button } from "@mui/joy";
 import { useNavigate } from "react-router-dom";
+import useDocumentTitle from "../hooks/useDocumentTitle.js";
+
 const NotFoundPage = () => {
+    useDocumentTitle("LaConcheta - Página no existe");
     const navigate = useNavigate();
     return (
         <Sheet
