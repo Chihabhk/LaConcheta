@@ -1,7 +1,7 @@
 import "./App.css";
 import * as React from "react";
 import { Suspense } from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { HashRouter as Router, Routes, Route } from "react-router-dom";
 
 import RequireAuth from "./middleware/RequireAuth.jsx";
 import { LayoutRoutes, NonLayoutRoutes } from "./routes/routes.js";
