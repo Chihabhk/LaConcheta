@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux";
 import { Sheet } from "@mui/joy";
 import CategoryCard from "../Components/CategoryCard";
-import useDocumentTitle from "../hooks/useDocumentTitle";
+import { useDocumentTitle } from "../hooks/useDocumentTitle";
 
 const CategoriesPage = () => {
     useDocumentTitle("LaConcheta - Carta de la casa");

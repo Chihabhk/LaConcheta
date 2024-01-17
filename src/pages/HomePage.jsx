@@ -1,5 +1,6 @@
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { useDocumentTitle } from "../hooks/useDocumentTitle";
 import {
     Typography,
     AspectRatio,
@@ -10,6 +11,7 @@ import {
 } from "@mui/joy";
 
 const HomePage = () => {
+    useDocumentTitle("Saborea la Auténtica Cocina Mediterránea en LaConcheta");
     const { menuCategories } = useSelector((state) => state.menu);
 
     return (

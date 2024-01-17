@@ -1,7 +1,7 @@
 import React from "react";
 import { Typography, Sheet, Button } from "@mui/joy";
 import { useNavigate } from "react-router-dom";
-import useDocumentTitle from "../hooks/useDocumentTitle.js";
+import { useDocumentTitle } from "../hooks/useDocumentTitle.js";
 
 const NotFoundPage = () => {
     useDocumentTitle("LaConcheta - Página no existe");
@@ -19,7 +19,7 @@ const NotFoundPage = () => {
             <Typography level="h1" variant="plain">
                 404 - Página no encontrada
             </Typography>
-            <Button onClick={() => navigate("/")}>
+            <Button onClick={() => navigate("/categories")}>
                 Ir a la página principal
             </Button>
         </Sheet>

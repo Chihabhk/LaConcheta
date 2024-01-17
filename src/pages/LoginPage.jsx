@@ -5,7 +5,7 @@ import { Box, Input, Button, Typography } from "@mui/joy";
 import { setLogginIn } from "../features/menuSlice.js";
 import { Snackbar } from "@mui/joy";
 import { InfoOutlined } from "@mui/icons-material";
-import useDocumentTitle from "../hooks/useDocumentTitle.js";
+import { useDocumentTitle } from "../hooks/useDocumentTitle.js";
 
 const LoginPage = () => {
     useDocumentTitle("LaConcheta - Inicio Sesión");
