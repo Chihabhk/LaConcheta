@@ -17,7 +17,6 @@ const Header = () => {
         const handleScroll = () => {
             const currentScrollY = window.scrollY;
             const scrollDifference = currentScrollY - lastScrollY;
-            console.log(scrollDifference);
             if (scrollDifference > 50) {
                 setOcultarHeader(true);
             } else if (scrollDifference < -10) {
