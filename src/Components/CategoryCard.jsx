@@ -1,13 +1,10 @@
-import { useDispatch } from "react-redux";
-import { selectCategory } from "../features/menuSlice";
+import { useNavigate } from "react-router-dom";
 import { Card, Typography } from "@mui/joy";
 
 const CategoryCard = ({ category }) => {
-    const dispatch = useDispatch();
-
+    const navigate = useNavigate();
     const handleOnClick = () => {
-        const { data } = category;
-        dispatch(selectCategory({ data }));
+        navigate(`/categories/${category.name}`);
     };
 
     return (

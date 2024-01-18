@@ -10,7 +10,11 @@ const routes = [
     { path: "/login", component: LoginPage, requiresAuth: false },
     { path: "/categories", component: CategoriesPage, requiresAuth: true },
     { path: "/cart", component: CartPage, requiresAuth: true },
-    { path: "/products", component: ProductsPage, requiresAuth: true },
+    {
+        path: "/categories/:categoryName",
+        component: ProductsPage,
+        requiresAuth: true,
+    },
     { path: "/", component: HomePage, requiresAuth: true },
 ];
 

@@ -28,8 +28,8 @@ const HomePage = () => {
             </Typography>
             <Grid container>
                 {Object.values(menuCategories).map(
-                    ([categoryId, categoryData]) => (
-                        <Grid xs={12} sm={6} md={4} key={categoryId}>
+                    ([categoryName, categoryData]) => (
+                        <Grid xs={12} sm={6} md={4} key={categoryName}>
                             <Card>
                                 <AspectRatio
                                     ratio="4"
@@ -51,7 +51,7 @@ const HomePage = () => {
                                 <CardActions>
                                     <Button
                                         component={Link}
-                                        to={`/categories/${categoryId}`}
+                                        to={`/cate}`}
                                         variant="contained">
                                         Ver más
                                     </Button>
