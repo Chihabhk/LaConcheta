@@ -1,6 +1,6 @@
 {
     "Ensaladas": {
-        "url": "./assets/Ensaldas.jpg",
+        "url": "https://i.pinimg.com/564x/f1/5e/c6/f15ec6858cd5f8e027c20ae2362d1a9b.jpg",
         "data": [
             {
                 "name": "Ensalada de la casa",
@@ -29,7 +29,7 @@
         ]
     },
     "Entrantes Fríos": {
-        "url": "",
+        "url": "https://i.pinimg.com/564x/b7/eb/b4/b7ebb43ba8f8073f59891e25781287d8.jpg",
         "data": [
             {
                 "name": "Tabla de jamón ibérico y queso manchego",
@@ -59,7 +59,7 @@
         ]
     },
     "Entrantes Calientes": {
-        "url": "",
+        "url": "https://www.delfinultracongelados.es/wp-content/uploads/2022/11/plato-de-tellinas-con-limon.jpg",
         "data": [
             {
                 "name": "Bravas",
@@ -187,7 +187,7 @@
         ]
     },
     "Pescados": {
-        "url": "",
+        "url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR615rPv9lPFzCaD_mMpzFBl4LnTJXdZAPnuQ&usqp=CAU",
         "data": [
             {
                 "name": "Parrillada del mar",
@@ -212,7 +212,7 @@
         ]
     },
     "Carnes": {
-        "url": "",
+        "url": "https://lh3.googleusercontent.com/p/AF1QipPcqaWat64smO3veiQ4adXFZYzfqloTdn-IeSgS=s1360-w1360-h1020",
         "data": [
             {
                 "name": "Chuletas de cordero",
@@ -249,7 +249,7 @@
         ]
     },
     "Paellas": {
-        "url": "",
+        "url": "https://t1.uc.ltmcdn.com/es/posts/0/3/2/como_hacer_una_paella_de_carne_33230_orig.jpg",
         "data": [
             {
                 "name": "Paella de pollo y conejo",
@@ -302,7 +302,7 @@
         ]
     },
     "Arroces": {
-        "url": "",
+        "url": "https://corporissanum.com/wp-content/uploads/2019/02/arroz_meloso.jpg",
         "data": [
             {
                 "name": "Arroz del señoret",
@@ -337,7 +337,7 @@
         ]
     },
     "Postres": {
-        "url": "",
+        "url": "https://crehana-blog.imgix.net/media/filer_public/62/4a/624aecfd-387b-4bd0-86a2-44d9a29e3787/clasificacion-postres.jpg",
         "data": [
             {
                 "name": "Tarta de queso con arándanos",
@@ -377,7 +377,7 @@
         ]
     },
     "Bocadillos": {
-        "url": "",
+        "url": "https://static-sevilla.abc.es/media/gurmesevilla/2016/03/bocadillo-jamon-aceite-1171x800.jpeg",
         "data": [
             {
                 "name": "Concheta",
