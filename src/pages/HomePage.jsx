@@ -1,14 +1,14 @@
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useDocumentTitle } from "../hooks/useDocumentTitle";
 import {
     Typography,
-    AspectRatio,
-    Grid,
-    Card,
-    CardActions,
-    Button,
+    // AspectRatio,
+    // Grid,
+    // Card,
+    // CardActions,
+    // Button,
 } from "@mui/joy";
 import { register } from "swiper/element/bundle";
 import { EffectFade } from "swiper/modules";
