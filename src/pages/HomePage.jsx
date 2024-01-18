@@ -51,7 +51,7 @@ const HomePage = () => {
                                 <CardActions>
                                     <Button
                                         component={Link}
-                                        to={`/cate}`}
+                                        to={`/categories/${categoryName}`}
                                         variant="contained">
                                         Ver más
                                     </Button>
