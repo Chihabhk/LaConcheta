@@ -7,8 +7,8 @@ const ItemCard = ({ item }) => {
             variant="outlined"
             key={item.name}
             sx={{
-                background:
-                    "radial-gradient(circle, rgba(235, 194, 94, 0.669) 0%, rgba(58,59,61,1) 100%)",
+                // background:
+                //     "radial-gradient(circle, rgba(235, 194, 94, 0.669) 0%, rgba(58,59,61,1) 100%)",
                 backdropFilter: "blur(50px)",
                 cursor: "pointer",
                 m: "1em",
