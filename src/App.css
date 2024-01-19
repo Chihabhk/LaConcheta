@@ -9,7 +9,8 @@
     min-height: 100vh;
     font-family: Raleway, sans-serif;
     box-sizing: border-box;
-    background-image: url("./assets/backgroundImg.jpg");
+    background-image: url("./assets/pexels-pixabay-235985.webp");
+    /* background-color: rgba(182, 134, 61, 0.528); */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;

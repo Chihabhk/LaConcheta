@@ -1,5 +1,4 @@
-import * as React from "react";
-
+import { useState } from "react";
 import AspectRatio from "@mui/joy/AspectRatio";
 import Box from "@mui/joy/Box";
 import IconButton from "@mui/joy/IconButton";
@@ -19,9 +18,10 @@ import SendIcon from "@mui/icons-material/Send";
 import ColorLensRoundedIcon from "@mui/icons-material/ColorLensRounded";
 
 export default function ColorInversionFooter() {
-    const [color, setColor] = React.useState("neutral");
+    const [color, setColor] = useState("neutral");
     return (
         <Sheet
+            component={"footer"}
             variant="solid"
             color={color}
             invertedColors
@@ -95,10 +95,7 @@ export default function ColorInversionFooter() {
                         ratio="21/9"
                         minHeight={80}
                         sx={{ flexBasis: { xs: 200, md: "initial" } }}>
-                        <img
-                            alt=""
-                            src="/static/blog/mui-product-comparison/ecosystem.png"
-                        />
+                        <img alt="" />
                     </AspectRatio>
                     <CardContent>
                         <Typography level="body-sm">

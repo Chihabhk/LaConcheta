@@ -1,5 +1,3 @@
-// RequireAuth.jsx
-
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate, useLocation } from "react-router-dom";
@@ -35,17 +33,10 @@ const RequireAuth = (WrappedComponent) => {
             }
         }, [dispatch, navigate, location.pathname]);
 
-        useEffect(() => {
-            if (isLoggedIn) {
-                navigate(location.state?.from);
-            }
-        }, [isLoggedIn, navigate, location.state]);
-
         // Only render the WrappedComponent if the user is logged in
         if (isLoggedIn) {
             return <WrappedComponent {...props} />;
         } else {
-            // Render nothing or a placeholder while redirecting or determining auth state
             return null;
         }
     };

@@ -40,14 +40,6 @@ function App() {
                             );
                         }
                     )}
-                    <Route
-                        path="*"
-                        element={
-                            <Layout>
-                                <NotFoundPage />
-                            </Layout>
-                        }
-                    />
                 </Routes>
             </Suspense>
         </Router>

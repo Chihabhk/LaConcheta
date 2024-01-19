@@ -5,6 +5,7 @@ const CategoriesPage = lazy(() => import("../pages/CategoriesPage"));
 const CartPage = lazy(() => import("../pages/CartPage"));
 const ProductsPage = lazy(() => import("../pages/ProductsPage"));
 const HomePage = lazy(() => import("../pages/HomePage"));
+const NotFoundPage = lazy(() => import("../pages/NotFoundPage"));
 
 const routes = [
     { path: "/login", component: LoginPage, requiresAuth: false },
@@ -16,6 +17,7 @@ const routes = [
         requiresAuth: true,
     },
     { path: "/", component: HomePage, requiresAuth: true },
+    { path: "*", component: NotFoundPage, requiresAuth: false },
 ];
 
 export const LayoutRoutes = routes.filter((route) => route.requiresAuth);
