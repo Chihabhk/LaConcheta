@@ -7,15 +7,12 @@ import RequireAuth from "./middleware/RequireAuth.jsx";
 import { LayoutRoutes, NonLayoutRoutes } from "./routes/routes.js";
 
 import Layout from "./Components/Layout";
-import NotFoundPage from "./pages/NotFoundPage.jsx";
 
 function App() {
     return (
         <Router>
-            {}
             <Suspense fallback={<div>Loading...</div>}>
                 <Routes>
-                    <Route path="*" element={<NotFoundPage />} />
                     {NonLayoutRoutes.map(
                         ({ path, component: Component }, index) => (
                             <Route
