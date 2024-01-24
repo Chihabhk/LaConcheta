@@ -8,15 +8,15 @@ const HomePage = lazy(() => import("../pages/HomePage"));
 const NotFoundPage = lazy(() => import("../pages/NotFoundPage"));
 
 const routes = [
-    { path: "/login", component: LoginPage, requiresAuth: true },
-    { path: "/categories", component: CategoriesPage, requiresAuth: false },
-    { path: "/cart", component: CartPage, requiresAuth: false },
+    { path: "/login", component: LoginPage, requiresAuth: false },
+    { path: "/categories", component: CategoriesPage, requiresAuth: true },
+    { path: "/cart", component: CartPage, requiresAuth: true },
     {
         path: "/categories/:categoryName",
         component: ProductsPage,
-        requiresAuth: false,
+        requiresAuth: true,
     },
-    { path: "/", component: HomePage, requiresAuth: false },
+    { path: "/", component: HomePage, requiresAuth: true },
     { path: "*", component: NotFoundPage, requiresAuth: false },
 ];
 
