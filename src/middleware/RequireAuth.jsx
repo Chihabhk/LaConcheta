@@ -8,7 +8,9 @@ const RequireAuth = (WrappedComponent) => {
     return function ProtectedComponent(props) {
         const dispatch = useDispatch();
         const navigate = useNavigate();
-        const { isLoggedIn } = useSelector((state) => state.menu);
+        const { isLoggedIn, menuCategories } = useSelector(
+            (state) => state.menu
+        );
 
         useEffect(() => {
             const user = JSON.parse(localStorage.getItem("user"));
@@ -26,15 +28,19 @@ const RequireAuth = (WrappedComponent) => {
                     );
                     navigate("/login");
                 } else {
-                    dispatch(setLogginIn(true));
-                    dispatch(getAllCategories());
+                    if (!isLoggedIn) {
+                        dispatch(setLogginIn(true));
+                    }
+                    if (menuCategories.length === 0) {
+                        dispatch(getAllCategories());
+                    }
                 }
             } else {
                 // If there is no user in localStorage, redirect to login
                 alert("Debes iniciar sesión para acceder a esta página.");
                 navigate("/login");
             }
-        }, [dispatch, navigate]);
+        }, [dispatch, navigate, isLoggedIn, menuCategories.length]);
 
         // Only render the WrappedComponent if the user is logged in
         return isLoggedIn ? <WrappedComponent {...props} /> : null;
