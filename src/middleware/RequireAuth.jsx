@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { useNavigate, useLocation } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { setLogginIn, getAllCategories } from "../features/menuSlice";
 
 const RequireAuth = (WrappedComponent) => {
@@ -8,7 +8,6 @@ const RequireAuth = (WrappedComponent) => {
     return function ProtectedComponent(props) {
         const dispatch = useDispatch();
         const navigate = useNavigate();
-        const location = useLocation();
         const { isLoggedIn } = useSelector((state) => state.menu);
 
         useEffect(() => {
@@ -22,16 +21,20 @@ const RequireAuth = (WrappedComponent) => {
                     // One hour in milliseconds
                     dispatch(setLogginIn(false));
                     localStorage.removeItem("user");
-                    navigate("/login", { state: { from: location.pathname } });
+                    alert(
+                        "Tu sesión ha caducado, por favor, inicie sesión para acceder a esta página."
+                    );
+                    navigate("/login");
                 } else {
                     dispatch(setLogginIn(true));
                     dispatch(getAllCategories());
                 }
             } else {
                 // If there is no user in localStorage, redirect to login
-                navigate("/login", { state: { from: location.pathname } });
+                alert("Debes iniciar sesión para acceder a esta página.");
+                navigate("/login");
             }
-        }, [dispatch, navigate, location.pathname]);
+        }, [dispatch, navigate]);
 
         // Only render the WrappedComponent if the user is logged in
         return isLoggedIn ? <WrappedComponent {...props} /> : null;

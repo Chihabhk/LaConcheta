@@ -3,7 +3,7 @@ import menuData from "../db/menu.json";
 
 const initialState = {
     menuCategories: {},
-    menuItems: [],
+    cartItems: [],
     isLoggedIn: false,
 };
 
@@ -14,14 +14,9 @@ export const menuSlice = createSlice({
         getAllCategories: (state) => {
             state.menuCategories = Object.entries(menuData);
         },
-        getMenuItemsByCategory: (state, action) => {
-            const category = action.payload;
-
-            if (menuData.hasOwnProperty(category)) {
-                state.menuItems = menuData[category].data;
-            } else {
-                state.menuItems = [];
-            }
+        addItemToCart: (state, action) => {
+            const item = action.payload;
+            state.cartItems.push(item);
         },
         setLogginIn: (state, action) => {
             state.isLoggedIn = action.payload;
@@ -29,7 +24,7 @@ export const menuSlice = createSlice({
     },
 });
 
-export const { getAllCategories, getMenuItemsByCategory, setLogginIn } =
+export const { getAllCategories, addItemToCart, setLogginIn } =
     menuSlice.actions;
 
 export default menuSlice.reducer;

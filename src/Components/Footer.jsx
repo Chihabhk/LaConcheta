@@ -5,7 +5,6 @@ import IconButton from "@mui/joy/IconButton";
 import Card from "@mui/joy/Card";
 import CardContent from "@mui/joy/CardContent";
 import Divider from "@mui/joy/Divider";
-import Input from "@mui/joy/Input";
 import List from "@mui/joy/List";
 import ListSubheader from "@mui/joy/ListSubheader";
 import ListItem from "@mui/joy/ListItem";
@@ -14,7 +13,6 @@ import Typography from "@mui/joy/Typography";
 import Sheet from "@mui/joy/Sheet";
 import FacebookRoundedIcon from "@mui/icons-material/FacebookRounded";
 import GitHubIcon from "@mui/icons-material/GitHub";
-import SendIcon from "@mui/icons-material/Send";
 import ColorLensRoundedIcon from "@mui/icons-material/ColorLensRounded";
 
 export default function ColorInversionFooter() {
@@ -60,18 +58,6 @@ export default function ColorInversionFooter() {
                 <IconButton variant="plain">
                     <GitHubIcon />
                 </IconButton>
-                <Input
-                    variant="soft"
-                    placeholder="Type in your email"
-                    type="email"
-                    name="email"
-                    endDecorator={
-                        <IconButton variant="soft" aria-label="subscribe">
-                            <SendIcon />
-                        </IconButton>
-                    }
-                    sx={{ ml: "auto", display: { xs: "none", md: "flex" } }}
-                />
             </Box>
             <Divider sx={{ my: 2 }} />
             <Box

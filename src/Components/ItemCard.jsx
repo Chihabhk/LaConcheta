@@ -1,7 +1,10 @@
-import { Add } from "@mui/icons-material";
+import { useDispatch } from "react-redux";
 import { Typography, Card, CardContent, IconButton } from "@mui/joy";
+import { Add } from "@mui/icons-material";
+import { addItemToCart } from "../features/menuSlice";
 
 const ItemCard = ({ item }) => {
+    const dispatch = useDispatch();
     return (
         <Card
             variant="outlined"
@@ -22,7 +25,9 @@ const ItemCard = ({ item }) => {
                     Precio:
                     {" " + item.price}
                 </Typography>
-                <IconButton aria-label="Add to cart">
+                <IconButton
+                    aria-label="Add to cart"
+                    onClick={() => dispatch(addItemToCart(item))}>
                     <Add />
                 </IconButton>
             </CardContent>

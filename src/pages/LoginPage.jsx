@@ -72,7 +72,7 @@ const LoginPage = () => {
                     required
                 />
                 <Input
-                    autoComplete="current-password"
+                    autoComplete="true"
                     name="password"
                     label="Contraseña"
                     variant="outlined"
