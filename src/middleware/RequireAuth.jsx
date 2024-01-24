@@ -34,11 +34,7 @@ const RequireAuth = (WrappedComponent) => {
         }, [dispatch, navigate, location.pathname]);
 
         // Only render the WrappedComponent if the user is logged in
-        if (isLoggedIn) {
-            return <WrappedComponent {...props} />;
-        } else {
-            return null;
-        }
+        return isLoggedIn ? <WrappedComponent {...props} /> : null;
     };
 };
 
