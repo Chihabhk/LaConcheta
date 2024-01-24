@@ -15,6 +15,7 @@ function App() {
             {}
             <Suspense fallback={<div>Loading...</div>}>
                 <Routes>
+                    <Route path="*" element={<NotFoundPage />} />
                     {NonLayoutRoutes.map(
                         ({ path, component: Component }, index) => (
                             <Route
