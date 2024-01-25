@@ -12,7 +12,7 @@ export const menuSlice = createSlice({
     initialState,
     reducers: {
         getAllCategories: (state) => {
-            state.menuCategories = Object.entries(menuData);
+            state.menuCategories = menuData;
         },
         addItemToCart: (state, action) => {
             const item = action.payload;

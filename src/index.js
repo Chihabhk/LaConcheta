@@ -8,11 +8,11 @@ import { CssVarsProvider } from "@mui/joy/styles";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-    // <React.StrictMode>
-    <Provider store={store}>
-        <CssVarsProvider>
-            <App />
-        </CssVarsProvider>
-    </Provider>
-    // </React.StrictMode>
+    <React.StrictMode>
+        <Provider store={store}>
+            <CssVarsProvider>
+                <App />
+            </CssVarsProvider>
+        </Provider>
+    </React.StrictMode>
 );

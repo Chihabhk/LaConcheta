@@ -62,7 +62,7 @@ const LoginPage = () => {
                     Iniciar sesión
                 </Typography>
                 <Input
-                    autoComplete={true}
+                    autoComplete="true"
                     name="email"
                     label="Correo electrónico"
                     placeholder="Correo@electrónico.com"
@@ -72,7 +72,7 @@ const LoginPage = () => {
                     required
                 />
                 <Input
-                    autoComplete={true}
+                    autoComplete="true"
                     name="password"
                     label="Contraseña"
                     variant="outlined"

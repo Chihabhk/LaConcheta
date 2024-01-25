@@ -17,7 +17,7 @@ const CategoriesPage = () => {
                 backgroundColor: "transparent",
             }}>
             {menuCategories &&
-                Object.values(menuCategories).map(([key, value]) => {
+                Object.entries(menuCategories).map(([key, value]) => {
                     return (
                         <CategoryCard
                             category={{ name: key, ...value }}

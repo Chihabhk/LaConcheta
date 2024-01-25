@@ -14,7 +14,11 @@ const RequireAuth = (WrappedComponent) => {
 
         useEffect(() => {
             const user = JSON.parse(localStorage.getItem("user"));
-            if (user) {
+            if (!user) {
+                // If there is no user in localStorage, redirect to login
+                alert("Debes iniciar sesión para acceder a esta página.");
+                navigate("/login");
+            } else {
                 const currentTime = new Date().getTime();
                 const userTime = user.timestamp;
                 const diffTime = currentTime - userTime;
@@ -27,20 +31,17 @@ const RequireAuth = (WrappedComponent) => {
                         "Tu sesión ha caducado, por favor, inicie sesión para acceder a esta página."
                     );
                     navigate("/login");
+                    return;
                 } else {
-                    if (!isLoggedIn) {
+                    if (isLoggedIn === false) {
                         dispatch(setLogginIn(true));
                     }
-                    if (menuCategories.length === 0) {
+                    if (Object.entries(menuCategories).length === 0) {
                         dispatch(getAllCategories());
                     }
                 }
-            } else {
-                // If there is no user in localStorage, redirect to login
-                alert("Debes iniciar sesión para acceder a esta página.");
-                navigate("/login");
             }
-        }, [dispatch, navigate, isLoggedIn, menuCategories.length]);
+        }, [dispatch, navigate, isLoggedIn, menuCategories]);
 
         // Only render the WrappedComponent if the user is logged in
         return isLoggedIn ? <WrappedComponent {...props} /> : null;
