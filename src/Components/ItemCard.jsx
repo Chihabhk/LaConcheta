@@ -10,16 +10,18 @@ const ItemCard = ({ item }) => {
             variant="outlined"
             key={item.name}
             sx={{
-                backdropFilter: "blur(50px)",
+                // backdropFilter: "blur(50px)",
                 cursor: "pointer",
                 m: "1em",
             }}>
-            <Typography level="h3">{item.name}</Typography>
+            <Typography level="h3" fontSize={"1.5rem"}>
+                {item.name}
+            </Typography>
             <CardContent>
-                <Typography level="body-lg">{item.description}</Typography>
+                <Typography level="body-md">{item.description}</Typography>
             </CardContent>
             <CardContent orientation="horizontal">
-                <Typography level="body-md">
+                <Typography level="body-md" flex="1">
                     Precio:
                     {" " + item.price}
                 </Typography>

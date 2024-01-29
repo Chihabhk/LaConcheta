@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
-import { Tabs, TabList, Tab, TabPanel } from "@mui/joy";
+import { Tabs, TabList, Tab, TabPanel, Typography } from "@mui/joy";
 import ItemCard from "../Components/ItemCard.jsx";
 import { useDocumentTitle } from "../hooks/useDocumentTitle.js";
 
@@ -24,46 +24,54 @@ function ProductsPage() {
     };
 
     return (
-        <>
-            <Tabs
-                aria-label="Vertical tabs"
-                orientation="vertical"
-                onChange={handleTabChange}
-                value={value}
+        <Tabs
+            aria-label="Vertical tabs"
+            orientation="vertical"
+            onChange={handleTabChange}
+            value={value}
+            sx={{
+                // maxWidth: "100%",
+                backgroundColor: "transparent",
+                // position: "relative",
+                // display: "flex",
+                marginLeft: "5.8rem",
+            }}>
+            <TabList
                 sx={{
-                    maxWidth: "100%",
-                    backgroundColor: "transparent",
-                    position: "relative",
+                    position: "fixed",
+                    left: "0",
+                    // overflow: "  hidden",
+                    "&::-webkit-scrollbar": { display: "none" },
+                    width: "7rem",
+                    p: "1rem 0",
+                    gap: "1em",
+                    bgcolor: "AppWorkspace",
+                    borderRadius: "8px",
                 }}>
-                <TabList
-                    sx={{
-                        overflow: "hidden",
-                        "&::-webkit-scrollbar": { display: "none" },
-                        minWidth: "5rem",
-                        bgcolor: "background.paper",
-                        borderRadius: "8px",
-                    }}>
-                    {Object.entries(menuCategories).map(([key], index) => (
-                        <Tab
-                            key={index}
-                            sx={{
-                                "&.Mui-selected": {
-                                    fontWeight: "bold",
-                                },
-                            }}>
-                            {key}
-                        </Tab>
-                    ))}
-                </TabList>
-                {Object.entries(menuCategories).map(([key, value], index) => (
-                    <TabPanel key={key} value={index}>
-                        {value.data.map((item, key) => (
-                            <ItemCard item={item} key={key} />
-                        ))}
-                    </TabPanel>
+                {Object.entries(menuCategories).map(([key], index) => (
+                    <Tab
+                        key={index}
+                        sx={{
+                            // paddingRight: 2,
+                            "&.Mui-selected": {
+                                fontWeight: "bold",
+                            },
+                        }}>
+                        <Typography level="body-lg">{key}</Typography>
+                    </Tab>
                 ))}
-            </Tabs>
-        </>
+            </TabList>
+            {Object.entries(menuCategories).map(([key, value], index) => (
+                <TabPanel
+                    key={key}
+                    value={index}
+                    sx={{ p: "0 0 0 1em", m: "0" }}>
+                    {value.data.map((item, key) => (
+                        <ItemCard item={item} key={key} />
+                    ))}
+                </TabPanel>
+            ))}
+        </Tabs>
     );
 }
 
