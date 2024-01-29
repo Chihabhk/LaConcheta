@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { setLogginIn, getAllCategories } from "../features/menuSlice";
+import { setLoggedIn, getAllCategories } from "../features/menuSlice";
 
 const RequireAuth = (WrappedComponent) => {
     // This is the functional component that `RequireAuth` will return
@@ -24,8 +24,7 @@ const RequireAuth = (WrappedComponent) => {
                 const diffTime = currentTime - userTime;
 
                 if (diffTime > 60 * 60 * 1000) {
-                    // One hour in milliseconds
-                    dispatch(setLogginIn(false));
+                    dispatch(setLoggedIn(false));
                     localStorage.removeItem("user");
                     alert(
                         "Tu sesión ha caducado, por favor, inicie sesión para acceder a esta página."
@@ -34,7 +33,7 @@ const RequireAuth = (WrappedComponent) => {
                     return;
                 } else {
                     if (isLoggedIn === false) {
-                        dispatch(setLogginIn(true));
+                        dispatch(setLoggedIn(true));
                     }
                     if (Object.entries(menuCategories).length === 0) {
                         dispatch(getAllCategories());

@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { Box, Input, Button, Typography } from "@mui/joy";
-import { setLogginIn } from "../features/menuSlice.js";
+import { setLoggedIn } from "../features/menuSlice.js";
 import { Snackbar } from "@mui/joy";
 import { InfoOutlined } from "@mui/icons-material";
 import { useDocumentTitle } from "../hooks/useDocumentTitle.js";
@@ -17,12 +17,12 @@ const LoginPage = () => {
 
     const handleLogin = (event) => {
         event.preventDefault();
-        if (email === "admin@admin.com" && password === "laaconcheta") {
+        if (email === "admin@admin.com" && password === "laconchetA") {
             localStorage.setItem(
                 "user",
                 JSON.stringify({ email, timestamp: new Date().getTime() })
             );
-            dispatch(setLogginIn(true));
+            dispatch(setLoggedIn(true));
             navigate("/");
         } else {
             setSnackBarOpen(true);

@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { Box, Typography, IconButton, Button } from "@mui/joy";
+import { Box, Typography, Badge, IconButton, Button } from "@mui/joy";
 import { Phone, ShoppingBasket } from "@mui/icons-material";
 
 const Header = () => {
+    const { cartItems } = useSelector((state) => state.menu);
     const navigate = useNavigate();
     const handleLogoOnClick = () => {
         navigate("/");
@@ -57,15 +59,21 @@ const Header = () => {
                     }}>
                     La Concheta
                 </Typography>
-                <IconButton variant="plain" onClick={handleCartIconClick}>
-                    <ShoppingBasket
-                        sx={{
-                            color: "#fff",
-                            border: "2px solid #fff",
-                            borderRadius: "50%",
-                            boxShadow: "0 0 10px rgba(0, 0, 0, 0.5)",
-                        }}
-                    />
+                <IconButton onClick={handleCartIconClick}>
+                    <Badge
+                        badgeContent={cartItems.length}
+                        variant="solid"
+                        color="neutral"
+                        size="md">
+                        <ShoppingBasket
+                            sx={{
+                                color: "#fff",
+                                border: "2px solid #fff",
+                                borderRadius: "50%",
+                                boxShadow: "0 0 10px rgba(0, 0, 0, 0.5)",
+                            }}
+                        />
+                    </Badge>
                 </IconButton>
             </Box>
             <Box

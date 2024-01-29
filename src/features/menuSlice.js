@@ -1,5 +1,15 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import menuData from "../db/menu.json";
+
+export const getAllCategories = createAsyncThunk(
+    "menu/getAllCategories",
+    async () => {
+        // Simular una llamada asíncrona a una API o servicio
+        return new Promise((resolve) => {
+            resolve(menuData);
+        });
+    }
+);
 
 const initialState = {
     menuCategories: {},
@@ -11,20 +21,25 @@ export const menuSlice = createSlice({
     name: "menu",
     initialState,
     reducers: {
-        getAllCategories: (state) => {
-            state.menuCategories = menuData;
-        },
         addItemToCart: (state, action) => {
             const item = action.payload;
             state.cartItems.push(item);
         },
-        setLogginIn: (state, action) => {
+        setLoggedIn: (state, action) => {
             state.isLoggedIn = action.payload;
         },
     },
+    extraReducers: (builder) => {
+        builder
+            .addCase(getAllCategories.pending, (state) => {
+                state.menuCategories = {};
+            })
+            .addCase(getAllCategories.fulfilled, (state, action) => {
+                state.menuCategories = action.payload;
+            });
+    },
 });
 
-export const { getAllCategories, addItemToCart, setLogginIn } =
-    menuSlice.actions;
+export const { addItemToCart, setLoggedIn } = menuSlice.actions;
 
 export default menuSlice.reducer;

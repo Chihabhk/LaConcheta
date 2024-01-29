@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import { Tabs, TabList, Tab, TabPanel } from "@mui/joy";
@@ -10,51 +10,44 @@ function ProductsPage() {
     const { menuCategories } = useSelector((state) => state.menu);
     const navigate = useNavigate();
     const { categoryName } = useParams();
-    const [value, setValue] = useState(categoryName);
+    const [value, setValue] = useState(
+        Object.keys(menuCategories).indexOf(categoryName)
+    );
+    useEffect(() => {
+        const categoryIndex = Object.keys(menuCategories).indexOf(categoryName);
+        setValue(categoryIndex);
+    }, [categoryName, menuCategories]);
 
-    // Función para manejar el cambio de pestaña
     const handleTabChange = (event, newValue) => {
-        navigate(`/categories/${Object.keys(menuCategories)[newValue]}`);
         setValue(newValue);
+        navigate(`/categories/${Object.keys(menuCategories)[newValue]}`);
     };
 
     return (
         <>
             <Tabs
-                sx={{
-                    maxWidth: "100%",
-                }}
-                aria-label="Scrollable tabs"
+                aria-label="Vertical tabs"
                 orientation="vertical"
                 onChange={handleTabChange}
-                defaultValue={Object.keys(menuCategories).indexOf(value)}>
+                value={value}
+                sx={{
+                    maxWidth: "100%",
+                    backgroundColor: "transparent",
+                    position: "relative",
+                }}>
                 <TabList
-                    // sticky="bottom"
-                    tabFlex={1}
                     sx={{
-                        position: "sticky",
-                        top: 0, // Ajusta según sea necesario
+                        overflow: "hidden",
+                        "&::-webkit-scrollbar": { display: "none" },
+                        minWidth: "5rem",
                         bgcolor: "background.paper",
-                        borderRadius: "8px", // O '0px' para bordes completamente cuadrados
-                        "& .MuiTab-root": {
-                            // Aplicando estilos a cada Tab individualmente
-                            width: "100px", // Ajusta según sea necesario para que sea cuadrado
-                            height: "100px", // Ajusta según sea necesario para que sea cuadrado
-                            borderRadius: "8px", // O '0px' para bordes completamente cuadrados
-                            margin: "8px", // Agrega espacio alrededor de las pestañas si es necesario
-                            display: "flex",
-                            justifyContent: "center",
-                            alignItems: "center",
-                            typography: "body1",
-                        },
+                        borderRadius: "8px",
                     }}>
                     {Object.entries(menuCategories).map(([key], index) => (
                         <Tab
                             key={index}
                             sx={{
-                                maxHeight: "60px",
                                 "&.Mui-selected": {
-                                    color: "primary.main",
                                     fontWeight: "bold",
                                 },
                             }}>
@@ -63,7 +56,7 @@ function ProductsPage() {
                     ))}
                 </TabList>
                 {Object.entries(menuCategories).map(([key, value], index) => (
-                    <TabPanel key={index} value={index}>
+                    <TabPanel key={key} value={index}>
                         {value.data.map((item, key) => (
                             <ItemCard item={item} key={key} />
                         ))}

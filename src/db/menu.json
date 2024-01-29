@@ -1,6 +1,6 @@
 {
     "Ensaladas": {
-        "url": "",
+        "url": "/social-media-image.png",
         "data": [
             {
                 "name": "Ensalada de la casa",
@@ -187,7 +187,7 @@
         ]
     },
     "Pescados": {
-        "url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR615rPv9lPFzCaD_mMpzFBl4LnTJXdZAPnuQ&usqp=CAU",
+        "url": "",
         "data": [
             {
                 "name": "Parrillada del mar",
@@ -249,7 +249,7 @@
         ]
     },
     "Paellas": {
-        "url": "https://t1.uc.ltmcdn.com/es/posts/0/3/2/como_hacer_una_paella_de_carne_33230_orig.jpg",
+        "url": "",
         "data": [
             {
                 "name": "Paella de pollo y conejo",
@@ -302,7 +302,7 @@
         ]
     },
     "Arroces": {
-        "url": "https://corporissanum.com/wp-content/uploads/2019/02/arroz_meloso.jpg",
+        "url": "",
         "data": [
             {
                 "name": "Arroz del señoret",
@@ -337,7 +337,7 @@
         ]
     },
     "Postres": {
-        "url": "https://crehana-blog.imgix.net/media/filer_public/62/4a/624aecfd-387b-4bd0-86a2-44d9a29e3787/clasificacion-postres.jpg",
+        "url": "",
         "data": [
             {
                 "name": "Tarta de queso con arándanos",
@@ -377,7 +377,7 @@
         ]
     },
     "Bocadillos": {
-        "url": "https://static-sevilla.abc.es/media/gurmesevilla/2016/03/bocadillo-jamon-aceite-1171x800.jpeg",
+        "url": "",
         "data": [
             {
                 "name": "Concheta",
