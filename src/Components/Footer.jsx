@@ -24,15 +24,9 @@ export default function ColorInversionFooter() {
             color={color}
             invertedColors
             sx={{
-                // ...(color !== "neutral" &&
-                // {
-                // bgcolor: `${color}.800`,
-                // }),
-                // display: "block",
                 flexGrow: 1,
                 p: 2,
                 borderRadius: { xs: 0, sm: "sm" },
-                // position: "relative",
                 bottom: 0,
             }}>
             <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>

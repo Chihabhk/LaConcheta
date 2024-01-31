@@ -15,7 +15,6 @@ const HomePage = () => {
     const imgOnLoad = () => {
         setLoading(false);
     };
-
     useEffect(() => {
         // Register Swiper web component
         register();
