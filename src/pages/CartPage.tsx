@@ -2,14 +2,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { useDocumentTitle } from "../hooks/useDocumentTitle";
 import ItemCard from "../Components/ItemCard";
-import {
-    AspectRatio,
-    Typography,
-    Modal,
-    ModalDialog,
-    ModalClose,
-    ModalOverflow,
-} from "@mui/joy";
+import { AspectRatio, Typography } from "@mui/joy";
 
 interface Item {
     id: number;
