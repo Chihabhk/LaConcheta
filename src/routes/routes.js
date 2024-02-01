@@ -2,7 +2,6 @@ import { lazy } from "react";
 
 const LoginPage = lazy(() => import("../pages/LoginPage"));
 const CategoriesPage = lazy(() => import("../pages/CategoriesPage"));
-const CartPage = lazy(() => import("../pages/CartPage"));
 const ProductsPage = lazy(() => import("../pages/ProductsPage"));
 const HomePage = lazy(() => import("../pages/HomePage"));
 const NotFoundPage = lazy(() => import("../pages/NotFoundPage"));
@@ -10,7 +9,6 @@ const NotFoundPage = lazy(() => import("../pages/NotFoundPage"));
 const routes = [
     { path: "/login", component: LoginPage, requiresAuth: false },
     { path: "/categories", component: CategoriesPage, requiresAuth: true },
-    { path: "/cart", component: CartPage, requiresAuth: true },
     {
         path: "/categories/:categoryName",
         component: ProductsPage,

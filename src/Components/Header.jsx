@@ -1,17 +1,27 @@
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { Box, Typography, Badge, IconButton, Button } from "@mui/joy";
+import {
+    Drawer,
+    ModalClose,
+    Box,
+    Typography,
+    Badge,
+    IconButton,
+    Button,
+} from "@mui/joy";
 import { Phone, ShoppingBasket } from "@mui/icons-material";
+import CartPage from "../pages/CartPage.tsx";
 
 const Header = () => {
+    const [isDrawerOpen, setIsDrawerOpen] = useState(false);
     const { cartItems } = useSelector((state) => state.menu);
     const navigate = useNavigate();
     const handleLogoOnClick = () => {
         navigate("/");
     };
     const handleCartIconClick = () => {
-        navigate("/cart");
+        setIsDrawerOpen(true);
     };
     const [ocultarHeader, setOcultarHeader] = useState(false);
     useEffect(() => {
@@ -75,6 +85,13 @@ const Header = () => {
                         />
                     </Badge>
                 </IconButton>
+                <Drawer
+                    anchor="right"
+                    open={isDrawerOpen}
+                    onClose={() => setIsDrawerOpen(false)}>
+                    <ModalClose />
+                    <CartPage />
+                </Drawer>
             </Box>
             <Box
                 variant="plain"
