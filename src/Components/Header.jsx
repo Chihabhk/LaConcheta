@@ -101,10 +101,11 @@ const Header = () => {
                     color="warning"
                     open={isDrawerOpen}
                     onClose={() => setIsDrawerOpen(false)}
+                    size="sm"
                     sx={{
                         "& .MuiDrawer-paper": {
-                            width: "100%",
-                            maxWidth: "400px",
+                            // width: "100%",
+                            // maxWidth: "400px",
                             backgroundColor: "rgba(0,0,0,0.7)",
                         },
                     }}>

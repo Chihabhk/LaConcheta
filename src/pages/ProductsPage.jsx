@@ -30,6 +30,7 @@ function ProductsPage() {
             onChange={handleTabChange}
             value={value}
             sx={{
+                position: "relative",
                 backgroundColor: "transparent",
                 marginLeft: "8rem",
                 marginRight: "0.8rem",

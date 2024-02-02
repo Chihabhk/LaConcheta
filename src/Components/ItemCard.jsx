@@ -29,8 +29,7 @@ const ItemCard = ({ item }) => {
             </CardContent>
             <CardContent
                 orientation="horizontal"
-                // sx={{ alignContent: "center", alignItems: "center" }}
-            >
+                sx={{ alignContent: "center", alignItems: "center" }}>
                 <Typography level="body-md" flex="1">
                     Precio:
                     {" " + item.price}
