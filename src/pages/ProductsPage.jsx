@@ -30,29 +30,33 @@ function ProductsPage() {
             onChange={handleTabChange}
             value={value}
             sx={{
-                // maxWidth: "100%",
                 backgroundColor: "transparent",
-                // position: "relative",
-                // display: "flex",
-                marginLeft: "5.8rem",
+                marginLeft: "8rem",
+                marginRight: "0.8rem",
+                height: "100%",
             }}>
             <TabList
                 sx={{
                     position: "fixed",
                     left: "0",
-                    // overflow: "  hidden",
+                    overflow: "hidden",
                     "&::-webkit-scrollbar": { display: "none" },
                     width: "7rem",
-                    p: "1rem 0",
-                    gap: "1em",
-                    bgcolor: "AppWorkspace",
-                    borderRadius: "8px",
+                    p: "0",
+                    gap: "0.5rem",
+                    backdropFilter: "blur(20px)",
+                    maxHeight: "100%",
+                    alignItems: "center",
+                    justifyContent: "center",
                 }}>
                 {Object.entries(menuCategories).map(([key], index) => (
                     <Tab
                         key={index}
                         sx={{
-                            // paddingRight: 2,
+                            width: "100%",
+                            textAlign: "center",
+
+                            borderRadius: "8px",
                             "&.Mui-selected": {
                                 fontWeight: "bold",
                             },
@@ -62,10 +66,7 @@ function ProductsPage() {
                 ))}
             </TabList>
             {Object.entries(menuCategories).map(([key, value], index) => (
-                <TabPanel
-                    key={key}
-                    value={index}
-                    sx={{ p: "0 0 0 1em", m: "0" }}>
+                <TabPanel key={key} value={index} sx={{ m: 0, p: 0 }}>
                     {value.data.map((item, key) => (
                         <ItemCard item={item} key={key} />
                     ))}

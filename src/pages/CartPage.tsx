@@ -1,8 +1,8 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { useDocumentTitle } from "../hooks/useDocumentTitle";
-import ItemCard from "../Components/ItemCard";
 import { AspectRatio, Typography } from "@mui/joy";
+import ItemCard from "../Components/ItemCard";
 
 interface Item {
     id: number;
@@ -17,7 +17,6 @@ interface State {
         cartItems: Item[];
     };
 }
-// const { open } = useSelector((state) => state.menu);
 const calculateTotal = (items: Item[]) => {
     return items.reduce((total, item) => {
         const priceMatch = item.price.match(/[\d.]+/);

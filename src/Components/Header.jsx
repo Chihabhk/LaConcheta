@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import {
+    Card,
     Drawer,
     ModalClose,
     Box,
@@ -72,8 +73,18 @@ const Header = () => {
                 <IconButton onClick={handleCartIconClick}>
                     <Badge
                         badgeContent={cartItems.length}
+                        anchorOrigin={{ vertical: "top", horizontal: "right" }}
+                        showZero
+                        sx={{
+                            "& .MuiBadge-badge": {
+                                fontSize: "0.8rem",
+                                boxShadow: "0 0 0 2px #c369",
+                                fontWeight: "bold",
+                                fontFamily: "Arial, sans-serif",
+                            },
+                        }}
                         variant="solid"
-                        color="neutral"
+                        color="warning"
                         size="md">
                         <ShoppingBasket
                             sx={{
@@ -87,10 +98,68 @@ const Header = () => {
                 </IconButton>
                 <Drawer
                     anchor="right"
+                    color="warning"
                     open={isDrawerOpen}
-                    onClose={() => setIsDrawerOpen(false)}>
+                    onClose={() => setIsDrawerOpen(false)}
+                    sx={{
+                        "& .MuiDrawer-paper": {
+                            width: "100%",
+                            maxWidth: "400px",
+                            backgroundColor: "rgba(0,0,0,0.7)",
+                        },
+                    }}>
                     <ModalClose />
-                    <CartPage />
+                    {cartItems.length > 0 ? (
+                        <CartPage />
+                    ) : (
+                        <>
+                            <Card
+                                variant="soft"
+                                color="warning"
+                                sx={{
+                                    p: 2,
+                                    flexGrow: "1",
+                                    justifyContent: "center",
+                                    alignContent: "center",
+                                    gap: "2rem",
+                                }}>
+                                <Typography level="title-lg" align="center">
+                                    Tu carrito está vacío
+                                </Typography>
+                                <Typography
+                                    level="body-md"
+                                    sx={{
+                                        textAlign: "center",
+                                    }}>
+                                    Para continuar, añade tus platos favoritos
+                                    al carrito desde nuestro menú.
+                                </Typography>
+                                <Button
+                                    variant="solid"
+                                    color="warning"
+                                    sx={{
+                                        display: "block",
+                                        p: "auto",
+                                    }}
+                                    onClick={() => {
+                                        setIsDrawerOpen(false);
+                                        !window.location.hash.startsWith(
+                                            "#/categories/"
+                                        ) &&
+                                            navigate(
+                                                "/categories/Entrantes%20Calientes"
+                                            );
+                                    }}>
+                                    <Typography
+                                        color="#fff"
+                                        level="body-lg"
+                                        fontWeight="bold">
+                                        Añadir platos
+                                    </Typography>
+                                </Button>
+                            </Card>
+                        </>
+                    )}
                 </Drawer>
             </Box>
             <Box
@@ -103,7 +172,6 @@ const Header = () => {
                     top: "4em",
                     zIndex: 1000,
                     p: ".5em",
-                    mb: ".5em",
                     backdropFilter: "blur(20px)",
                     transform: ocultarHeader
                         ? "translateY(-100%)"

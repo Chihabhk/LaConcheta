@@ -66,7 +66,7 @@ const HomePage = () => {
                     );
                 })}
             </swiper-container>
-            <Typography level="h1" component="h1" gutterBottom>
+            {/* <Typography level="h1" component="h1" gutterBottom>
                 Bienvenido a nuestro restaurante La Concheta
             </Typography>
             <Typography level="body-lg" gutterBottom>
@@ -76,7 +76,7 @@ const HomePage = () => {
 
             <Typography level="h4" component="h2" gutterBottom>
                 Lo que dicen nuestros clientes
-            </Typography>
+            </Typography> */}
         </div>
     );
 };

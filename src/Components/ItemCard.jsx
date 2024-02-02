@@ -18,22 +18,19 @@ const ItemCard = ({ item }) => {
     const quantity = itemInCart ? itemInCart.quantity : 0;
     return (
         <Card
-            variant="outlined"
-            key={item.name}
+            variant="plain"
             sx={{
-                // backdropFilter: "blur(50px)",
                 cursor: "pointer",
-                m: "1em",
+                marginBottom: 1,
             }}>
             <CardContent>
-                <Typography level="h3" fontSize={"1.5rem"}>
-                    {item.name}
-                </Typography>
+                <Typography level="h3">{item.name}</Typography>
+                <Typography level="body-sm">{item.description}</Typography>
             </CardContent>
-            <CardContent>
-                <Typography level="body-md">{item.description}</Typography>
-            </CardContent>
-            <CardContent orientation="horizontal">
+            <CardContent
+                orientation="horizontal"
+                // sx={{ alignContent: "center", alignItems: "center" }}
+            >
                 <Typography level="body-md" flex="1">
                     Precio:
                     {" " + item.price}
