@@ -40,7 +40,7 @@ const ItemCard = ({ item }) => {
                         onClick={() => dispatch(removeItemFromCart(item))}>
                         <Remove />
                     </IconButton>
-                    <Typography level="body-2" color="neutral">
+                    <Typography level="body-2" color="danger">
                         {quantity}
                     </Typography>
                     <IconButton
