@@ -6,7 +6,9 @@ export const getAllCategories = createAsyncThunk(
     async () => {
         // Simular una llamada asíncrona a una API o servicio
         return new Promise((resolve) => {
-            resolve(menuData);
+            setTimeout(() => {
+                resolve(menuData);
+            }, 1000);
         });
     }
 );
@@ -56,7 +58,7 @@ export const menuSlice = createSlice({
     extraReducers: (builder) => {
         builder
             .addCase(getAllCategories.pending, (state) => {
-                state.menuCategories = {};
+                // state.menuCategories = {}; //This breaks the useEffect to get the categories from the App.js
             })
             .addCase(getAllCategories.fulfilled, (state, action) => {
                 state.menuCategories = action.payload;
