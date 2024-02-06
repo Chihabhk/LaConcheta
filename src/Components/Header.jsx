@@ -145,10 +145,10 @@ const Header = () => {
                                     onClick={() => {
                                         setIsDrawerOpen(false);
                                         !window.location.hash.startsWith(
-                                            "#/categories/"
+                                            "#/carta/"
                                         ) &&
                                             navigate(
-                                                "/categories/Entrantes%20Calientes"
+                                                "/carta/Entrantes%20Calientes"
                                             );
                                     }}>
                                     <Typography
