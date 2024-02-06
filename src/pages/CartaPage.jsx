@@ -5,7 +5,7 @@ import { Tabs, TabList, Tab, TabPanel, Typography } from "@mui/joy";
 import ItemCard from "../Components/ItemCard.jsx";
 import { useDocumentTitle } from "../hooks/useDocumentTitle.js";
 
-function ProductsPage() {
+function CartaPage() {
     useDocumentTitle("LaConcheta - Carta de la casa");
     const { menuCategories } = useSelector((state) => state.menu);
     const navigate = useNavigate();
@@ -77,4 +77,4 @@ function ProductsPage() {
     );
 }
 
-export default ProductsPage;
+export default CartaPage;
