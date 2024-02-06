@@ -19,7 +19,7 @@ const Header = () => {
     const { cartItems } = useSelector((state) => state.menu);
     const navigate = useNavigate();
     const handleLogoOnClick = () => {
-        navigate("/");
+        // navigate("/");
     };
     const handleCartIconClick = () => {
         setIsDrawerOpen(true);

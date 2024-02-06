@@ -8,7 +8,7 @@ export const getAllCategories = createAsyncThunk(
         return new Promise((resolve) => {
             setTimeout(() => {
                 resolve(menuData);
-            }, 1000);
+            }, 300);
         });
     }
 );

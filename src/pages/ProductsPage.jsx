@@ -10,17 +10,17 @@ function ProductsPage() {
     const { menuCategories } = useSelector((state) => state.menu);
     const navigate = useNavigate();
     const { categoryName } = useParams();
+    const categoryIndex = Object.keys(menuCategories).indexOf(categoryName);
     const [value, setValue] = useState(
-        Object.keys(menuCategories).indexOf(categoryName)
+        categoryIndex === -1 ? 2 : categoryIndex
     );
+
     useEffect(() => {
-        const categoryIndex = Object.keys(menuCategories).indexOf(categoryName);
-        setValue(categoryIndex);
-    }, [categoryName, menuCategories]);
+        setValue(categoryIndex === -1 ? 2 : categoryIndex);
+    }, [categoryIndex]);
 
     const handleTabChange = (event, newValue) => {
-        setValue(newValue);
-        navigate(`/categories/${Object.keys(menuCategories)[newValue]}`);
+        navigate(`/carta/${Object.keys(menuCategories)[newValue]}`);
     };
 
     return (
