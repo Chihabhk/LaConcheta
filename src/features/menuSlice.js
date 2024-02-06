@@ -16,7 +16,6 @@ export const getAllCategories = createAsyncThunk(
 const initialState = {
     menuCategories: {},
     cartItems: JSON.parse(localStorage.getItem("cartItems")) || [],
-    isLoggedIn: false,
 };
 
 export const menuSlice = createSlice({
@@ -51,22 +50,18 @@ export const menuSlice = createSlice({
             }
             localStorage.setItem("cartItems", JSON.stringify(state.cartItems));
         },
-        setLoggedIn: (state, action) => {
-            state.isLoggedIn = action.payload;
-        },
     },
     extraReducers: (builder) => {
         builder
-            .addCase(getAllCategories.pending, (state) => {
-                // state.menuCategories = {}; //This breaks the useEffect to get the categories from the App.js
-            })
+            /*.addCase(getAllCategories.pending, (state) => {
+                state.menuCategories = {}; //! This breaks the useEffect[menuCategories] (infinite loop) to get the categories from the App.js
+            })*/
             .addCase(getAllCategories.fulfilled, (state, action) => {
                 state.menuCategories = action.payload;
             });
     },
 });
 
-export const { addItemToCart, setLoggedIn, removeItemFromCart } =
-    menuSlice.actions;
+export const { addItemToCart, removeItemFromCart } = menuSlice.actions;
 
 export default menuSlice.reducer;

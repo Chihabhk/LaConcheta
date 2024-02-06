@@ -33,5 +33,5 @@ const routes = [
     },
 ];
 
-export const AuthRoutes = routes.filter((route) => route.requiresAuth);
+// export const AuthRoutes = routes.filter((route) => route.requiresAuth);
 export const NonAuthRoutes = routes.filter((route) => !route.requiresAuth);

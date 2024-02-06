@@ -3,8 +3,7 @@ import * as React from "react";
 import { Suspense, useEffect } from "react";
 import { HashRouter as Router, Routes, Route } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import RequireAuth from "./middleware/RequireAuth.jsx";
-import { AuthRoutes, NonAuthRoutes } from "./routes/routes.js";
+import { NonAuthRoutes } from "./routes/routes.js";
 import { getAllCategories } from "./features/menuSlice";
 
 import Layout from "./Components/Layout";
@@ -34,7 +33,7 @@ function App() {
                             />
                         )
                     )}
-                    {AuthRoutes.map(({ path, component: Component }, index) => {
+                    {/*{AuthRoutes.map(({ path, component: Component }, index) => {
                         const AuthComponent = RequireAuth(Component);
                         return (
                             <Route
@@ -47,7 +46,7 @@ function App() {
                                 }
                             />
                         );
-                    })}
+                    })}*/}
                 </Routes>
             </Suspense>
         </Router>
