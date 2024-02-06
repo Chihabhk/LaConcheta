@@ -26,7 +26,7 @@ const calculateTotal = (items: Item[]) => {
     }, 0);
 };
 
-const CartPage = ({ isCartModalOpen }) => {
+const CuentaPage = ({ isCartModalOpen }) => {
     useDocumentTitle("LaConcheta - Carrito");
     const { cartItems } = useSelector((state: State) => state.menu);
     const total = calculateTotal(cartItems);
@@ -70,4 +70,4 @@ const CartPage = ({ isCartModalOpen }) => {
     );
 };
 
-export default CartPage;
+export default CuentaPage;

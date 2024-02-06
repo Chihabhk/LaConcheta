@@ -12,7 +12,7 @@ import {
     Button,
 } from "@mui/joy";
 import { Phone, ShoppingBasket } from "@mui/icons-material";
-import CartPage from "../pages/CartPage.tsx";
+import CuentaPage from "../pages/CuentaPage.tsx";
 
 const Header = () => {
     const [isDrawerOpen, setIsDrawerOpen] = useState(false);
@@ -111,7 +111,7 @@ const Header = () => {
                     }}>
                     <ModalClose />
                     {cartItems.length > 0 ? (
-                        <CartPage />
+                        <CuentaPage />
                     ) : (
                         <>
                             <Card
