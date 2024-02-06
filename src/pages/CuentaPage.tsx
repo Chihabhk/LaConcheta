@@ -2,6 +2,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { useDocumentTitle } from "../hooks/useDocumentTitle";
 import { AspectRatio, Divider, Typography } from "@mui/joy";
+import { Receipt } from "@mui/icons-material";
 // import ItemCard from "../Components/ItemCard";
 
 interface Item {
@@ -27,7 +28,7 @@ const calculateTotal = (items: Item[]) => {
 };
 
 const CuentaPage = ({ isCartModalOpen }) => {
-    useDocumentTitle("LaConcheta - Carrito");
+    useDocumentTitle("LaConcheta - Cuenta");
     const { cartItems } = useSelector((state: State) => state.menu);
     const total = calculateTotal(cartItems);
 
@@ -47,7 +48,7 @@ const CuentaPage = ({ isCartModalOpen }) => {
                 sx={{
                     marginBottom: "1em",
                 }}>
-                Carrito 🛒
+                Cuenta <Receipt />
             </Typography>
             <Divider />
             {cartItems.map((item: Item, index: number) => {

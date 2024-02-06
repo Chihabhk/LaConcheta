@@ -1,12 +1,13 @@
 import "./App.css";
+
 import * as React from "react";
-import { Suspense, useEffect } from "react";
+import { lazy, Suspense, useEffect } from "react";
 import { HashRouter as Router, Routes, Route } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { NonAuthRoutes } from "./routes/routes.js";
 import { getAllCategories } from "./features/menuSlice";
 
-import Layout from "./Components/Layout";
+const Layout = lazy("./Components/Layout");
 
 function App() {
     const dispatch = useDispatch();

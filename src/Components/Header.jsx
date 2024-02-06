@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { lazy, useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import {
@@ -12,7 +12,8 @@ import {
     Button,
 } from "@mui/joy";
 import { Phone, ShoppingBasket } from "@mui/icons-material";
-import CuentaPage from "../pages/CuentaPage.tsx";
+
+const CuentaPage = lazy(() => import("../pages/CuentaPage.tsx"));
 
 const Header = () => {
     const [isDrawerOpen, setIsDrawerOpen] = useState(false);
