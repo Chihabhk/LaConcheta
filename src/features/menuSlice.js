@@ -6,9 +6,7 @@ export const getAllCategories = createAsyncThunk(
     async () => {
         // Simular una llamada asíncrona a una API o servicio
         return new Promise((resolve) => {
-            setTimeout(() => {
-                resolve(menuData);
-            }, 300);
+            resolve(menuData);
         });
     }
 );
