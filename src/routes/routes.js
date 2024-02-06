@@ -18,5 +18,5 @@ const routes = [
     { path: "*", component: NotFoundPage, requiresAuth: false },
 ];
 
-export const LayoutRoutes = routes.filter((route) => route.requiresAuth);
-export const NonLayoutRoutes = routes.filter((route) => !route.requiresAuth);
+// export const AuthRoutes = routes.filter((route) => route.requiresAuth);
+export const NonAuthRoutes = routes.filter((route) => !route.requiresAuth);
