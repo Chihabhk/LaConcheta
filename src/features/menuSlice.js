@@ -58,7 +58,7 @@ export const menuSlice = createSlice({
     extraReducers: (builder) => {
         builder
             .addCase(getAllCategories.pending, (state) => {
-                // state.menuCategories = {}; //This breaks the useEffect to get the categories from the App.js
+                // state.menuCategories = {}; //! This breaks the useEffect (infinite loop) to get the categories from the App.js
             })
             .addCase(getAllCategories.fulfilled, (state, action) => {
                 state.menuCategories = action.payload;
