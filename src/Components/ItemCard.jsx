@@ -19,6 +19,7 @@ const ItemCard = ({ item }) => {
     return (
         <Card
             variant="plain"
+            color="warning"
             sx={{
                 cursor: "pointer",
                 marginBottom: 1,

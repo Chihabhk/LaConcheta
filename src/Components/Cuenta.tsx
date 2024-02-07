@@ -1,8 +1,16 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useDocumentTitle } from "../hooks/useDocumentTitle";
-import { AspectRatio, Divider, Typography } from "@mui/joy";
-import { Receipt } from "@mui/icons-material";
+import {
+    AspectRatio,
+    IconButton,
+    Divider,
+    Typography,
+    Checkbox,
+    Chip,
+} from "@mui/joy";
+import { Add, Receipt, Remove } from "@mui/icons-material";
+import { addItemToCart, removeItemFromCart } from "../features/menuSlice";
 // import ItemCard from "../Components/ItemCard";
 
 interface Item {
@@ -12,6 +20,7 @@ interface Item {
     price: string;
     quantity: number;
     url: string;
+    checked: boolean;
 }
 
 interface State {
@@ -19,19 +28,51 @@ interface State {
         cartItems: Item[];
     };
 }
-const calculateTotal = (items: Item[]) => {
-    return items.reduce((total, item) => {
+const calculateTotal = (items: Item[] | Item) => {
+    const arrayItems = Array.isArray(items) ? items : [items];
+    return arrayItems.reduce((total, item) => {
         const priceMatch = item.price.match(/[\d.]+/);
         const price = priceMatch ? parseFloat(priceMatch[0]) : 0;
         return total + price * item.quantity;
     }, 0);
 };
 
-const CuentaPage = ({ isCartModalOpen }) => {
+const QuantityEdit = ({ item }) => {
+    const dispatch = useDispatch();
+
+    return (
+        <div
+            style={{
+                display: "flex",
+                gap: 5,
+                flexDirection: "row",
+                alignContent: "center",
+                alignItems: "center",
+            }}>
+            <IconButton
+                variant="soft"
+                onClick={() => {
+                    dispatch(removeItemFromCart(item));
+                }}>
+                <Remove />
+            </IconButton>
+            <Typography level="body-lg" sx={{ textAlign: "center" }}>
+                {item.quantity}
+            </Typography>
+            <IconButton
+                variant="soft"
+                onClick={() => dispatch(addItemToCart(item))}>
+                <Add />
+            </IconButton>
+        </div>
+    );
+};
+
+const Cuenta = () => {
     useDocumentTitle("LaConcheta - Cuenta");
     const { cartItems } = useSelector((state: State) => state.menu);
     const total = calculateTotal(cartItems);
-
+    const handleChecked = (index: number) => {};
     return (
         <div
             style={{
@@ -41,36 +82,65 @@ const CuentaPage = ({ isCartModalOpen }) => {
                 alignContent: "center",
                 justifyContent: "center",
             }}>
-            <Typography
-                level="h1"
-                fontSize={"2rem"}
-                textAlign="center"
-                sx={{
+            <div
+                style={{
+                    display: "flex",
+                    gap: 5,
+                    alignContent: "center",
+                    justifyContent: "center ",
+                    alignItems: "center",
                     marginBottom: "1em",
                 }}>
-                Cuenta <Receipt />
-            </Typography>
-            <Divider />
+                <Typography
+                    level="h1"
+                    sx={{
+                        alignSelf: "center",
+                        fontWeight: 600,
+                        color: "primary",
+                    }}
+                    // fontSize="1.5rem"
+                    // textAlign="center"
+                >
+                    Cuenta
+                </Typography>
+                <Receipt sx={{ fontSize: 50 }} />
+            </div>
+            <Divider sx={{ "--Divider-childPosition": "80%" }}>
+                <Chip size="lg">
+                    Subtotal: {total} {" €"}
+                </Chip>
+            </Divider>
             {cartItems.map((item: Item, index: number) => {
                 return (
-                    <div
-                        key={index}
-                        style={{ display: "flex", margin: "0.8em 1em" }}>
-                        <Typography flex={1}>
-                            {item.quantity} x {item.name}
-                        </Typography>
-                        <Typography>{item.price}</Typography>
+                    <div key={index}>
+                        <div
+                            style={{
+                                display: "flex",
+                                alignContent: "center",
+                                alignItems: "center",
+                                justifyContent: "space-evenly",
+                                margin: "0.8em 1em",
+                            }}>
+                            <Checkbox
+                                variant="outlined"
+                                sx={{ marginRight: 2 }}
+                                checked={item.checked ? item.checked : false}
+                                onChange={() => handleChecked(index)}
+                            />
+                            <Typography flex={1}>
+                                {item.quantity} x {item.name}
+                            </Typography>
+                            <QuantityEdit item={item} />
+                            <Typography level="body-lg" ml={2}>
+                                {item.price}
+                            </Typography>
+                        </div>
                         <Divider />
                     </div>
                 );
             })}
-            <AspectRatio ratio="12/4" sx={{ backgroundColor: "blue" }}>
-                <Typography level="h3" fontSize={"1.5rem"}>
-                    Total = {total} €
-                </Typography>
-            </AspectRatio>
         </div>
     );
 };
 
-export default CuentaPage;
+export default Cuenta;

@@ -13,7 +13,7 @@ import {
 } from "@mui/joy";
 import { Phone, ShoppingBasket } from "@mui/icons-material";
 
-const CuentaPage = lazy(() => import("../pages/CuentaPage.tsx"));
+const Cuenta = lazy(() => import("../Components/Cuenta.tsx"));
 
 const Header = () => {
     const [isDrawerOpen, setIsDrawerOpen] = useState(false);
@@ -90,7 +90,7 @@ const Header = () => {
                         <ShoppingBasket
                             sx={{
                                 color: "#fff",
-                                border: "2px solid #fff",
+                                border: "2px solid #2C1F16",
                                 borderRadius: "50%",
                                 boxShadow: "0 0 10px rgba(0, 0, 0, 0.5)",
                             }}
@@ -102,7 +102,7 @@ const Header = () => {
                     color="warning"
                     open={isDrawerOpen}
                     onClose={() => setIsDrawerOpen(false)}
-                    size="sm"
+                    size="md"
                     sx={{
                         "& .MuiDrawer-paper": {
                             // width: "100%",
@@ -112,7 +112,7 @@ const Header = () => {
                     }}>
                     <ModalClose />
                     {cartItems.length > 0 ? (
-                        <CuentaPage />
+                        <Cuenta />
                     ) : (
                         <>
                             <Card
@@ -190,7 +190,8 @@ const Header = () => {
                     component="a"
                     href="tel:962121602"
                     variant="outlined"
-                    startDecorator={<Phone />}>
+                    color="warning"
+                    startDecorator={<Phone sx={{ color: "#2C1F16" }} />}>
                     <Typography>LLámanos!</Typography>
                 </Button>
             </Box>
