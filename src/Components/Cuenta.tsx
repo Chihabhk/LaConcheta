@@ -73,9 +73,15 @@ const QuantityEdit = ({ item }) => {
 
 const Cuenta = () => {
     useDocumentTitle("LaConcheta - Cuenta");
+    const dispatch = useDispatch();
     const { cartItems } = useSelector((state: State) => state.menu);
     const total = calculateTotal(cartItems);
-    const handleChecked = (index: number) => {};
+
+    const handleChecked = (index: number) => {
+        const newItems = [...cartItems];
+        newItems[index].checked = !newItems[index].checked;
+        dispatch(addItemToCart(newItems[index]));
+    };
     return (
         <div
             style={{
@@ -185,7 +191,11 @@ const Cuenta = () => {
                                 {item.quantity} x {item.name}
                             </Typography>
                             <QuantityEdit item={item} />
-                            <Typography level="body-lg" ml={2}>
+                            <Typography
+                                level="body-lg"
+                                textAlign={"right"}
+                                ml={2}
+                                minWidth={30}>
                                 {item.price}
                             </Typography>
                         </div>
