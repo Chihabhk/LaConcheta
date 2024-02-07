@@ -1,17 +1,9 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useDocumentTitle } from "../hooks/useDocumentTitle";
-import {
-    AspectRatio,
-    IconButton,
-    Divider,
-    Typography,
-    Checkbox,
-    Chip,
-} from "@mui/joy";
+import { IconButton, Divider, Typography, Checkbox, Chip } from "@mui/joy";
 import { Add, Receipt, Remove } from "@mui/icons-material";
 import { addItemToCart, removeItemFromCart } from "../features/menuSlice";
-// import ItemCard from "../Components/ItemCard";
 
 interface Item {
     id: number;
