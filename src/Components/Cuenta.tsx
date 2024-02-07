@@ -1,8 +1,19 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useDocumentTitle } from "../hooks/useDocumentTitle";
-import { IconButton, Divider, Typography, Checkbox, Chip } from "@mui/joy";
-import { Add, Receipt, Remove } from "@mui/icons-material";
+import {
+    IconButton,
+    Divider,
+    Typography,
+    Checkbox,
+    Chip,
+    Accordion,
+    AccordionDetails,
+    AccordionSummary,
+    AccordionGroup,
+    accordionClasses,
+} from "@mui/joy";
+import { Add, PriorityHigh, Receipt, Remove } from "@mui/icons-material";
 import { addItemToCart, removeItemFromCart } from "../features/menuSlice";
 
 interface Item {
@@ -99,9 +110,60 @@ const Cuenta = () => {
             </div>
             <Divider sx={{ "--Divider-childPosition": "80%" }}>
                 <Chip size="lg">
-                    Subtotal: {total} {" €"}
+                    Total: {total} {" €"}
                 </Chip>
             </Divider>
+            <AccordionGroup
+                size="md"
+                transition="0.2s ease"
+                sx={{
+                    [`& .${accordionClasses.root}`]: {
+                        marginTop: "0.5rem",
+                        transition: "0.2s ease",
+                        '& button:not([aria-expanded="true"])': {
+                            transition: "0.2s ease",
+                            paddingBottom: "0.625rem",
+                        },
+                        "& button:hover": {
+                            background: "transparent",
+                        },
+                    },
+                    [`& .${accordionClasses.root}.${accordionClasses.expanded}`]:
+                        {
+                            bgcolor: "background.level1",
+                            borderRadius: "md",
+                            borderBottom: "1px solid",
+                            borderColor: "background.level2",
+                            boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
+                        },
+                }}>
+                <Accordion sx={{ m: 1 }} defaultExpanded>
+                    <AccordionSummary color="danger">
+                        ¡Importante lectura!
+                    </AccordionSummary>
+                    <AccordionDetails>
+                        <Typography
+                            level="body-sm"
+                            sx={{
+                                textAlign: "justify",
+                                fontSize: 13,
+                            }}
+                            startDecorator={
+                                <PriorityHigh
+                                    sx={{ color: "#f44336", fontSize: 30 }}
+                                />
+                            }>
+                            El total mostrado en su carrito es estimado y puede
+                            variar según muchos factores. El total definitivo y
+                            con validez será proporcionado por su camarero con
+                            la cuenta al finalizar su servicio Agradecemos su
+                            comprensión y estamos a su disposición para aclarar
+                            cualquier duda que pueda surgir.
+                        </Typography>
+                    </AccordionDetails>
+                    <Divider />
+                </Accordion>
+            </AccordionGroup>
             {cartItems.map((item: Item, index: number) => {
                 return (
                     <div key={index}>
