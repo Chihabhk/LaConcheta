@@ -46,7 +46,7 @@ const QuantityEdit = ({ item }) => {
         <div
             style={{
                 display: "flex",
-                gap: 5,
+                gap: 4,
                 flexDirection: "row",
                 alignContent: "center",
                 alignItems: "center",
@@ -184,7 +184,7 @@ const Cuenta = () => {
                     display: "flex",
                     alignContent: "center",
                     alignItems: "center",
-                    justifyContent: "space-evenly",
+                    justifyContent: "space-between",
                     margin: "0.8em 1em",
                 }}>
                 <Checkbox
@@ -228,18 +228,21 @@ const Cuenta = () => {
                                 display: "flex",
                                 alignContent: "center",
                                 alignItems: "center",
-                                justifyContent: "space-evenly",
+                                justifyContent: "space-between",
                                 margin: "0.8em 1em",
                             }}>
                             <Checkbox
                                 color="warning"
+                                label={
+                                    <Typography flex={1}>
+                                        {item.quantity} x {item.name}
+                                    </Typography>
+                                }
                                 sx={{ marginRight: 2 }}
                                 checked={selectedItems.includes(item)}
                                 onChange={() => handleItemChecked(item)}
                             />
-                            <Typography flex={1}>
-                                {item.quantity} x {item.name}
-                            </Typography>
+
                             <QuantityEdit item={item} />
                             <Typography
                                 level="body-lg"
