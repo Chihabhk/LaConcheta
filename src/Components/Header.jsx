@@ -1,4 +1,4 @@
-import { lazy, useEffect, useState } from "react";
+import { lazy, useState } from "react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import {
@@ -13,7 +13,7 @@ import {
 } from "@mui/joy";
 import { Phone, ShoppingBasket } from "@mui/icons-material";
 
-const Cuenta = lazy(() => import("../Components/Cuenta.tsx"));
+import Cuenta from "../Components/Cuenta.tsx";
 
 const Header = () => {
     const [isDrawerOpen, setIsDrawerOpen] = useState(false);
@@ -25,24 +25,7 @@ const Header = () => {
     const handleCartIconClick = () => {
         setIsDrawerOpen(true);
     };
-    const [ocultarHeader, setOcultarHeader] = useState(false);
-    useEffect(() => {
-        let lastScrollY = window.scrollY;
-        const handleScroll = () => {
-            const currentScrollY = window.scrollY;
-            const scrollDifference = currentScrollY - lastScrollY;
-            if (scrollDifference > 50) {
-                setOcultarHeader(true);
-            } else if (scrollDifference < -10) {
-                setOcultarHeader(false);
-            }
-
-            lastScrollY = currentScrollY;
-        };
-
-        window.addEventListener("scroll", handleScroll);
-        return () => window.removeEventListener("scroll", handleScroll);
-    });
+    const [ocultarHeader] = useState(false);
 
     return (
         <>
@@ -102,14 +85,7 @@ const Header = () => {
                     color="warning"
                     open={isDrawerOpen}
                     onClose={() => setIsDrawerOpen(false)}
-                    size="md"
-                    sx={{
-                        "& .MuiDrawer-paper": {
-                            // width: "100%",
-                            // maxWidth: "400px",
-                            backgroundColor: "rgba(0,0,0,0.7)",
-                        },
-                    }}>
+                    size="md">
                     <ModalClose />
                     {cartItems.length > 0 ? (
                         <Cuenta />

@@ -1,6 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useDocumentTitle } from "../hooks/useDocumentTitle";
 import {
     IconButton,
     Divider,
@@ -12,6 +11,7 @@ import {
     AccordionSummary,
     AccordionGroup,
     accordionClasses,
+    Button,
 } from "@mui/joy";
 import { Add, PriorityHigh, Receipt, Remove } from "@mui/icons-material";
 import { addItemToCart, removeItemFromCart } from "../features/menuSlice";
@@ -72,14 +72,20 @@ const QuantityEdit = ({ item }) => {
 };
 
 const Cuenta = () => {
-    useDocumentTitle("LaConcheta - Cuenta");
     const dispatch = useDispatch();
     const { cartItems } = useSelector((state: State) => state.menu);
     const total = calculateTotal(cartItems);
 
+    const [disabled, setDisabled] = useState(true);
+
     const handleChecked = (index: number) => {
         const newItems = [...cartItems];
         newItems[index].checked = !newItems[index].checked;
+        dispatch(addItemToCart(newItems[index]));
+    };
+    const checkAllCart = (index: number) => {
+        const newItems = [...cartItems];
+        newItems[index].checked = true;
         dispatch(addItemToCart(newItems[index]));
     };
     return (
@@ -106,10 +112,7 @@ const Cuenta = () => {
                         alignSelf: "center",
                         fontWeight: 600,
                         color: "primary",
-                    }}
-                    // fontSize="1.5rem"
-                    // textAlign="center"
-                >
+                    }}>
                     Cuenta
                 </Typography>
                 <Receipt sx={{ fontSize: 50 }} />
@@ -156,20 +159,37 @@ const Cuenta = () => {
                             }}
                             startDecorator={
                                 <PriorityHigh
-                                    sx={{ color: "#f44336", fontSize: 30 }}
+                                    sx={{ color: "#f44336", fontSize: 25 }}
                                 />
                             }>
-                            El total mostrado en su carrito es estimado y puede
-                            variar según muchos factores. El total definitivo y
-                            con validez será proporcionado por su camarero con
-                            la cuenta al finalizar su servicio Agradecemos su
-                            comprensión y estamos a su disposición para aclarar
-                            cualquier duda que pueda surgir.
+                            El total en su carrito es estimado y puede variar;
+                            el monto final lo proporcionará su camarero al
+                            finalizar el servicio. Agradecemos su comprensión y
+                            estamos disponibles para resolver dudas.
                         </Typography>
                     </AccordionDetails>
                     <Divider />
                 </Accordion>
             </AccordionGroup>
+            <div
+                style={{
+                    display: "flex",
+                    alignContent: "center",
+                    alignItems: "center",
+                    justifyContent: "space-evenly",
+                    margin: "0.8em 1em",
+                }}>
+                <Checkbox
+                    onClick={() => {
+                        setDisabled((state) => !state);
+                    }}
+                />
+                <Typography>Seleccionar todo</Typography>
+
+                <Button variant="soft" color="danger" disabled={disabled}>
+                    Eliminar
+                </Button>
+            </div>
             {cartItems.map((item: Item, index: number) => {
                 return (
                     <div key={index}>

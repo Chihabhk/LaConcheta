@@ -46,7 +46,14 @@ export const menuSlice = createSlice({
                     if (index >= 0) state.cartItems.splice(index, 1);
                 }
             }
-            localStorage.setItem("cartItems", JSON.stringify(state.cartItems));
+            if (state.cartItems.length === 0) {
+                localStorage.removeItem("cartItems");
+            } else {
+                localStorage.setItem(
+                    "cartItems",
+                    JSON.stringify(state.cartItems)
+                );
+            }
         },
     },
     extraReducers: (builder) => {

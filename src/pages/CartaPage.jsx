@@ -56,7 +56,7 @@ function CartaPage() {
                         sx={{
                             width: "100%",
                             textAlign: "center",
-
+                            boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
                             borderRadius: "8px",
                             "&.Mui-selected": {
                                 fontWeight: "bold",

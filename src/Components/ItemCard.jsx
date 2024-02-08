@@ -23,6 +23,7 @@ const ItemCard = ({ item }) => {
             sx={{
                 cursor: "pointer",
                 marginBottom: 1,
+                boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
             }}>
             <CardContent>
                 <Typography level="h3">{item.name}</Typography>
