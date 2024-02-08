@@ -122,10 +122,10 @@ const Cuenta = () => {
                     }}>
                     Cuenta
                 </Typography>
-                <Receipt sx={{ fontSize: 50 }} />
+                <Receipt color="warning" sx={{ fontSize: 50 }} />
             </div>
             <Divider sx={{ "--Divider-childPosition": "80%" }}>
-                <Chip size="lg">
+                <Chip color="warning" size="lg">
                     Total: {total} {" €"}
                 </Chip>
             </Divider>
@@ -154,7 +154,7 @@ const Cuenta = () => {
                         },
                 }}>
                 <Accordion sx={{ m: 1 }} defaultExpanded>
-                    <AccordionSummary color="danger">
+                    <AccordionSummary color="warning">
                         ¡Importante lectura!
                     </AccordionSummary>
                     <AccordionDetails>
@@ -166,11 +166,13 @@ const Cuenta = () => {
                             }}
                             startDecorator={
                                 <PriorityHigh
-                                    sx={{ color: "#f44336", fontSize: 25 }}
+                                    color="warning"
+                                    sx={{ fontSize: 25 }}
                                 />
                             }>
-                            El total del carrito es un estimado; recibirá el
-                            monto final al concluir su pedido. Agradecemos su
+                            El total del carrito es orientativo; el monto
+                            definitivo le será presentado por el camarero o el
+                            encargado al solicitar la cuenta. Agradecemos su
                             comprensión y estamos a su servicio para dudas.
                         </Typography>
                     </AccordionDetails>
@@ -187,6 +189,7 @@ const Cuenta = () => {
                 }}>
                 <Checkbox
                     label="Seleccionar todo"
+                    color="warning"
                     checked={cartItems.every((item) =>
                         selectedItems.includes(item)
                     )}
@@ -203,8 +206,8 @@ const Cuenta = () => {
                 />
 
                 <Button
-                    variant="soft"
-                    color="danger"
+                    variant="solid"
+                    color="warning"
                     onClick={() => {
                         setModalOpen(true);
                     }}
@@ -229,7 +232,7 @@ const Cuenta = () => {
                                 margin: "0.8em 1em",
                             }}>
                             <Checkbox
-                                variant="outlined"
+                                color="warning"
                                 sx={{ marginRight: 2 }}
                                 checked={selectedItems.includes(item)}
                                 onChange={() => handleItemChecked(item)}
