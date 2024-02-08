@@ -30,7 +30,7 @@ function CartaPage() {
             onChange={handleTabChange}
             value={value}
             sx={{
-                position: "relative",
+                // position: "relative",
                 backgroundColor: "transparent",
                 marginLeft: "8rem",
                 marginRight: "0.8rem",
@@ -43,8 +43,9 @@ function CartaPage() {
                     overflow: "hidden",
                     "&::-webkit-scrollbar": { display: "none" },
                     width: "7rem",
+                    ml: 1,
                     p: "0",
-                    gap: "0.5rem",
+                    gap: "0.7rem",
                     backdropFilter: "blur(20px)",
                     maxHeight: "100%",
                     alignItems: "center",
@@ -58,6 +59,7 @@ function CartaPage() {
                             textAlign: "center",
                             boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
                             borderRadius: "8px",
+                            m: "0 ",
                             "&.Mui-selected": {
                                 fontWeight: "bold",
                             },
@@ -67,7 +69,10 @@ function CartaPage() {
                 ))}
             </TabList>
             {Object.entries(menuCategories).map(([key, value], index) => (
-                <TabPanel key={key} value={index} sx={{ m: 0, p: 0 }}>
+                <TabPanel
+                    key={key}
+                    value={index}
+                    sx={{ m: 0, p: 0, width: "100%" }}>
                     {value.data.map((item, key) => (
                         <ItemCard item={item} key={key} />
                     ))}

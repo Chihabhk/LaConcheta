@@ -26,23 +26,30 @@ const ItemCard = ({ item }) => {
                 boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
             }}>
             <CardContent>
-                <Typography level="h3">{item.name}</Typography>
+                <Typography level="h2" fontSize={18}>
+                    {item.name}
+                </Typography>
                 <Typography level="body-sm">{item.description}</Typography>
             </CardContent>
             <CardContent
                 orientation="horizontal"
-                sx={{ alignContent: "center", alignItems: "center" }}>
-                <Typography level="body-md" flex="1">
+                sx={{
+                    alignContent: "center",
+                    alignItems: "center",
+                    display: "flex",
+                    justifyContent: "space-around",
+                }}>
+                <Typography level="body-md">
                     Precio:
                     {" " + item.price}
                 </Typography>
-                <CardActions>
+                <CardActions sx={{ justifyContent: "flex-end" }}>
                     <IconButton
                         aria-label="Delete from cart"
                         onClick={() => dispatch(removeItemFromCart(item))}>
                         <Remove />
                     </IconButton>
-                    <Typography level="body-2" color="danger">
+                    <Typography level="body-2" color="warning">
                         {quantity}
                     </Typography>
                     <IconButton
