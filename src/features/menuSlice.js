@@ -55,6 +55,14 @@ export const menuSlice = createSlice({
                 );
             }
         },
+        removeAllFromCart: (state, action) => {
+            const itemsToRemove = action.payload;
+            state.cartItems = state.cartItems.filter(
+                (cartItem) =>
+                    !itemsToRemove.find((item) => item.name === cartItem.name)
+            );
+            localStorage.setItem("cartItems", JSON.stringify(state.cartItems));
+        },
     },
     extraReducers: (builder) => {
         builder
@@ -67,6 +75,7 @@ export const menuSlice = createSlice({
     },
 });
 
-export const { addItemToCart, removeItemFromCart } = menuSlice.actions;
+export const { addItemToCart, removeItemFromCart, removeAllFromCart } =
+    menuSlice.actions;
 
 export default menuSlice.reducer;

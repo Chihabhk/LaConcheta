@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
     IconButton,
@@ -14,16 +14,15 @@ import {
     Button,
 } from "@mui/joy";
 import { Add, PriorityHigh, Receipt, Remove } from "@mui/icons-material";
+import DeleteConfirmationModal from "./DeleteConfirmationModal.tsx";
 import { addItemToCart, removeItemFromCart } from "../features/menuSlice";
 
 interface Item {
-    id: number;
     name: string;
     description: string;
     price: string;
     quantity: number;
     url: string;
-    checked: boolean;
 }
 
 interface State {
@@ -72,22 +71,30 @@ const QuantityEdit = ({ item }) => {
 };
 
 const Cuenta = () => {
-    const dispatch = useDispatch();
     const { cartItems } = useSelector((state: State) => state.menu);
     const total = calculateTotal(cartItems);
+    const [selectedItems, setSelectedItems] = useState<Item[]>([]);
+    const [btnDisabled, setBtnDisabled] = useState(true);
+    const [modalOpen, setModalOpen] = useState(false);
 
-    const [disabled, setDisabled] = useState(true);
+    useEffect(() => {
+        selectedItems.length > 0 ? setBtnDisabled(false) : setBtnDisabled(true);
+    }, [selectedItems]);
 
-    const handleChecked = (index: number) => {
-        const newItems = [...cartItems];
-        newItems[index].checked = !newItems[index].checked;
-        dispatch(addItemToCart(newItems[index]));
+    const handleItemChecked = (item: Item) => {
+        if (
+            selectedItems.some(
+                (selectedItem) => selectedItem.name === item.name
+            )
+        ) {
+            setSelectedItems((prevItems) =>
+                prevItems.filter((prevItem) => prevItem.name !== item.name)
+            );
+        } else {
+            setSelectedItems((prevItems) => [...prevItems, item]);
+        }
     };
-    const checkAllCart = (index: number) => {
-        const newItems = [...cartItems];
-        newItems[index].checked = true;
-        dispatch(addItemToCart(newItems[index]));
-    };
+
     return (
         <div
             style={{
@@ -162,10 +169,9 @@ const Cuenta = () => {
                                     sx={{ color: "#f44336", fontSize: 25 }}
                                 />
                             }>
-                            El total en su carrito es estimado y puede variar;
-                            el monto final lo proporcionará su camarero al
-                            finalizar el servicio. Agradecemos su comprensión y
-                            estamos disponibles para resolver dudas.
+                            El total del carrito es un estimado; recibirá el
+                            monto final al concluir su pedido. Agradecemos su
+                            comprensión y estamos a su servicio para dudas.
                         </Typography>
                     </AccordionDetails>
                     <Divider />
@@ -180,15 +186,36 @@ const Cuenta = () => {
                     margin: "0.8em 1em",
                 }}>
                 <Checkbox
-                    onClick={() => {
-                        setDisabled((state) => !state);
+                    label="Seleccionar todo"
+                    checked={cartItems.every((item) =>
+                        selectedItems.includes(item)
+                    )}
+                    onChange={() => {
+                        const cart = [...cartItems];
+                        if (
+                            cart.every((item) => selectedItems.includes(item))
+                        ) {
+                            setSelectedItems([]);
+                        } else {
+                            setSelectedItems(cart);
+                        }
                     }}
                 />
-                <Typography>Seleccionar todo</Typography>
 
-                <Button variant="soft" color="danger" disabled={disabled}>
+                <Button
+                    variant="soft"
+                    color="danger"
+                    onClick={() => {
+                        setModalOpen(true);
+                    }}
+                    disabled={btnDisabled}>
                     Eliminar
                 </Button>
+                <DeleteConfirmationModal
+                    open={modalOpen}
+                    setOpen={setModalOpen}
+                    items={selectedItems}
+                />
             </div>
             {cartItems.map((item: Item, index: number) => {
                 return (
@@ -204,8 +231,8 @@ const Cuenta = () => {
                             <Checkbox
                                 variant="outlined"
                                 sx={{ marginRight: 2 }}
-                                checked={item.checked ? item.checked : false}
-                                onChange={() => handleChecked(index)}
+                                checked={selectedItems.includes(item)}
+                                onChange={() => handleItemChecked(item)}
                             />
                             <Typography flex={1}>
                                 {item.quantity} x {item.name}
