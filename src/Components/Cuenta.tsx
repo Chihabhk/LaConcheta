@@ -71,11 +71,11 @@ const QuantityEdit = ({ item }) => {
 };
 
 const Cuenta = () => {
+    const [modalOpen, setModalOpen] = useState(false);
+    const [btnDisabled, setBtnDisabled] = useState(true);
+    const [selectedItems, setSelectedItems] = useState<Item[]>([]);
     const { cartItems } = useSelector((state: State) => state.menu);
     const total = calculateTotal(cartItems);
-    const [selectedItems, setSelectedItems] = useState<Item[]>([]);
-    const [btnDisabled, setBtnDisabled] = useState(true);
-    const [modalOpen, setModalOpen] = useState(false);
 
     useEffect(() => {
         selectedItems.length > 0 ? setBtnDisabled(false) : setBtnDisabled(true);
