@@ -6,6 +6,7 @@ import {
     DialogContent,
     DialogTitle,
     Divider,
+    List,
     Modal,
     ModalDialog,
     Typography,
@@ -19,19 +20,21 @@ const DeleteConfirmationModal = ({ open, setOpen, items }) => {
         <Modal open={open}>
             <ModalDialog variant="outlined" role="alertdialog">
                 <DialogTitle>
-                    <WarningRounded />
+                    <WarningRounded color="warning" />
                     Confirmación
                 </DialogTitle>
                 <Divider />
-                <DialogContent>
+                <DialogContent sx={{ overflow: "visible" }}>
                     ¿Confirmas que deseas eliminar estos artículos seleccionados
                     del carrito?
                 </DialogContent>
-                {items.map((item) => (
-                    <Typography key={item.name} fontSize={12}>
-                        {item.quantity} x {item.name}
-                    </Typography>
-                ))}
+                <List sx={{ overflow: "auto" }}>
+                    {items.map((item) => (
+                        <Typography key={item.name} fontSize={14}>
+                            {item.quantity} x {item.name}
+                        </Typography>
+                    ))}
+                </List>
 
                 <DialogActions>
                     <Button

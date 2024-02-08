@@ -114,7 +114,7 @@
                 "name": "Zamburiña",
                 "description": "Zamburiña al horno",
                 "Allergies": "",
-                "price": "3€/unidad"
+                "price": "3€/ud."
             },
             {
                 "name": "Fritura de pescado",
@@ -124,7 +124,7 @@
             {
                 "name": "Gambas rojas",
                 "Allergies": "",
-                "price": "2€/unidad"
+                "price": "2€/ud."
             },
             {
                 "name": "Morcilla de burgos",
@@ -141,12 +141,12 @@
             {
                 "name": "Croquetas de jamon",
                 "Allergies": "",
-                "price": "3€/unidad"
+                "price": "3€/ud."
             },
             {
                 "name": "Buñuelo de bacalao",
                 "Allergies": "",
-                "price": "3€/unidad"
+                "price": "3€/ud."
             },
             {
                 "name": "Surtido de croquetas",

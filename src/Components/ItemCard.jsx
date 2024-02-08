@@ -37,7 +37,7 @@ const ItemCard = ({ item }) => {
                     alignContent: "center",
                     alignItems: "center",
                     display: "flex",
-                    justifyContent: "space-around",
+                    justifyContent: "space-between",
                 }}>
                 <Typography level="body-md">
                     Precio:

@@ -46,6 +46,7 @@ const QuantityEdit = ({ item }) => {
         <div
             style={{
                 display: "flex",
+                alignSelf: "flex-end",
                 gap: 4,
                 flexDirection: "row",
                 alignContent: "center",
@@ -75,11 +76,16 @@ const Cuenta = () => {
     const [btnDisabled, setBtnDisabled] = useState(true);
     const [selectedItems, setSelectedItems] = useState<Item[]>([]);
     const { cartItems } = useSelector((state: State) => state.menu);
-    const total = calculateTotal(cartItems);
+    const [total, setTotal] = useState(
+        calculateTotal(selectedItems.length > 0 ? selectedItems : cartItems)
+    );
 
     useEffect(() => {
         selectedItems.length > 0 ? setBtnDisabled(false) : setBtnDisabled(true);
-    }, [selectedItems]);
+        setTotal(
+            calculateTotal(selectedItems.length > 0 ? selectedItems : cartItems)
+        );
+    }, [selectedItems, selectedItems.length, cartItems]);
 
     const handleItemChecked = (item: Item) => {
         if (
@@ -242,7 +248,6 @@ const Cuenta = () => {
                                 checked={selectedItems.includes(item)}
                                 onChange={() => handleItemChecked(item)}
                             />
-
                             <QuantityEdit item={item} />
                             <Typography
                                 level="body-lg"
