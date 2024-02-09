@@ -1,2 +1,0 @@
-"use strict";(self.webpackChunklaconcheta=self.webpackChunklaconcheta||[]).push([[648],{2648:(e,a,l)=>{l.r(a),l.d(a,{default:()=>t});var n=l(9060),c=l(2496);const s=(0,n.lazy)((()=>Promise.all([l.e(796),l.e(212),l.e(606),l.e(600),l.e(412)]).then(l.bind(l,4412)))),t=e=>{let{children:a}=e;return(0,c.jsxs)(c.Fragment,{children:[(0,c.jsx)(s,{}),a]})}}}]);
-//# sourceMappingURL=648.08445d57.chunk.js.map
