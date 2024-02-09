@@ -72,7 +72,7 @@ function CartaPage() {
                 <TabPanel
                     key={key}
                     value={index}
-                    sx={{ ml: "0.8em", mr: "0.5rem", p: 0, width: "100%" }}>
+                    sx={{ ml: "0.8em", mr: "0.3rem", p: 0, width: "100%" }}>
                     {value.data.map((item, key) => (
                         <ItemCard item={item} key={key} />
                     ))}
