@@ -71,34 +71,60 @@ const QuantityEdit = ({ item }) => {
     );
 };
 
+function itemsNeedUpdate(currentItems: Item[], newItems: Item[]) {
+    if (currentItems.length !== newItems.length) return true;
+
+    return currentItems.some((item, index) => {
+        return (
+            item.name !== newItems[index].name ||
+            item.quantity !== newItems[index].quantity
+        );
+    });
+}
+
 const Cuenta = () => {
     const [modalOpen, setModalOpen] = useState(false);
     const [btnDisabled, setBtnDisabled] = useState(true);
     const [selectedItems, setSelectedItems] = useState<Item[]>([]);
     const { cartItems } = useSelector((state: State) => state.menu);
-    const [total, setTotal] = useState(
-        calculateTotal(selectedItems.length > 0 ? selectedItems : cartItems)
+
+    const total = calculateTotal(
+        selectedItems.length > 0 ? selectedItems : cartItems
     );
 
     useEffect(() => {
-        selectedItems.length > 0 ? setBtnDisabled(false) : setBtnDisabled(true);
-        setTotal(
-            calculateTotal(selectedItems.length > 0 ? selectedItems : cartItems)
-        );
-    }, [selectedItems, selectedItems.length, cartItems]);
+        const updatedItems = selectedItems.map((selectedItem) => {
+            const cartItem = cartItems.find(
+                (item) => item.name === selectedItem.name
+            );
+            if (!cartItem) return selectedItem;
+            return {
+                ...selectedItem,
+                quantity: cartItem.quantity,
+            };
+        });
+
+        setBtnDisabled(updatedItems.length === 0);
+        if (itemsNeedUpdate(selectedItems, updatedItems)) {
+            setSelectedItems(updatedItems);
+        }
+    }, [cartItems, selectedItems]);
 
     const handleItemChecked = (item: Item) => {
-        if (
-            selectedItems.some(
+        setSelectedItems((prevItems) => {
+            const itemExists = prevItems.some(
                 (selectedItem) => selectedItem.name === item.name
-            )
-        ) {
-            setSelectedItems((prevItems) =>
-                prevItems.filter((prevItem) => prevItem.name !== item.name)
             );
-        } else {
-            setSelectedItems((prevItems) => [...prevItems, item]);
-        }
+            if (itemExists) {
+                // Filtrar fuera el item si ya existe
+                return prevItems.filter(
+                    (prevItem) => prevItem.name !== item.name
+                );
+            } else {
+                // Agregar el nuevo item a la lista
+                return [...prevItems, item];
+            }
+        });
     };
 
     return (
@@ -245,7 +271,10 @@ const Cuenta = () => {
                                     </Typography>
                                 }
                                 sx={{ marginRight: 2 }}
-                                checked={selectedItems.includes(item)}
+                                checked={selectedItems.some(
+                                    (selectedItem) =>
+                                        selectedItem.name === item.name
+                                )}
                                 onChange={() => handleItemChecked(item)}
                             />
                             <QuantityEdit item={item} />
