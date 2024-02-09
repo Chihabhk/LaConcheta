@@ -30,41 +30,41 @@ function CartaPage() {
             onChange={handleTabChange}
             value={value}
             sx={{
-                // position: "relative",
                 backgroundColor: "transparent",
                 marginLeft: "8rem",
                 marginRight: "0.8rem",
-                height: "100%",
             }}>
             <TabList
                 sx={{
                     position: "fixed",
-                    left: "0",
-                    overflow: "hidden",
+                    top: "8rem",
                     "&::-webkit-scrollbar": { display: "none" },
                     width: "7rem",
-                    ml: 1,
-                    p: "0",
-                    gap: "0.7rem",
-                    backdropFilter: "blur(20px)",
-                    maxHeight: "100%",
-                    alignItems: "center",
-                    justifyContent: "center",
+                    ml: "-7.2rem",
+                    gap: "0.8rem",
+                    overflowY: "auto",
+                    scrollbarWidth: "thin",
+                    "&::-webkit-scrollbar-thumb": {
+                        backgroundColor: "warning", // Usa el color warning aquí
+                    },
+                    maxHeight: "calc(100vh - 9.5rem )",
+                    boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
                 }}>
                 {Object.entries(menuCategories).map(([key], index) => (
                     <Tab
                         key={index}
                         sx={{
                             width: "100%",
+                            minHeight: "3rem",
                             textAlign: "center",
+                            backgroundColor: "#f5f5f5",
                             boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
                             borderRadius: "8px",
-                            m: "0 ",
-                            "&.Mui-selected": {
-                                fontWeight: "bold",
-                            },
+                            p: "2em 10px",
                         }}>
-                        <Typography level="body-lg">{key}</Typography>
+                        <Typography level="h4" color="warning">
+                            {key}
+                        </Typography>
                     </Tab>
                 ))}
             </TabList>
@@ -72,7 +72,7 @@ function CartaPage() {
                 <TabPanel
                     key={key}
                     value={index}
-                    sx={{ m: 0, p: 0, width: "100%" }}>
+                    sx={{ ml: "0.8em", mr: "0.5rem", p: 0, width: "100%" }}>
                     {value.data.map((item, key) => (
                         <ItemCard item={item} key={key} />
                     ))}

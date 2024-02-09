@@ -78,13 +78,14 @@ const Cuenta = () => {
                         selectedItems.includes(item)
                     )}
                     onChange={() => {
-                        const cart = [...cartItems];
                         if (
-                            cart.every((item) => selectedItems.includes(item))
+                            cartItems.every((item) =>
+                                selectedItems.includes(item)
+                            )
                         ) {
                             setSelectedItems([]);
                         } else {
-                            setSelectedItems(cart);
+                            setSelectedItems(cartItems);
                         }
                     }}
                 />
@@ -118,25 +119,31 @@ const Cuenta = () => {
                             <Checkbox
                                 color="warning"
                                 label={
-                                    <Typography flex={1}>
+                                    <Typography>
                                         {item.quantity} x {item.name}
                                     </Typography>
                                 }
-                                sx={{ marginRight: 2 }}
+                                sx={{
+                                    alignContent: "center",
+                                    alignSelf: "center",
+                                    marginRight: 2,
+                                }}
                                 checked={selectedItems.some(
                                     (selectedItem) =>
                                         selectedItem.name === item.name
                                 )}
                                 onChange={() => handleItemChecked(item)}
                             />
-                            <QuantityEdit {...item} />
-                            <Typography
-                                level="body-lg"
-                                textAlign={"right"}
-                                ml={2}
-                                minWidth={30}>
-                                {item.price}
-                            </Typography>
+                            <div
+                                style={{
+                                    display: "flex",
+                                    alignContent: "center",
+                                }}>
+                                <QuantityEdit {...item} />
+                                <Typography level="body-lg" ml={2}>
+                                    {item.price}
+                                </Typography>
+                            </div>
                         </div>
                         <Divider />
                     </div>

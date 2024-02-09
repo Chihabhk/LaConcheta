@@ -26,7 +26,7 @@ const ItemCard = ({ item }) => {
                 boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
             }}>
             <CardContent>
-                <Typography level="h2" fontSize={18}>
+                <Typography level="h2" color="warning" fontSize={18}>
                     {item.name}
                 </Typography>
                 <Typography level="body-sm">{item.description}</Typography>
@@ -36,14 +36,19 @@ const ItemCard = ({ item }) => {
                 sx={{
                     alignContent: "center",
                     alignItems: "center",
-                    display: "flex",
                     justifyContent: "space-between",
                 }}>
-                <Typography level="body-md">
+                <Typography level="body-md" color="warning">
                     Precio:
-                    {" " + item.price}
+                    <Typography level="body-md">{" " + item.price}</Typography>
                 </Typography>
-                <CardActions sx={{ justifyContent: "flex-end" }}>
+                <CardActions
+                    sx={{
+                        p: 0,
+                        justifyContent: "flex-end",
+                        alignContent: "center",
+                        alignItems: "center",
+                    }}>
                     <IconButton
                         aria-label="Delete from cart"
                         onClick={() => dispatch(removeItemFromCart(item))}>

@@ -13,7 +13,6 @@ const QuantityEdit = (props: Item) => {
         <div
             style={{
                 display: "flex",
-                alignSelf: "flex-end",
                 gap: 4,
                 flexDirection: "row",
                 alignContent: "center",
@@ -21,6 +20,7 @@ const QuantityEdit = (props: Item) => {
             }}>
             <IconButton
                 variant="soft"
+                color="warning"
                 onClick={() => {
                     dispatch(removeItemFromCart(item));
                 }}>
@@ -31,6 +31,7 @@ const QuantityEdit = (props: Item) => {
             </Typography>
             <IconButton
                 variant="soft"
+                color="warning"
                 onClick={() => dispatch(addItemToCart(item))}>
                 <Add />
             </IconButton>
