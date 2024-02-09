@@ -1,6 +1,6 @@
 {
     "Ensaladas": {
-        "url": "/social-media-image.png",
+        "url": "",
         "data": [
             {
                 "name": "Ensalada de la casa",
@@ -29,7 +29,7 @@
         ]
     },
     "Entrantes Fríos": {
-        "url": "https://i.pinimg.com/564x/b7/eb/b4/b7ebb43ba8f8073f59891e25781287d8.jpg",
+        "url": "",
         "data": [
             {
                 "name": "Tabla de jamón ibérico y queso manchego",
@@ -59,7 +59,7 @@
         ]
     },
     "Entrantes Calientes": {
-        "url": "https://www.delfinultracongelados.es/wp-content/uploads/2022/11/plato-de-tellinas-con-limon.jpg",
+        "url": "",
         "data": [
             {
                 "name": "Bravas",
