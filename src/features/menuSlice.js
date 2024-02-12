@@ -1,5 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import menuData from "../db/menu.json";
+import { v4 as uuidv4 } from "uuid";
 
 export const getAllCategories = createAsyncThunk(
     "menu/getAllCategories",
@@ -70,7 +71,19 @@ export const menuSlice = createSlice({
                 state.menuCategories = {}; //! This breaks the useEffect[menuCategories] (infinite loop) to get the categories from the App.js
             })*/
             .addCase(getAllCategories.fulfilled, (state, action) => {
-                state.menuCategories = action.payload;
+                let categories = action.payload;
+                categories = Object.values(categories)
+                    .map((category) => {
+                        let id = uuidv4();
+                        return { ...category, id };
+                    })
+                    .flatMap((category) => {
+                        return (category.items = category.items.map((item) => {
+                            let id = uuidv4();
+                            return { ...item, id };
+                        }));
+                    });
+                state.menuCategories = categories;
             });
     },
 });
