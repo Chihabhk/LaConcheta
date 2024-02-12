@@ -23,6 +23,7 @@ const ItemCard = ({ item }) => {
             sx={{
                 cursor: "pointer",
                 marginBottom: 1,
+                backgroundColor: "#F2E3CA",
                 boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
             }}>
             <CardContent>
@@ -50,14 +51,22 @@ const ItemCard = ({ item }) => {
                         alignItems: "center",
                     }}>
                     <IconButton
+                        variant={quantity > 0 ? "solid" : ""}
+                        color={quantity > 0 ? "warning" : ""}
                         aria-label="Delete from cart"
                         onClick={() => dispatch(removeItemFromCart(item))}>
                         <Remove />
                     </IconButton>
-                    <Typography level="body-2" color="warning">
+                    <Typography
+                        level="body-2"
+                        color="warning"
+                        fontStyle={quantity === 0 ? "italic" : "bold"}
+                        fontSize={16}>
                         {quantity}
                     </Typography>
                     <IconButton
+                        variant={quantity > 0 ? "solid" : ""}
+                        color={quantity > 0 ? "warning" : ""}
                         aria-label="Add to cart"
                         onClick={() => dispatch(addItemToCart(item))}>
                         <Add />

@@ -45,7 +45,7 @@ function CartaPage() {
                     overflowY: "auto",
                     scrollbarWidth: "thin",
                     "&::-webkit-scrollbar-thumb": {
-                        backgroundColor: "warning", // Usa el color warning aquí
+                        backgroundColor: "warning",
                     },
                     maxHeight: "calc(100vh - 9.5rem )",
                     boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
@@ -53,16 +53,24 @@ function CartaPage() {
                 {Object.entries(menuCategories).map(([key], index) => (
                     <Tab
                         key={index}
+                        color="warning"
                         sx={{
                             width: "100%",
                             minHeight: "3rem",
                             textAlign: "center",
-                            backgroundColor: "#f5f5f5",
+                            backgroundColor: "#F2E3CA",
                             boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
                             borderRadius: "8px",
                             p: "2em 10px",
+                            "&.Mui-selected": {
+                                backgroundColor: "#d6b99487",
+                            },
                         }}>
-                        <Typography level="h4" color="warning">
+                        <Typography
+                            level="h4"
+                            sx={{
+                                color: value === index ? "#f5e3c5" : "inherit",
+                            }}>
                             {key}
                         </Typography>
                     </Tab>
