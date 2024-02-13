@@ -12,9 +12,7 @@ import { addItemToCart, removeItemFromCart } from "../features/menuSlice";
 const ItemCard = ({ item }) => {
     const dispatch = useDispatch();
     const { cartItems } = useSelector((state) => state.menu);
-    const itemInCart = cartItems.find(
-        (cartItem) => cartItem.name === item.name
-    );
+    const itemInCart = cartItems.find((cartItem) => cartItem.id === item.id);
     const quantity = itemInCart ? itemInCart.quantity : 0;
     return (
         <Card

@@ -8,12 +8,3 @@ export const calculateTotal = (items: Item[] | Item) => {
         return total + price * item.quantity;
     }, 0);
 };
-
-export const itemsNeedUpdate = (currentItems: Item[], newItems: Item[]) => {
-    return currentItems.some((item, index) => {
-        return (
-            item.name !== newItems[index].name ||
-            item.quantity !== newItems[index].quantity
-        );
-    });
-};

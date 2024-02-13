@@ -14,7 +14,12 @@ import {
 import { WarningRounded } from "@mui/icons-material";
 import { removeAllFromCart } from "../features/menuSlice";
 
-const DeleteConfirmationModal = ({ open, setOpen, items }) => {
+const DeleteConfirmationModal = ({
+    open,
+    setOpen,
+    items,
+    setSelectedItems,
+}) => {
     const dispatch = useDispatch();
     return (
         <Modal open={open}>
@@ -30,7 +35,7 @@ const DeleteConfirmationModal = ({ open, setOpen, items }) => {
                 </DialogContent>
                 <List sx={{ overflow: "auto" }}>
                     {items.map((item) => (
-                        <Typography key={item.name} fontSize={14}>
+                        <Typography key={item.id} fontSize={14}>
                             {item.quantity} x {item.name}
                         </Typography>
                     ))}
@@ -43,6 +48,7 @@ const DeleteConfirmationModal = ({ open, setOpen, items }) => {
                         onClick={() => {
                             setOpen(false);
                             dispatch(removeAllFromCart(items));
+                            setSelectedItems([]);
                         }}>
                         Eliminar
                     </Button>

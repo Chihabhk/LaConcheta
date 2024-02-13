@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { Divider, Typography, Checkbox, Button } from "@mui/joy";
 
-import { calculateTotal, itemsNeedUpdate } from "../utils/utils.ts";
+import { calculateTotal } from "../utils/utils.ts";
 import { Item, State } from "../types.ts";
 import QuantityEdit from "./QuantityEdit.tsx";
 import DeleteConfirmationModal from "./DeleteConfirmationModal.tsx";
@@ -19,37 +19,17 @@ const Cuenta = () => {
     );
 
     useEffect(() => {
-        const updatedItems = selectedItems
-            .map((selectedItem) => {
-                const cartItem = cartItems.find(
-                    (item) => item.name === selectedItem.name
-                );
-                if (!cartItem) return null;
-                return {
-                    ...selectedItem,
-                    quantity: cartItem?.quantity || 0,
-                };
-            })
-            .filter((item) => item !== null);
-
-        setBtnDisabled(updatedItems.length === 0);
-        if (itemsNeedUpdate(selectedItems, updatedItems as Item[])) {
-            setSelectedItems(
-                updatedItems.filter((item) => item !== null) as Item[]
-            );
-        }
+        setBtnDisabled(selectedItems.length === 0);
     }, [cartItems, selectedItems]);
 
     const handleItemChecked = (item: Item) => {
         setSelectedItems((prevItems) => {
             const itemExists = prevItems.some(
-                (selectedItem) => selectedItem.name === item.name
+                (selectedItem) => selectedItem.id === item.id
             );
             if (itemExists) {
                 // Filtrar fuera el item si ya existe
-                return prevItems.filter(
-                    (prevItem) => prevItem.name !== item.name
-                );
+                return prevItems.filter((prevItem) => prevItem.id !== item.id);
             } else {
                 // Agregar el nuevo item a la lista
                 return [...prevItems, item];
@@ -107,6 +87,7 @@ const Cuenta = () => {
                     open={modalOpen}
                     setOpen={setModalOpen}
                     items={selectedItems}
+                    setSelectedItems={setSelectedItems}
                 />
             </div>
             {cartItems.map((item: Item, index: number) => {
@@ -134,7 +115,7 @@ const Cuenta = () => {
                                 }}
                                 checked={selectedItems.some(
                                     (selectedItem) =>
-                                        selectedItem.name === item.name
+                                        selectedItem.id === item.id
                                 )}
                                 onChange={() => handleItemChecked(item)}
                             />
