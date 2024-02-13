@@ -31,7 +31,6 @@ const Cuenta = () => {
                 // Filtrar fuera el item si ya existe
                 return prevItems.filter((prevItem) => prevItem.id !== item.id);
             } else {
-                // Agregar el nuevo item a la lista
                 return [...prevItems, item];
             }
         });
