@@ -50,39 +50,42 @@ function CartaPage() {
                     maxHeight: "calc(100vh - 9.5rem )",
                     boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
                 }}>
-                {Object.entries(menuCategories).map(([key], index) => (
-                    <Tab
-                        key={index}
-                        color="warning"
-                        sx={{
-                            width: "100%",
-                            minHeight: "3rem",
-                            textAlign: "center",
-                            backgroundColor: "#F2E3CA",
-                            boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
-                            borderRadius: "8px",
-                            p: "2em 10px",
-                            "&.Mui-selected": {
-                                backgroundColor: "#d6b99487",
-                            },
-                        }}>
-                        <Typography
-                            level="h4"
+                {Object.entries(menuCategories).map(
+                    ([key, category], index) => (
+                        <Tab
+                            key={category.id}
+                            color="warning"
                             sx={{
-                                color: value === index ? "#f5e3c5" : "inherit",
+                                width: "100%",
+                                minHeight: "3rem",
+                                textAlign: "center",
+                                backgroundColor: "#F2E3CA",
+                                boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
+                                borderRadius: "8px",
+                                p: "2em 10px",
+                                "&.Mui-selected": {
+                                    backgroundColor: "#d6b99487",
+                                },
                             }}>
-                            {key}
-                        </Typography>
-                    </Tab>
-                ))}
+                            <Typography
+                                level="h4"
+                                sx={{
+                                    color:
+                                        value === index ? "#f5e3c5" : "inherit",
+                                }}>
+                                {key}
+                            </Typography>
+                        </Tab>
+                    )
+                )}
             </TabList>
-            {Object.entries(menuCategories).map(([key, value], index) => (
+            {Object.entries(menuCategories).map(([key, category], index) => (
                 <TabPanel
-                    key={key}
+                    key={category.id}
                     value={index}
                     sx={{ ml: "0.8em", mr: "0.3rem", p: 0, width: "100%" }}>
-                    {value.data.map((item, key) => (
-                        <ItemCard item={item} key={key} />
+                    {category.data.map((item) => (
+                        <ItemCard item={item} key={item.id} />
                     ))}
                 </TabPanel>
             ))}

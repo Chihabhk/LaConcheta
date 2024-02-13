@@ -6,27 +6,32 @@
                 "name": "Ensalada de la casa",
                 "description": "Lechuga, tomate, maíz, huevo, esparragos, aceitunas, atún y zanahorias",
                 "Allergies": "",
-                "price": "8€"
+                "price": "8€",
+                "id": "ba0c9b70-f5ef-4923-a6db-dcf681e078bc"
             },
             {
                 "name": "Ensalada de queso de cabra",
                 "description": "Hoja verde, bacon, frutos secos, queso de cabra y vinagre balsámico",
                 "Allergies": "",
-                "price": "11€"
+                "price": "11€",
+                "id": "698562c8-f65b-4323-8c74-e2902b2cc7d4"
             },
             {
                 "name": "Ensalada Capresse",
                 "description": "Tomate, mozzarela, albahaca",
                 "Allergies": "",
-                "price": "11€"
+                "price": "11€",
+                "id": "0986b389-7d0b-402f-803b-5a9183b841a8"
             },
             {
                 "name": "Ensalada de tomate valenciano",
                 "description": "Tomate, mojama, ventresca, piparra dulce y alcaparrón",
                 "Allergies": "",
-                "price": "12€"
+                "price": "12€",
+                "id": "cec133f5-c718-4a65-a9ae-b443e90426ed"
             }
-        ]
+        ],
+        "id": "e344ac8f-eb5d-40d7-960c-5ca1c456b2a3"
     },
     "Entrantes Fríos": {
         "url": "",
@@ -34,29 +39,35 @@
             {
                 "name": "Tabla de jamón ibérico y queso manchego",
                 "Allergies": "",
-                "price": "16€"
+                "price": "16€",
+                "id": "48d4412b-d13b-4c46-8216-3a92d17a95e0"
             },
             {
                 "name": "Surtido de ibéricos",
                 "Allergies": "",
-                "price": "17€"
+                "price": "17€",
+                "id": "803f57c4-1449-4cd4-b20e-585309ca8d90"
             },
             {
                 "name": "Tabla de cecina de cangus",
                 "Allergies": "",
-                "price": "20€"
+                "price": "20€",
+                "id": "8152032f-0b3e-416e-b318-76aab2cfbba7"
             },
             {
                 "name": "Carpaccio de vaca vieja",
                 "Allergies": "",
-                "price": "18€"
+                "price": "18€",
+                "id": "82d0f9bf-5a1e-4125-ac04-9efb4a659cf2"
             },
             {
                 "name": "Ensaladilla rusa",
                 "Allergies": "",
-                "price": "6.5€"
+                "price": "6.5€",
+                "id": "3884884a-9d72-4c8b-b330-1bbda207f052"
             }
-        ]
+        ],
+        "id": "5cc29247-219c-4944-975f-f725a1db758f"
     },
     "Entrantes Calientes": {
         "url": "",
@@ -64,127 +75,151 @@
             {
                 "name": "Bravas",
                 "Allergies": "",
-                "price": "6.5€"
+                "price": "6.5€",
+                "id": "dbed04cf-1170-4555-a447-4a973aef89d9"
             },
             {
                 "name": "Calamar de playa",
                 "description": "Calamar a la plancha",
                 "Allergies": "",
-                "price": "16€"
+                "price": "16€",
+                "id": "194183a6-58c3-401b-aa34-bf1c1d86d574"
             },
             {
                 "name": "Sepia bruta",
                 "description": "Sepia a la plancha",
                 "Allergies": "",
-                "price": "12€"
+                "price": "12€",
+                "id": "b8f20c61-dcd6-4cab-9492-01885bf232b5"
             },
             {
                 "name": "Sepieta",
                 "description": "Sepieta a la plancha con habas y ajos",
                 "Allergies": "",
-                "price": "10€"
+                "price": "10€",
+                "id": "d04451e9-0785-4c92-99c6-125521ab3eb9"
             },
             {
                 "name": "Tellinas",
                 "Allergies": "",
-                "price": "10€"
+                "price": "10€",
+                "id": "874689c7-7c18-463f-8d61-3c319399829f"
             },
             {
                 "name": "Mar y Monte",
                 "description": "Chipirones con surtido de setas",
                 "Allergies": "",
-                "price": "11€"
+                "price": "11€",
+                "id": "c7974a1d-e765-4973-b385-6935347f90b4"
             },
             {
                 "name": "Pulpo con crema de patatas",
                 "Allergies": "",
-                "price": "16€"
+                "price": "16€",
+                "id": "3f53a913-1eee-47db-8b8a-8465128bb889"
             },
             {
                 "name": "Calamares",
                 "Allergies": "",
-                "price": "12€"
+                "price": "12€",
+                "id": "b9201fbb-49ae-40cf-9aa9-e94c7a60705a"
             },
             {
                 "name": "Puntilla",
                 "Allergies": "",
-                "price": "12€"
+                "price": "12€",
+                "id": "58eadf85-204e-424b-90c9-43c5e0134b23"
             },
             {
                 "name": "Zamburiña",
                 "description": "Zamburiña al horno",
                 "Allergies": "",
-                "price": "3€/ud."
+                "price": "3€/ud.",
+                "id": "8921ca65-95c5-42c4-9d60-f07ac21e9aca"
             },
             {
                 "name": "Fritura de pescado",
                 "Allergies": "",
-                "price": "14€"
+                "price": "14€",
+                "id": "11dc626e-aef4-4f10-951b-342eb771c9ef"
             },
             {
                 "name": "Gambas rojas",
                 "Allergies": "",
-                "price": "2€/ud."
+                "price": "2€/ud.",
+                "id": "32032a10-bc97-4535-af8a-c87a3e4260a9"
             },
             {
                 "name": "Morcilla de burgos",
                 "description": "Morcilla a la plancha con mermerlada de piquilo y cebolla caramelizada",
                 "Allergies": "",
-                "price": "11€"
+                "price": "11€",
+                "id": "0cef9fc0-c6ed-4f7a-a774-4f90d1c63d83"
             },
             {
                 "name": "Queso frito",
                 "description": "Queso Brie rebozado con mermelada de arándanos ",
                 "Allergies": "",
-                "price": "7€"
+                "price": "7€",
+                "id": "37674020-50fa-44d9-9914-52d2bc0c9afc"
             },
             {
                 "name": "Croquetas de jamon",
                 "Allergies": "",
-                "price": "3€/ud."
+                "price": "3€/ud.",
+                "id": "bbae4702-1954-49a2-a4e8-008e79834281"
             },
             {
                 "name": "Buñuelo de bacalao",
                 "Allergies": "",
-                "price": "3€/ud."
+                "price": "3€/ud.",
+                "id": "4b914f2f-771f-4449-bfb8-8282ff11a241"
             },
             {
                 "name": "Surtido de croquetas",
                 "description": "2 croquetas de queso de cabra, 2 de cecina de cangus, 2 de carabineros y 2 de chipirones ",
                 "Allergies": "",
-                "price": "11€"
+                "price": "11€",
+                "id": "9d51eed6-8be3-48c3-84e3-8968282f581b"
             },
             {
                 "name": "Alcachofas con huevo y foie",
                 "Allergies": "",
-                "price": "14€"
+                "price": "14€",
+                "id": "3969f1cc-c125-432f-985f-8165e65ac5ce"
             },
             {
                 "name": "Alcachofas en salsa de trufa",
                 "Allergies": "",
-                "price": "14€"
+                "price": "14€",
+                "id": "121ed809-df75-4c99-bf62-37f9b54b692e"
             },
             {
                 "name": "Crujientes de jamon y puerro",
                 "Allergies": "",
-                "price": "14€"
+                "price": "14€",
+                "id": "e601fab0-0b5c-442d-bb4d-bfc26f18540d"
             },
             {
                 "name": "Torreznos de soria",
                 "Allergies": "",
-                "price": "6.5€"
+                "price": "6.5€",
+                "id": "a9560a85-a625-4529-92ab-9f13b2edc9fe"
             },
             {
                 "name": "Rabo",
                 "Allergies": "",
-                "price": "6.5€"
+                "price": "6.5€",
+                "id": "a7363a14-92d4-4876-8765-9c8203866a2a"
             },
             {
                 "name": "Morro",
                 "Allergies": "",
-                "price": "6.5€"
+                "price": "6.5€",
+                "id": "78255a6a-38e5-4d8c-8768-fdd28410571f"
             }
-        ]
+        ],
+        "id": "957a0382-b963-4d2d-b751-8ebb6f020aa1"
     },
     "Pescados": {
         "url": "",
@@ -192,24 +227,29 @@
             {
                 "name": "Parrillada del mar",
                 "Allergies": "",
-                "price": "28€"
+                "price": "28€",
+                "id": "ed7f5fe4-56fd-423a-8dd4-3929d2e9fb03"
             },
             {
                 "name": "Dorada",
                 "Allergies": "",
-                "price": "17€"
+                "price": "17€",
+                "id": "386814f6-6ae2-4c85-a0ae-0b0161789d07"
             },
             {
                 "name": "Emperador",
                 "Allergies": "",
-                "price": "16€"
+                "price": "16€",
+                "id": "ecd37198-8bed-4f79-81c9-0511f108060b"
             },
             {
                 "name": "Lubina",
                 "Allergies": "",
-                "price": "15€"
+                "price": "15€",
+                "id": "81683617-d269-42fe-a352-899cd8d72878"
             }
-        ]
+        ],
+        "id": "58fdd3a9-2d77-4d3e-980a-4a5356257138"
     },
     "Carnes": {
         "url": "",
@@ -217,36 +257,43 @@
             {
                 "name": "Chuletas de cordero",
                 "Allergies": "",
-                "price": "15€"
+                "price": "15€",
+                "id": "666fcbea-6902-49ef-9ea3-6a0539b44408"
             },
             {
                 "name": "Secreto ibérico",
                 "Allergies": "",
-                "price": "14€"
+                "price": "14€",
+                "id": "92b26fc4-a98e-48b7-b089-a32bd9632ae7"
             },
             {
                 "name": "Pechuga en salsa de mostaza y miel",
                 "Allergies": "",
-                "price": "13€"
+                "price": "13€",
+                "id": "39524585-5798-4183-adc4-57979ac0d152"
             },
             {
                 "name": "Solomillo en salsa de pimienta",
                 "Allergies": "",
-                "price": "17€"
+                "price": "17€",
+                "id": "d424ab4f-51fd-41dd-b45b-3deb885a33be"
             },
             {
                 "name": "Entrecot vaca mayor madurada",
                 "description": "300g",
                 "Allergies": "",
-                "price": "22€"
+                "price": "22€",
+                "id": "829e6929-5bef-488c-8b9b-76069630020a"
             },
             {
                 "name": "Chuletón de vaca mayor 1Kg",
                 "description": "Madurada mínimo 21 días a la piedra",
                 "Allergies": "",
-                "price": "48€"
+                "price": "48€",
+                "id": "89dc1aab-a3f4-40d2-8941-d10a99b6a79a"
             }
-        ]
+        ],
+        "id": "c2a74044-cb56-4fe2-a597-7c2be6668160"
     },
     "Paellas": {
         "url": "",
@@ -255,51 +302,60 @@
                 "name": "Paella de pollo y conejo",
                 "description": "Pollo, conejo, garrofón, judía verde, caracoles",
                 "Allergies": "",
-                "price": "10,5€"
+                "price": "10,5€",
+                "id": "15d9056a-55b7-41ac-8a1c-28c668feacb8"
             },
             {
                 "name": "Paella de marisco",
                 "description": "Gambas, cigalas, mejillón, sepia",
                 "Allergies": "",
-                "price": "15€"
+                "price": "15€",
+                "id": "2c76838f-9d70-4de5-9e36-ee3395daeb56"
             },
             {
                 "name": "Paella de verduras",
                 "description": "Verduras de temporada",
                 "Allergies": "",
-                "price": "14€"
+                "price": "14€",
+                "id": "dd2e8828-f81b-4b81-8cf3-f31d72e94da2"
             },
             {
                 "name": "Paella de bogabante",
                 "description": "Bogabante y sepia",
                 "Allergies": "",
-                "price": "20€"
+                "price": "20€",
+                "id": "a4fff3a2-5367-419b-a671-b2264135a7b1"
             },
             {
                 "name": "Paella de col y bacalao",
                 "description": "Coliflor y bacalao desmigado",
                 "Allergies": "",
-                "price": "16€"
+                "price": "16€",
+                "id": "c7f7ff46-9b1e-4f6d-b381-371fe2e6d035"
             },
             {
                 "name": "Paella de rojos",
                 "description": "Carabinero y sepia",
                 "Allergies": "",
-                "price": "20€"
+                "price": "20€",
+                "id": "33f8b4c7-8197-46d7-b17d-d22cf0848147"
             },
             {
                 "name": "Fideuá",
                 "description": "Gambas, cigalas, sepia y mejillones",
                 "Allergies": "",
-                "price": "16€"
+                "price": "16€",
+                "id": "0868b265-eb03-4a8e-aa2f-e58b0c6a3373"
             },
             {
                 "name": "Fideuá del señoret",
                 "description": "Gambas, sepia y mejillones",
                 "Allergies": "",
-                "price": "15€"
+                "price": "15€",
+                "id": "ac448324-66f0-4120-97ef-987af1e1a162"
             }
-        ]
+        ],
+        "id": "39d606ff-9bea-40b9-84a4-b6a63c74bf32"
     },
     "Arroces": {
         "url": "",
@@ -308,33 +364,39 @@
                 "name": "Arroz del señoret",
                 "description": "Gambas, sepia, mejillones",
                 "Allergies": "",
-                "price": "14€"
+                "price": "14€",
+                "id": "8ac4748a-d936-4e61-b413-a99621e957bb"
             },
             {
                 "name": "Arroz a banda",
                 "description": "Gambas y sepia",
                 "Allergies": "",
-                "price": "13€"
+                "price": "13€",
+                "id": "41dea731-a281-4b54-8ddb-8dca67ad5dcb"
             },
             {
                 "name": "Arroz negro",
                 "description": "Gambas, sepia y tinta de calamar cocinada",
                 "Allergies": "",
-                "price": "15€"
+                "price": "15€",
+                "id": "b2d95dfd-9379-4dfe-ba0a-f1dd5feb35a5"
             },
             {
                 "name": "Arroz de secreto",
                 "description": "Secreto ibérico y ajos tiernos",
                 "Allergies": "",
-                "price": "16€"
+                "price": "16€",
+                "id": "ad2e4a60-64f9-4b38-b942-7bc12864b67b"
             },
             {
                 "name": "Arroz meloso con rape",
                 "description": "Rape, gambas y sepia",
                 "Allergies": "",
-                "price": "16€"
+                "price": "16€",
+                "id": "2b0e3fa3-eeb3-4668-ba8b-df1dac193503"
             }
-        ]
+        ],
+        "id": "7d7f4832-4898-4193-944d-cf92e7bbbb24"
     },
     "Postres": {
         "url": "",
@@ -342,39 +404,47 @@
             {
                 "name": "Tarta de queso con arándanos",
                 "Allergies": "",
-                "price": "6.5€"
+                "price": "6.5€",
+                "id": "ee2baee0-fdca-4320-ac23-ae0e3dea572f"
             },
             {
                 "name": "Fruta de temporada",
                 "Allergies": "",
-                "price": "4.5€"
+                "price": "4.5€",
+                "id": "8576a5a2-a414-454d-ac2c-606439968a8a"
             },
             {
                 "name": "Sacher",
                 "Allergies": "",
-                "price": "6.5€"
+                "price": "6.5€",
+                "id": "da7cb195-b467-4307-b709-6e2e160acae8"
             },
             {
                 "name": "Carrot cake",
                 "Allergies": "",
-                "price": "6.5€"
+                "price": "6.5€",
+                "id": "a33f031e-43de-425a-84ac-86a7b513cb05"
             },
             {
                 "name": "Tarta banoffe",
                 "Allergies": "",
-                "price": "6.5€"
+                "price": "6.5€",
+                "id": "71b0a00f-a5f2-4f10-b63c-ad6a6e72fb11"
             },
             {
                 "name": "Torrija con helado de vainilla",
                 "Allergies": "",
-                "price": "6.5€"
+                "price": "6.5€",
+                "id": "6929787f-29ba-412f-a8fa-6aac133cf133"
             },
             {
                 "name": "Brownie con helado de vainilla",
                 "Allergies": "",
-                "price": "6.5€"
+                "price": "6.5€",
+                "id": "14528113-ef2e-4d4e-a81e-4d85e4f2462a"
             }
-        ]
+        ],
+        "id": "b611dbf0-9962-4843-af54-3dbf28771955"
     },
     "Bocadillos": {
         "url": "",
@@ -383,62 +453,73 @@
                 "name": "Concheta",
                 "description": "Ternera con queso azul",
                 "Allergies": "",
-                "price": "7.5€"
+                "price": "7.5€",
+                "id": "95928a6b-eb5d-4f05-96f6-27a4ed5830ab"
             },
             {
                 "name": "Calamares",
                 "description": "Calamares con alioli o mayonesa",
                 "Allergies": "",
-                "price": "7€"
+                "price": "7€",
+                "id": "7b144468-17a6-4311-8250-bffd61b31337"
             },
             {
                 "name": "Chivito",
                 "description": "Lechuga, huevo, tomate, mayonesa, bacon, lomo y queso",
                 "Allergies": "",
-                "price": "7€"
+                "price": "7€",
+                "id": "89ab1d70-6343-453d-bd84-1c7b0a70c6c6"
             },
             {
                 "name": "Valencia",
                 "description": "Panceta, lomo, patata y alioli",
                 "Allergies": "",
-                "price": "7€"
+                "price": "7€",
+                "id": "d44aa145-b851-4c65-913e-413d336b9266"
             },
             {
                 "name": "Súperheroe",
                 "description": "Pechuga, pimientos, queso y patata",
                 "Allergies": "",
-                "price": "7€"
+                "price": "7€",
+                "id": "919bc5b4-c952-4530-8add-33aaf946b2bb"
             },
             {
                 "name": "Brascada",
                 "description": "Ternera, cebolla caramelizada y jamón",
                 "Allergies": "",
-                "price": "7,5€"
+                "price": "7,5€",
+                "id": "2c617ff1-c064-44bd-b013-543c0f222fb7"
             },
             {
                 "name": "Mediterraneo",
                 "description": "lechuga, tomate y olivas",
                 "Allergies": "",
-                "price": "6.5€"
+                "price": "6.5€",
+                "id": "8d001362-14f1-40c5-a5ab-7829b40475a2"
             },
             {
                 "name": "Almussafes",
                 "description": "Sobrasada, queso y cebolla caramelizada",
                 "Allergies": "",
-                "price": "6.5€"
+                "price": "6.5€",
+                "id": "4ebf4def-80f8-4254-bef4-4ceb3e16fc97"
             },
             {
                 "name": "Fallero",
                 "description": "Panceta con habas",
                 "Allergies": "",
-                "price": "7€"
+                "price": "7€",
+                "id": "3fd1c164-5001-4f32-bfec-279a46176dc9"
             },
             {
                 "name": "Serranito",
                 "description": "Tomate en rodajas, jamón y queso manchego",
                 "Allergies": "",
-                "price": "7.5€"
+                "price": "7.5€",
+                "id": "6b63b097-f378-4031-81aa-a4570b9df573"
             }
-        ]
+        ],
+        "id": "c8abeefb-8619-4cad-a2d2-0747fdb4a3a4"
     }
 }

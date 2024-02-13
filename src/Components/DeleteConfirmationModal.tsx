@@ -17,7 +17,7 @@ import { removeAllFromCart } from "../features/menuSlice";
 const DeleteConfirmationModal = ({
     open,
     setOpen,
-    items,
+    selectedItems,
     setSelectedItems,
 }) => {
     const dispatch = useDispatch();
@@ -34,7 +34,7 @@ const DeleteConfirmationModal = ({
                     del carrito?
                 </DialogContent>
                 <List sx={{ overflow: "auto" }}>
-                    {items.map((item) => (
+                    {selectedItems.map((item) => (
                         <Typography key={item.id} fontSize={14}>
                             {item.quantity} x {item.name}
                         </Typography>
@@ -47,7 +47,7 @@ const DeleteConfirmationModal = ({
                         color="danger"
                         onClick={() => {
                             setOpen(false);
-                            dispatch(removeAllFromCart(items));
+                            dispatch(removeAllFromCart(selectedItems));
                             setSelectedItems([]);
                         }}>
                         Eliminar

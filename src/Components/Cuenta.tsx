@@ -1,26 +1,27 @@
-import React, { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
-import { Divider, Typography, Checkbox, Button } from "@mui/joy";
+import React, { useEffect, useRef, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { Divider, Typography, Checkbox, Button, IconButton } from "@mui/joy";
 
 import { calculateTotal } from "../utils/utils.ts";
 import { Item, State } from "../types.ts";
-import QuantityEdit from "./QuantityEdit.tsx";
 import DeleteConfirmationModal from "./DeleteConfirmationModal.tsx";
 import CuentaHeader from "./CuentaHeader.tsx";
+import { addItemToCart, removeItemFromCart } from "../features/menuSlice.js";
+import { Add, Remove } from "@mui/icons-material";
 
 const Cuenta = () => {
+    const dispatch = useDispatch();
     const [modalOpen, setModalOpen] = useState(false);
     const [btnDisabled, setBtnDisabled] = useState(true);
     const [selectedItems, setSelectedItems] = useState<Item[]>([]);
     const { cartItems } = useSelector((state: State) => state.menu);
-
-    const total = calculateTotal(
+    const total: number = calculateTotal(
         selectedItems.length > 0 ? selectedItems : cartItems
     );
 
     useEffect(() => {
         setBtnDisabled(selectedItems.length === 0);
-    }, [cartItems, selectedItems]);
+    }, [selectedItems, cartItems]);
 
     const handleItemChecked = (item: Item) => {
         setSelectedItems((prevItems) => {
@@ -28,7 +29,6 @@ const Cuenta = () => {
                 (selectedItem) => selectedItem.id === item.id
             );
             if (itemExists) {
-                // Filtrar fuera el item si ya existe
                 return prevItems.filter((prevItem) => prevItem.id !== item.id);
             } else {
                 return [...prevItems, item];
@@ -72,7 +72,6 @@ const Cuenta = () => {
                         }
                     }}
                 />
-
                 <Button
                     variant="solid"
                     color="warning"
@@ -85,13 +84,13 @@ const Cuenta = () => {
                 <DeleteConfirmationModal
                     open={modalOpen}
                     setOpen={setModalOpen}
-                    items={selectedItems}
+                    selectedItems={selectedItems}
                     setSelectedItems={setSelectedItems}
                 />
             </div>
             {cartItems.map((item: Item, index: number) => {
                 return (
-                    <div key={index}>
+                    <div key={item.id}>
                         <div
                             style={{
                                 display: "flex",
@@ -116,14 +115,57 @@ const Cuenta = () => {
                                     (selectedItem) =>
                                         selectedItem.id === item.id
                                 )}
-                                onChange={() => handleItemChecked(item)}
+                                onChange={() => {
+                                    handleItemChecked(item);
+                                }}
                             />
                             <div
                                 style={{
                                     display: "flex",
                                     alignContent: "center",
                                 }}>
-                                <QuantityEdit {...item} />
+                                <div
+                                    style={{
+                                        display: "flex",
+                                        gap: 4,
+                                        flexDirection: "row",
+                                        alignContent: "center",
+                                        alignItems: "center",
+                                    }}>
+                                    <IconButton
+                                        variant="soft"
+                                        color="warning"
+                                        onClick={() => {
+                                            dispatch(removeItemFromCart(item));
+                                            setSelectedItems((prevItems) => {
+                                                return prevItems.filter(
+                                                    (prevItem) =>
+                                                        prevItem.id !== item.id
+                                                );
+                                            });
+                                        }}>
+                                        <Remove />
+                                    </IconButton>
+                                    <Typography
+                                        level="body-lg"
+                                        sx={{ textAlign: "center" }}>
+                                        {item.quantity}
+                                    </Typography>
+                                    <IconButton
+                                        variant="soft"
+                                        color="warning"
+                                        onClick={() => {
+                                            dispatch(addItemToCart(item));
+                                            setSelectedItems((prevItems) => {
+                                                return prevItems.filter(
+                                                    (prevItem) =>
+                                                        prevItem.id !== item.id
+                                                );
+                                            });
+                                        }}>
+                                        <Add />
+                                    </IconButton>
+                                </div>
                                 <Typography
                                     level="body-lg"
                                     ml={1}
