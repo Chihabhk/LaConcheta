@@ -10,8 +10,6 @@ export const calculateTotal = (items: Item[] | Item) => {
 };
 
 export const itemsNeedUpdate = (currentItems: Item[], newItems: Item[]) => {
-    if (currentItems.length !== newItems.length) return true;
-
     return currentItems.some((item, index) => {
         return (
             item.name !== newItems[index].name ||

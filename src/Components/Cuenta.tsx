@@ -19,20 +19,24 @@ const Cuenta = () => {
     );
 
     useEffect(() => {
-        const updatedItems = selectedItems.map((selectedItem) => {
-            const cartItem = cartItems.find(
-                (item) => item.name === selectedItem.name
-            );
-            if (!cartItem) return selectedItem;
-            return {
-                ...selectedItem,
-                quantity: cartItem.quantity,
-            };
-        });
+        const updatedItems = selectedItems
+            .map((selectedItem) => {
+                const cartItem = cartItems.find(
+                    (item) => item.name === selectedItem.name
+                );
+                if (!cartItem) return null;
+                return {
+                    ...selectedItem,
+                    quantity: cartItem?.quantity || 0,
+                };
+            })
+            .filter((item) => item !== null);
 
         setBtnDisabled(updatedItems.length === 0);
-        if (itemsNeedUpdate(selectedItems, updatedItems)) {
-            setSelectedItems(updatedItems);
+        if (itemsNeedUpdate(selectedItems, updatedItems as Item[])) {
+            setSelectedItems(
+                updatedItems.filter((item) => item !== null) as Item[]
+            );
         }
     }, [cartItems, selectedItems]);
 
@@ -140,7 +144,12 @@ const Cuenta = () => {
                                     alignContent: "center",
                                 }}>
                                 <QuantityEdit {...item} />
-                                <Typography level="body-lg" ml={2}>
+                                <Typography
+                                    level="body-lg"
+                                    ml={1}
+                                    textAlign={"right"}
+                                    alignSelf={"center"}
+                                    width={45}>
                                     {item.price}
                                 </Typography>
                             </div>
