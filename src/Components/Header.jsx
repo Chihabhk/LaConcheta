@@ -177,7 +177,7 @@ const Header = () => {
                         textAlign: "center",
                         textWrap: "balance",
                     }}>
-                    Visitanos en Instagram! o...
+                    Visítanos en Instagram! o...
                 </Typography>
                 <Button
                     component="a"
