@@ -12,7 +12,7 @@ export const getAllCategories = createAsyncThunk(
 );
 
 const initialState = {
-    menuCategories: {},
+    menuCategories: [],
     cartItems: JSON.parse(localStorage.getItem("cartItems")) || [],
 };
 
