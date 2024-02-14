@@ -40,4 +40,4 @@ Este proyecto está licenciado bajo los términos de la licencia MIT.
 
 ## Capturas de pantalla
 
-![Captura 1](https://laconcheta.es/laconcheta.es_png)
+![Captura 1](https://laconcheta.es/laconcheta.es_.png)
