@@ -11,7 +11,7 @@ import {
     IconButton,
     Button,
 } from "@mui/joy";
-import { Phone, ShoppingBasket } from "@mui/icons-material";
+import { Instagram, Phone, ShoppingBasket } from "@mui/icons-material";
 
 import Cuenta from "../Components/Cuenta.tsx";
 
@@ -45,9 +45,11 @@ const Header = () => {
                 <Typography
                     level="h1"
                     onClick={handleLogoOnClick}
+                    fontFamily={"Dancing Script, cursive"}
                     sx={{
+                        userSelect: "none",
+                        cursor: "pointer",
                         color: "#fff",
-                        fontFamily: "Arial, sans-serif",
                         fontWeight: "bold",
                         textShadow: "2px 2px 4px rgba(0, 0, 0, 0.5)",
                         letterSpacing: "0.05em",
@@ -145,7 +147,7 @@ const Header = () => {
                 sx={{
                     display: "flex",
                     alignItems: "center",
-                    justifyContent: "space-evenly",
+                    justifyContent: "space-around",
                     position: "sticky",
                     top: "4em",
                     zIndex: 1000,
@@ -157,10 +159,25 @@ const Header = () => {
                     transition:
                         "transform 0.2s cubic-bezier(0.22, 0.61, 0.36, 1)",
                 }}>
+                <IconButton
+                    component="a"
+                    target="_blank"
+                    href="https://www.instagram.com/laconchetarestaurante/"
+                    variant="plain">
+                    <Instagram
+                        sx={{
+                            color: "#2C1F16",
+                            // boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
+                        }}
+                    />
+                </IconButton>
                 <Typography
-                    level="title-lg"
-                    sx={{ textAlign: "center", textWrap: "balance " }}>
-                    ¿Te gustaría reservar una mesa?
+                    level="title-sm"
+                    sx={{
+                        textAlign: "center",
+                        textWrap: "balance",
+                    }}>
+                    Visitanos en Instagram! o...
                 </Typography>
                 <Button
                     component="a"

@@ -48,7 +48,7 @@ function CartaPage() {
                         backgroundColor: "warning",
                     },
                     maxHeight: "calc(100vh - 9.5rem )",
-                    boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
+                    // boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
                 }}>
                 {Object.entries(menuCategories).map(
                     ([key, category], index) => (
@@ -69,6 +69,8 @@ function CartaPage() {
                             }}>
                             <Typography
                                 level="h4"
+                                textAlign={"left"}
+                                fontFamily={"arial"}
                                 sx={{
                                     color:
                                         value === index ? "#f5e3c5" : "inherit",

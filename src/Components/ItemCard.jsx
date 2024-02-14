@@ -25,7 +25,11 @@ const ItemCard = ({ item }) => {
                 boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
             }}>
             <CardContent>
-                <Typography level="h2" color="warning" fontSize={18}>
+                <Typography
+                    level="h2"
+                    color="warning"
+                    fontSize={24}
+                    fontFamily={"arial"}>
                     {item.name}
                 </Typography>
                 <Typography level="body-sm">{item.description}</Typography>
@@ -37,7 +41,7 @@ const ItemCard = ({ item }) => {
                     alignItems: "center",
                     justifyContent: "space-between",
                 }}>
-                <Typography level="body-md" color="warning">
+                <Typography level="body-md" color="warning" fontWeight={"bold"}>
                     Precio:
                     <Typography level="body-md">{" " + item.price}</Typography>
                 </Typography>
