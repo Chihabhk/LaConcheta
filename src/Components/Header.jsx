@@ -10,22 +10,29 @@ import {
     Badge,
     IconButton,
     Button,
+    Autocomplete,
 } from "@mui/joy";
-import { Instagram, Phone, ShoppingBasket } from "@mui/icons-material";
+import { Instagram, Phone, Search, ShoppingBasket } from "@mui/icons-material";
 
 import Cuenta from "../Components/Cuenta.tsx";
 
 const Header = () => {
     const [isDrawerOpen, setIsDrawerOpen] = useState(false);
-    const { cartItems } = useSelector((state) => state.menu);
+    const { cartItems, menuCategories } = useSelector((state) => state.menu);
     const navigate = useNavigate();
     const handleLogoOnClick = () => {
-        // navigate("/");
+        navigate("/");
     };
+    const [isSearchDrawerOpen, setSearchDrawer] = useState(false);
     const handleCartIconClick = () => {
         setIsDrawerOpen(true);
     };
-    const [ocultarHeader] = useState(false);
+    const handleSearchOnClick = () => {
+        setSearchDrawer(true);
+    };
+    const flattenedOptions = Object.values(menuCategories).flatMap(
+        (category) => category.data
+    );
 
     return (
         <>
@@ -39,9 +46,14 @@ const Header = () => {
                     position: "sticky",
                     top: "0",
                     zIndex: 1100,
-                    backgroundColor: "rgba(0,0,0,0.7)",
+                    backgroundColor: "rgba(45, 33, 24, 1)",
                     backdropFilter: "blur(20px)",
                 }}>
+                <IconButton onClick={handleSearchOnClick} size={"lg"}>
+                    <Search
+                        sx={{ color: "white", transform: "rotate(70deg)" }}
+                    />
+                </IconButton>
                 <Typography
                     level="h1"
                     onClick={handleLogoOnClick}
@@ -60,11 +72,8 @@ const Header = () => {
                     <Badge
                         badgeContent={cartItems.length}
                         anchorOrigin={{ vertical: "top", horizontal: "right" }}
-                        showZero
                         sx={{
                             "& .MuiBadge-badge": {
-                                fontSize: "0.8rem",
-                                boxShadow: "0 0 0 2px #c369",
                                 fontWeight: "bold",
                                 fontFamily: "Arial, sans-serif",
                             },
@@ -74,7 +83,7 @@ const Header = () => {
                         size="md">
                         <ShoppingBasket
                             sx={{
-                                color: "#fff",
+                                color: "white",
                                 border: "2px solid #2C1F16",
                                 borderRadius: "50%",
                                 boxShadow: "0 0 10px rgba(0, 0, 0, 0.5)",
@@ -142,50 +151,82 @@ const Header = () => {
                     )}
                 </Drawer>
             </Box>
+            <Drawer
+                size="sm"
+                onClose={() => setSearchDrawer(false)}
+                anchor="top"
+                open={isSearchDrawerOpen}>
+                <Autocomplete
+                    options={flattenedOptions}
+                    getOptionLabel={(option) => option.name || ""}
+                />
+            </Drawer>
+
             <Box
                 variant="plain"
                 sx={{
                     display: "flex",
                     alignItems: "center",
-                    justifyContent: "space-around",
+                    alignContent: "center",
+                    justifyContent: "space-between",
+                    gap: ".8rem",
                     position: "sticky",
                     top: "4em",
                     zIndex: 1000,
-                    p: ".5em",
-                    backdropFilter: "blur(20px)",
-                    transform: ocultarHeader
-                        ? "translateY(-100%)"
-                        : "translateY(0%)",
-                    transition:
-                        "transform 0.2s cubic-bezier(0.22, 0.61, 0.36, 1)",
+                    p: ".4em",
+                    backgroundColor: "rgba(162, 125, 94, 1)",
                 }}>
+                <Typography
+                    level="title-md"
+                    sx={{
+                        ml: ".2rem",
+                        textAlign: "center",
+                        textWrap: "pretty",
+                        color: "white",
+                    }}>
+                    Visítanos en Instagram!
+                </Typography>
                 <IconButton
                     component="a"
                     target="_blank"
                     href="https://www.instagram.com/laconchetarestaurante/"
-                    variant="plain">
+                    variant="solid"
+                    sx={{
+                        backgroundColor: "#8d6749",
+                    }}>
                     <Instagram
                         sx={{
-                            color: "#2C1F16",
-                            // boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
+                            color: "white",
                         }}
                     />
                 </IconButton>
+
                 <Typography
                     level="title-sm"
                     sx={{
                         textAlign: "center",
                         textWrap: "balance",
+                        marginRight: "1",
+                        color: "white",
                     }}>
-                    Visítanos en Instagram! o...
+                    O...
                 </Typography>
                 <Button
                     component="a"
                     href="tel:962121602"
-                    variant="outlined"
-                    color="warning"
-                    startDecorator={<Phone sx={{ color: "#2C1F16" }} />}>
-                    <Typography>LLámanos!</Typography>
+                    variant="solid"
+                    sx={{
+                        ml: "0.4em",
+                        mr: ".7rem",
+                        backgroundColor: "#8d6749",
+                    }}
+                    startDecorator={<Phone sx={{ color: "white" }} />}>
+                    <Typography
+                        sx={{
+                            color: "white",
+                        }}>
+                        LLámanos!
+                    </Typography>
                 </Button>
             </Box>
         </>

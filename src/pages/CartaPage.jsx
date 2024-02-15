@@ -70,7 +70,7 @@ function CartaPage() {
                             <Typography
                                 level="h4"
                                 textAlign={"left"}
-                                fontFamily={"arial"}
+                                fontFamily={"Arial, sans-serif"}
                                 sx={{
                                     color:
                                         value === index ? "#f5e3c5" : "inherit",

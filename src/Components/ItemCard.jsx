@@ -29,7 +29,7 @@ const ItemCard = ({ item }) => {
                     level="h2"
                     color="warning"
                     fontSize={24}
-                    fontFamily={"arial"}>
+                    fontFamily={"Arial, sans-serif"}>
                     {item.name}
                 </Typography>
                 <Typography level="body-sm">{item.description}</Typography>
