@@ -11,6 +11,7 @@ import {
     IconButton,
     Button,
     Autocomplete,
+    Menu,
 } from "@mui/joy";
 import { Instagram, Phone, Search, ShoppingBasket } from "@mui/icons-material";
 
@@ -28,7 +29,7 @@ const Header = () => {
         setIsDrawerOpen(true);
     };
     const handleSearchOnClick = () => {
-        setSearchDrawer(true);
+        // setSearchDrawer(true);
     };
     const flattenedOptions = Object.values(menuCategories).flatMap(
         (category) => category.data
@@ -147,7 +148,7 @@ const Header = () => {
                     )}
                 </Drawer>
             </Box>
-            <Drawer
+            <Menu
                 size="sm"
                 onClose={() => setSearchDrawer(false)}
                 anchor="top"
@@ -156,7 +157,7 @@ const Header = () => {
                     options={flattenedOptions}
                     getOptionLabel={(option) => option.name || ""}
                 />
-            </Drawer>
+            </Menu>
 
             <Box
                 variant="plain"
