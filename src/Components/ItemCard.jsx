@@ -48,7 +48,6 @@ const ItemCard = ({ item }) => {
                     <Typography level="body-md">{" " + item.price}</Typography>
                 </Typography>
                 <CardActions
-                    disableSpacing
                     sx={{
                         p: 0,
                         justifyContent: "flex-end",

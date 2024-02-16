@@ -43,7 +43,6 @@ function CartaPage() {
                     ml: "-7.2rem",
                     gap: "0.8rem",
                     overflowY: "auto",
-                    scrollbarWidth: "unset",
                     "&::-webkit-scrollbar-thumb": {
                         backgroundColor: "warning",
                     },
