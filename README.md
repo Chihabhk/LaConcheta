@@ -27,11 +27,16 @@ git clone https://github.com/chihabhk/laconcheta.git
 
 2. Instala las dependencias:
 
+```sh
 cd laconcheta
 npm install
+```
 
 3. Ejecuta la aplicación
+
+```sh
 npm run start
+```
 
 La aplicación ahora debería estar ejecutándose en http://localhost:3000.
 
