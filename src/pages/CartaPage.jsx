@@ -37,34 +37,33 @@ function CartaPage() {
             <TabList
                 sx={{
                     position: "fixed",
-                    top: "8rem",
+                    top: "7.5rem",
                     "&::-webkit-scrollbar": { display: "none" },
                     width: "7rem",
                     ml: "-7.2rem",
                     gap: "0.8rem",
                     overflowY: "auto",
-                    scrollbarWidth: "thin",
+                    scrollbarWidth: "unset",
                     "&::-webkit-scrollbar-thumb": {
                         backgroundColor: "warning",
                     },
                     maxHeight: "calc(100vh - 9.5rem )",
-                    // boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
                 }}>
                 {Object.entries(menuCategories).map(
                     ([key, category], index) => (
                         <Tab
                             key={category.id}
                             color="warning"
+                            disableIndicator
                             sx={{
-                                width: "100%",
-                                minHeight: "3rem",
                                 textAlign: "center",
+                                alignContent: "center",
                                 backgroundColor: "#F2E3CA",
                                 boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
                                 borderRadius: "8px",
-                                p: "2em 10px",
+                                p: ".7em 5px",
                                 "&.Mui-selected": {
-                                    backgroundColor: "#d6b99487",
+                                    backgroundColor: "#a67e5f",
                                 },
                             }}>
                             <Typography
@@ -72,8 +71,14 @@ function CartaPage() {
                                 textAlign={"left"}
                                 fontFamily={"Arial, sans-serif"}
                                 sx={{
+                                    letterSpacing: ".01em",
+                                    textAlign: "center",
+                                    textShadow:
+                                        value === index
+                                            ? "0px 2px 2px rgba(0, 0, 0, 0.5)"
+                                            : "inherit",
                                     color:
-                                        value === index ? "#f5e3c5" : "inherit",
+                                        value === index ? "#F2E3CA" : "inherit",
                                 }}>
                                 {key}
                             </Typography>
@@ -85,7 +90,13 @@ function CartaPage() {
                 <TabPanel
                     key={category.id}
                     value={index}
-                    sx={{ ml: "0.8em", mr: "0.3rem", p: 0, width: "100%" }}>
+                    sx={{
+                        ml: "0.8em",
+                        mr: "0.3rem",
+                        mt: ".9em",
+                        p: 0,
+                        width: "100%",
+                    }}>
                     {category.data.map((item) => (
                         <ItemCard item={item} key={item.id} />
                     ))}

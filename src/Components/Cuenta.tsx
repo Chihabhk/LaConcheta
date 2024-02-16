@@ -41,18 +41,20 @@ const Cuenta = () => {
             style={{
                 display: "flex",
                 flexDirection: "column",
-                marginTop: "2em",
+                marginTop: "1em",
                 alignContent: "center",
                 justifyContent: "center",
             }}>
             <CuentaHeader total={total} />
+            <Divider />
+
             <div
                 style={{
                     display: "flex",
                     alignContent: "center",
                     alignItems: "center",
                     justifyContent: "space-between",
-                    margin: "0.8em 1em",
+                    margin: "0.8em .8em",
                 }}>
                 <Checkbox
                     label="Seleccionar todo"
@@ -73,6 +75,7 @@ const Cuenta = () => {
                     }}
                 />
                 <Button
+                    size="md"
                     variant="solid"
                     color="warning"
                     onClick={() => {
@@ -88,6 +91,8 @@ const Cuenta = () => {
                     setSelectedItems={setSelectedItems}
                 />
             </div>
+            <Divider />
+
             {cartItems.map((item: Item, index: number) => {
                 return (
                     <div key={item.id}>
@@ -97,7 +102,7 @@ const Cuenta = () => {
                                 alignContent: "center",
                                 alignItems: "center",
                                 justifyContent: "space-between",
-                                margin: "0.8em 1em",
+                                margin: "0.8em .8em",
                             }}>
                             <Checkbox
                                 color="warning"
@@ -176,7 +181,6 @@ const Cuenta = () => {
                                 </Typography>
                             </div>
                         </div>
-                        <Divider />
                     </div>
                 );
             })}

@@ -86,7 +86,6 @@ export default function CuentaHeader({ total }: { total: number }) {
                             comprensión y estamos a su servicio para dudas.
                         </Typography>
                     </AccordionDetails>
-                    <Divider />
                 </Accordion>
             </AccordionGroup>
         </>

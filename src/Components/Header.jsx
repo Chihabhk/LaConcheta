@@ -39,10 +39,9 @@ const Header = () => {
             <Box
                 component="header"
                 sx={{
-                    width: "100%",
                     display: "flex",
                     justifyContent: "space-evenly",
-                    padding: "0.5rem 0",
+                    padding: ".3rem .2rem",
                     position: "sticky",
                     top: "0",
                     zIndex: 1100,
@@ -61,10 +60,9 @@ const Header = () => {
                     sx={{
                         userSelect: "none",
                         cursor: "pointer",
-                        color: "#fff",
-                        fontWeight: "bold",
+                        color: "white",
                         textShadow: "2px 2px 4px rgba(0, 0, 0, 0.5)",
-                        letterSpacing: "0.05em",
+                        letterSpacing: "0.07em",
                     }}>
                     La Concheta
                 </Typography>
@@ -84,9 +82,7 @@ const Header = () => {
                         <ShoppingBasket
                             sx={{
                                 color: "white",
-                                border: "2px solid #2C1F16",
                                 borderRadius: "50%",
-                                boxShadow: "0 0 10px rgba(0, 0, 0, 0.5)",
                             }}
                         />
                     </Badge>
@@ -168,10 +164,10 @@ const Header = () => {
                     display: "flex",
                     alignItems: "center",
                     alignContent: "center",
-                    justifyContent: "space-between",
-                    gap: ".8rem",
+                    justifyContent: "space-evenly",
+                    gap: "1%",
                     position: "sticky",
-                    top: "4em",
+                    top: "3.5em",
                     zIndex: 1000,
                     p: ".4em",
                     backgroundColor: "rgba(162, 125, 94, 1)",
@@ -179,7 +175,6 @@ const Header = () => {
                 <Typography
                     level="title-md"
                     sx={{
-                        ml: ".2rem",
                         textAlign: "center",
                         textWrap: "pretty",
                         color: "white",
@@ -206,7 +201,6 @@ const Header = () => {
                     sx={{
                         textAlign: "center",
                         textWrap: "balance",
-                        marginRight: "1",
                         color: "white",
                     }}>
                     O...
@@ -216,8 +210,6 @@ const Header = () => {
                     href="tel:962121602"
                     variant="solid"
                     sx={{
-                        ml: "0.4em",
-                        mr: ".7rem",
                         backgroundColor: "#8d6749",
                     }}
                     startDecorator={<Phone sx={{ color: "white" }} />}>

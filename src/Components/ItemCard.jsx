@@ -28,11 +28,13 @@ const ItemCard = ({ item }) => {
                 <Typography
                     level="h2"
                     color="warning"
-                    fontSize={24}
+                    fontSize={18}
                     fontFamily={"Arial, sans-serif"}>
                     {item.name}
                 </Typography>
-                <Typography level="body-sm">{item.description}</Typography>
+                <Typography sx={{ color: "black" }} level="body-sm">
+                    {item.description}
+                </Typography>
             </CardContent>
             <CardContent
                 orientation="horizontal"
@@ -46,6 +48,7 @@ const ItemCard = ({ item }) => {
                     <Typography level="body-md">{" " + item.price}</Typography>
                 </Typography>
                 <CardActions
+                    disableSpacing
                     sx={{
                         p: 0,
                         justifyContent: "flex-end",
@@ -53,6 +56,7 @@ const ItemCard = ({ item }) => {
                         alignItems: "center",
                     }}>
                     <IconButton
+                        size="sm"
                         variant={quantity > 0 ? "solid" : ""}
                         color={quantity > 0 ? "warning" : ""}
                         aria-label="Delete from cart"
@@ -67,6 +71,7 @@ const ItemCard = ({ item }) => {
                         {quantity}
                     </Typography>
                     <IconButton
+                        size="sm"
                         variant={quantity > 0 ? "solid" : ""}
                         color={quantity > 0 ? "warning" : ""}
                         aria-label="Add to cart"
