@@ -26,27 +26,29 @@ function CartaPage() {
     return (
         <Tabs
             aria-label="Vertical tabs"
-            orientation="vertical"
+            orientation="horizontal"
             onChange={handleTabChange}
             value={value}
             sx={{
                 backgroundColor: "transparent",
-                marginLeft: "8rem",
-                marginRight: "0.8rem",
+                // marginLeft: "8rem",
+                // marginRight: "0.8rem",
             }}>
             <TabList
                 sx={{
-                    position: "fixed",
-                    top: "7.5rem",
-                    "&::-webkit-scrollbar": { display: "none" },
-                    width: "7rem",
-                    ml: "-7.2rem",
+                    // position: "fixed",
+                    // top: "7.5rem",
+                    // width: "7rem",
+                    // ml: "-7.2rem",
                     gap: "0.8rem",
-                    overflowY: "auto",
-                    "&::-webkit-scrollbar-thumb": {
-                        backgroundColor: "warning",
-                    },
-                    maxHeight: "calc(100vh - 9.5rem )",
+                    overflow: "auto",
+                    "&::-webkit-scrollbar": { display: "none" },
+                    scrollSnapType: "x mandatory",
+
+                    // "&::-webkit-scrollbar-thumb": {
+                    //     backgroundColor: "warning",
+                    // },
+                    // maxHeight: "calc(100vh - 9.5rem )",
                 }}>
                 {Object.entries(menuCategories).map(
                     ([key, category], index) => (
@@ -55,12 +57,14 @@ function CartaPage() {
                             color="warning"
                             disableIndicator
                             sx={{
+                                flex: "none",
+                                scrollSnapAlign: "start",
                                 textAlign: "center",
                                 alignContent: "center",
                                 backgroundColor: "#F2E3CA",
                                 boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
                                 borderRadius: "8px",
-                                p: ".7em 5px",
+                                // p: "1em 5px",
                                 "&.Mui-selected": {
                                     backgroundColor: "#a67e5f",
                                 },
@@ -68,6 +72,7 @@ function CartaPage() {
                             <Typography
                                 level="h4"
                                 textAlign={"left"}
+                                fontSize={18}
                                 fontFamily={"Arial, sans-serif"}
                                 sx={{
                                     letterSpacing: ".01em",
@@ -89,13 +94,15 @@ function CartaPage() {
                 <TabPanel
                     key={category.id}
                     value={index}
-                    sx={{
-                        ml: "0.8em",
-                        mr: "0.3rem",
-                        mt: ".9em",
-                        p: 0,
-                        width: "100%",
-                    }}>
+                    sx={
+                        {
+                            // ml: ".8em",
+                            // mr: ".3rem",
+                            // mt: ".9em",
+                            // p: 0,
+                            // width: "100%",
+                        }
+                    }>
                     {category.data.map((item) => (
                         <ItemCard item={item} key={item.id} />
                     ))}
