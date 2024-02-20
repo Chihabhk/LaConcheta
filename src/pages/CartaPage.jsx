@@ -2,8 +2,10 @@ import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import { Tabs, TabList, Tab, TabPanel, Typography } from "@mui/joy";
+import Fade from "@mui/material/Fade";
 import ItemCard from "../Components/ItemCard.jsx";
 import { useDocumentTitle } from "../hooks/useDocumentTitle.js";
+import { useSwipeable } from "react-swipeable";
 
 function CartaPage() {
     useDocumentTitle("LaConcheta - Carta de la casa");
@@ -23,6 +25,16 @@ function CartaPage() {
         navigate(`/carta/${Object.keys(menuCategories)[newValue]}`);
     };
 
+    const handlers = useSwipeable({
+        onSwipedLeft: () =>
+            setValue((value + 1) % Object.keys(menuCategories).length),
+        onSwipedRight: () =>
+            setValue(
+                (value - 1 + Object.keys(menuCategories).length) %
+                    Object.keys(menuCategories).length
+            ),
+    });
+
     return (
         <Tabs
             aria-label="Vertical tabs"
@@ -31,24 +43,14 @@ function CartaPage() {
             value={value}
             sx={{
                 backgroundColor: "transparent",
-                // marginLeft: "8rem",
-                // marginRight: "0.8rem",
+                mt: ".8em",
             }}>
             <TabList
                 sx={{
-                    // position: "fixed",
-                    // top: "7.5rem",
-                    // width: "7rem",
-                    // ml: "-7.2rem",
                     gap: "0.8rem",
                     overflow: "auto",
                     "&::-webkit-scrollbar": { display: "none" },
                     scrollSnapType: "x mandatory",
-
-                    // "&::-webkit-scrollbar-thumb": {
-                    //     backgroundColor: "warning",
-                    // },
-                    // maxHeight: "calc(100vh - 9.5rem )",
                 }}>
                 {Object.entries(menuCategories).map(
                     ([key, category], index) => (
@@ -64,7 +66,6 @@ function CartaPage() {
                                 backgroundColor: "#F2E3CA",
                                 boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
                                 borderRadius: "8px",
-                                // p: "1em 5px",
                                 "&.Mui-selected": {
                                     backgroundColor: "#a67e5f",
                                 },
@@ -90,24 +91,19 @@ function CartaPage() {
                     )
                 )}
             </TabList>
-            {Object.entries(menuCategories).map(([key, category], index) => (
-                <TabPanel
-                    key={category.id}
-                    value={index}
-                    sx={
-                        {
-                            // ml: ".8em",
-                            // mr: ".3rem",
-                            // mt: ".9em",
-                            // p: 0,
-                            // width: "100%",
-                        }
-                    }>
-                    {category.data.map((item) => (
-                        <ItemCard item={item} key={item.id} />
-                    ))}
-                </TabPanel>
-            ))}
+            <div {...handlers}>
+                {Object.entries(menuCategories).map(
+                    ([key, category], index) => (
+                        <Fade key={key} in={value === index} timeout={500}>
+                            <TabPanel key={category.id} value={index}>
+                                {category.data.map((item) => (
+                                    <ItemCard item={item} key={item.id} />
+                                ))}
+                            </TabPanel>
+                        </Fade>
+                    )
+                )}
+            </div>
         </Tabs>
     );
 }
