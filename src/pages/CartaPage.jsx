@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import { Tabs, TabList, Tab, TabPanel, Typography } from "@mui/joy";
-import Fade from "@mui/material/Fade";
 import ItemCard from "../Components/ItemCard.jsx";
 import { useDocumentTitle } from "../hooks/useDocumentTitle.js";
 import { useSwipeable } from "react-swipeable";
@@ -94,13 +93,11 @@ function CartaPage() {
             <div {...handlers}>
                 {Object.entries(menuCategories).map(
                     ([key, category], index) => (
-                        <Fade key={key} in={value === index} timeout={500}>
-                            <TabPanel key={category.id} value={index}>
-                                {category.data.map((item) => (
-                                    <ItemCard item={item} key={item.id} />
-                                ))}
-                            </TabPanel>
-                        </Fade>
+                        <TabPanel key={category.id} value={index}>
+                            {category.data.map((item) => (
+                                <ItemCard item={item} key={item.id} />
+                            ))}
+                        </TabPanel>
                     )
                 )}
             </div>
