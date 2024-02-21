@@ -8,7 +8,7 @@ import ItemCard from "../Components/ItemCard.jsx";
 import { useDocumentTitle } from "../hooks/useDocumentTitle.js";
 import { useSwipeable } from "react-swipeable";
 import { State, Category } from "../types.ts";
-
+//TODO:fix this shit, just changed mui/joy element with swiper, all code broken
 function CartaPage() {
     useDocumentTitle("LaConcheta - Carta de la casa");
     const refs = useRef([]);
