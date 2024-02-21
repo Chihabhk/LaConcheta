@@ -1,7 +1,9 @@
 import React, { useEffect, useState, useRef } from "react";
 import { useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
-import { Tabs, TabList, Tab, TabPanel, Typography } from "@mui/joy";
+import { Typography } from "@mui/joy";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/swiper.min.css";
 import ItemCard from "../Components/ItemCard.jsx";
 import { useDocumentTitle } from "../hooks/useDocumentTitle.js";
 import { useSwipeable } from "react-swipeable";
@@ -26,7 +28,7 @@ function CartaPage() {
         setValue(categoryIndex === -1 ? 2 : categoryIndex);
     }, [categoryIndex]);
 
-    const handleTabChange = (event, newValue) => {
+    const handleTabChange = (newValue) => {
         const categoryId = Object.keys(menuCategories)[newValue];
         navigate(`/carta/${categoryId}`);
         let element = document.getElementById("tabs-container");
@@ -49,74 +51,41 @@ function CartaPage() {
     });
 
     return (
-        <Tabs
-            aria-label="horizontal tabs"
-            orientation="horizontal"
-            onChange={handleTabChange}
-            value={value}
-            sx={{
-                backgroundColor: "transparent",
-                mt: ".8em",
-            }}>
-            <TabList
-                sx={{
-                    gap: "0.8rem",
-                    overflow: "auto",
-                    "&::-webkit-scrollbar": { display: "none" },
-                    scrollSnapType: "x mandatory",
-                }}>
-                {Object.entries(menuCategories).map(
-                    ([key, category]: [string, Category], index: number) => (
-                        <Tab
-                            key={category.id}
-                            ref={(el) => (refs.current[category.id] = el)}
-                            color="warning"
-                            disableIndicator
+        <Swiper
+            onSlideChange={(swiper) => handleTabChange(swiper.activeIndex)}
+            {...handlers}
+            spaceBetween={10}
+            slidesPerView={1}
+            navigation
+            pagination={{ clickable: true }}
+            scrollbar={{ draggable: true }}
+            onSwiper={(swiper) => console.log(swiper)}>
+            {Object.entries(menuCategories).map(
+                ([key, category]: [string, Category], index: number) => (
+                    <SwiperSlide key={category.id}>
+                        <Typography
+                            level="h4"
+                            textAlign={"left"}
+                            fontSize={18}
+                            fontFamily={"Arial, sans-serif"}
                             sx={{
-                                flex: "none",
-                                scrollSnapAlign: "start",
+                                letterSpacing: ".01em",
                                 textAlign: "center",
-                                alignContent: "center",
-                                backgroundColor: "#F2E3CA",
-                                boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
-                                borderRadius: "8px",
-                                "&.Mui-selected": {
-                                    backgroundColor: "#a67e5f",
-                                },
+                                textShadow:
+                                    value === index
+                                        ? "0px 2px 2px rgba(0, 0, 0, 0.5)"
+                                        : "inherit",
+                                color: value === index ? "#F2E3CA" : "inherit",
                             }}>
-                            <Typography
-                                level="h4"
-                                textAlign={"left"}
-                                fontSize={18}
-                                fontFamily={"Arial, sans-serif"}
-                                sx={{
-                                    letterSpacing: ".01em",
-                                    textAlign: "center",
-                                    textShadow:
-                                        value === index
-                                            ? "0px 2px 2px rgba(0, 0, 0, 0.5)"
-                                            : "inherit",
-                                    color:
-                                        value === index ? "#F2E3CA" : "inherit",
-                                }}>
-                                {key}
-                            </Typography>
-                        </Tab>
-                    )
-                )}
-            </TabList>
-            <div {...handlers}>
-                {Object.entries(menuCategories).map(
-                    ([key, category], index) => (
-                        <TabPanel key={category.id} value={index}>
-                            {category.data.map((item) => (
-                                <ItemCard item={item} key={item.id} />
-                            ))}
-                        </TabPanel>
-                    )
-                )}
-            </div>
-        </Tabs>
+                            {key}
+                        </Typography>
+                        {category.data.map((item) => (
+                            <ItemCard item={item} key={item.id} />
+                        ))}
+                    </SwiperSlide>
+                )
+            )}
+        </Swiper>
     );
 }
 
