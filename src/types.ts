@@ -6,9 +6,15 @@ export interface Item {
     quantity: number;
     url: string;
 }
+export interface Category {
+    id: string;
+    data: Item[];
+    url: string;
+}
 
 export interface State {
     menu: {
+        menuCategories: Category[];
         cartItems: Item[];
     };
 }

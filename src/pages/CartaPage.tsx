@@ -1,17 +1,23 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import { Tabs, TabList, Tab, TabPanel, Typography } from "@mui/joy";
 import ItemCard from "../Components/ItemCard.jsx";
 import { useDocumentTitle } from "../hooks/useDocumentTitle.js";
 import { useSwipeable } from "react-swipeable";
+import { State, Category } from "../types.ts";
 
 function CartaPage() {
     useDocumentTitle("LaConcheta - Carta de la casa");
-    const { menuCategories } = useSelector((state) => state.menu);
+    const refs = useRef([]);
+    const menuCategories = useSelector(
+        (state: State) => state.menu.menuCategories
+    );
     const navigate = useNavigate();
     const { categoryName } = useParams();
-    const categoryIndex = Object.keys(menuCategories).indexOf(categoryName);
+    const categoryIndex = Object.keys(menuCategories).indexOf(
+        categoryName || ""
+    );
     const [value, setValue] = useState(
         categoryIndex === -1 ? 2 : categoryIndex
     );
@@ -21,7 +27,15 @@ function CartaPage() {
     }, [categoryIndex]);
 
     const handleTabChange = (event, newValue) => {
-        navigate(`/carta/${Object.keys(menuCategories)[newValue]}`);
+        const categoryId = Object.keys(menuCategories)[newValue];
+        navigate(`/carta/${categoryId}`);
+        let element = document.getElementById("tabs-container");
+        if (element) {
+            element.scrollIntoView({
+                behavior: "smooth",
+                inline: "center",
+            });
+        }
     };
 
     const handlers = useSwipeable({
@@ -36,7 +50,7 @@ function CartaPage() {
 
     return (
         <Tabs
-            aria-label="Vertical tabs"
+            aria-label="horizontal tabs"
             orientation="horizontal"
             onChange={handleTabChange}
             value={value}
@@ -52,9 +66,10 @@ function CartaPage() {
                     scrollSnapType: "x mandatory",
                 }}>
                 {Object.entries(menuCategories).map(
-                    ([key, category], index) => (
+                    ([key, category]: [string, Category], index: number) => (
                         <Tab
                             key={category.id}
+                            ref={(el) => (refs.current[category.id] = el)}
                             color="warning"
                             disableIndicator
                             sx={{

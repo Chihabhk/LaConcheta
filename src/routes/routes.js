@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 
 const NotFoundPage = lazy(() => import("../pages/NotFoundPage"));
 
-const CartaPage = lazy(() => import("../pages/CartaPage"));
+const CartaPage = lazy(() => import("../pages/CartaPage.tsx"));
 
 const RedirectToCategories = () => {
     const navigate = useNavigate();
