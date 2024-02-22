@@ -1,20 +1,21 @@
 import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { Divider, Typography, Checkbox, Button, IconButton } from "@mui/joy";
 
 import { calculateTotal } from "../utils/utils.ts";
-import { Item, State } from "../types.ts";
+import { Item, MenuState } from "../types.ts";
 import DeleteConfirmationModal from "./DeleteConfirmationModal.tsx";
 import CuentaHeader from "./CuentaHeader.tsx";
-import { addItemToCart, removeItemFromCart } from "../features/menuSlice.js";
+import { addItemToCart, removeItemFromCart } from "../features/menuSlice.ts";
 import { Add, Remove } from "@mui/icons-material";
+import { useAppDispatch } from "../store/store.ts";
 
 const Cuenta = () => {
-    const dispatch = useDispatch();
+    const dispatch = useAppDispatch();
     const [modalOpen, setModalOpen] = useState(false);
     const [btnDisabled, setBtnDisabled] = useState(true);
     const [selectedItems, setSelectedItems] = useState<Item[]>([]);
-    const { cartItems } = useSelector((state: State) => state.menu);
+    const cartItems = useSelector((state: MenuState) => state.cartItems);
     const total: number = calculateTotal(
         selectedItems.length > 0 ? selectedItems : cartItems
     );

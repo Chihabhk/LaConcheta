@@ -1,20 +1,16 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import menuData from "../db/menu.json";
+import { MenuState } from "../types";
 
-export const getAllCategories = createAsyncThunk(
-    "menu/getAllCategories",
-    async () => {
-        // Simular una llamada asíncrona a una API o servicio
-        return new Promise((resolve) => {
-            resolve(menuData);
-        });
-    }
-);
+export const fetchMenu = createAsyncThunk("menu/fetchMenu", async () => {
+    const response = await fetch("../db/menu.json");
+    return await response.json();
+});
 
 const initialState = {
     menuCategories: [],
-    cartItems: JSON.parse(localStorage.getItem("cartItems")) || [],
-};
+    cartItems: JSON.parse(localStorage.getItem("cartItems") as string) || [],
+    loading: "idle",
+} satisfies MenuState as MenuState;
 
 export const menuSlice = createSlice({
     name: "menu",
@@ -67,11 +63,10 @@ export const menuSlice = createSlice({
     extraReducers: (builder) => {
         builder
             /*.addCase(getAllCategories.pending, (state) => {
-                state.menuCategories = {}; //! This breaks the useEffect[menuCategories] (infinite loop) to get the categories from the App.js
+                state.menuCategories = {}; //! This breaks the useEffect[menuCategories] (infinite loop) to get the categories from the App.ts
             })*/
-            .addCase(getAllCategories.fulfilled, (state, action) => {
-                const categories = action.payload;
-                state.menuCategories = categories;
+            .addCase(fetchMenu.fulfilled, (state, action) => {
+                return action.payload;
             });
     },
 });

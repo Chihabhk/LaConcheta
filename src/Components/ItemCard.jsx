@@ -1,4 +1,4 @@
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import {
     Typography,
     Card,
@@ -8,9 +8,10 @@ import {
 } from "@mui/joy";
 import { Add, Remove } from "@mui/icons-material";
 import { addItemToCart, removeItemFromCart } from "../features/menuSlice";
+import { useAppDispatch } from "../store/store";
 
 const ItemCard = ({ item }) => {
-    const dispatch = useDispatch();
+    const dispatch = useAppDispatch();
     const { cartItems } = useSelector((state) => state.menu);
     const itemInCart = cartItems.find((cartItem) => cartItem.id === item.id);
     const quantity = itemInCart ? itemInCart.quantity : 0;

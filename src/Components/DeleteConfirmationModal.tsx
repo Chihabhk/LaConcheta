@@ -1,5 +1,4 @@
 import React from "react";
-import { useDispatch } from "react-redux";
 import {
     Button,
     DialogActions,
@@ -12,7 +11,8 @@ import {
     Typography,
 } from "@mui/joy";
 import { WarningRounded } from "@mui/icons-material";
-import { removeAllFromCart } from "../features/menuSlice";
+import { removeAllFromCart } from "../features/menuSlice.ts";
+import { useAppDispatch } from "../store/store.ts";
 
 const DeleteConfirmationModal = ({
     open,
@@ -20,7 +20,7 @@ const DeleteConfirmationModal = ({
     selectedItems,
     setSelectedItems,
 }) => {
-    const dispatch = useDispatch();
+    const dispatch = useAppDispatch();
     return (
         <Modal open={open}>
             <ModalDialog variant="outlined" role="alertdialog">

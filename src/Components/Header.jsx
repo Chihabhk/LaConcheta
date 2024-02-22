@@ -19,7 +19,7 @@ import Cuenta from "../Components/Cuenta.tsx";
 
 const Header = () => {
     const [isDrawerOpen, setIsDrawerOpen] = useState(false);
-    const { cartItems, menuCategories } = useSelector((state) => state.menu);
+    const { cartItems } = useSelector((state) => state.menu);
     const navigate = useNavigate();
     const handleLogoOnClick = () => {
         navigate("/");
@@ -31,9 +31,6 @@ const Header = () => {
     const handleSearchOnClick = () => {
         // setSearchDrawer(true);
     };
-    const flattenedOptions = Object.values(menuCategories).flatMap(
-        (category) => category.data
-    );
 
     return (
         <>
@@ -153,10 +150,7 @@ const Header = () => {
                 onClose={() => setSearchDrawer(false)}
                 anchor="top"
                 open={isSearchDrawerOpen}>
-                <Autocomplete
-                    options={flattenedOptions}
-                    getOptionLabel={(option) => option.name || ""}
-                />
+                <Autocomplete getOptionLabel={(option) => option.name || ""} />
             </Menu>
 
             <Box

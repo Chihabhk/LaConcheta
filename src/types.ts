@@ -12,9 +12,8 @@ export interface Category {
     url: string;
 }
 
-export interface State {
-    menu: {
-        menuCategories: Category[];
-        cartItems: Item[];
-    };
+export interface MenuState {
+    menuCategories: Category[];
+    cartItems: Item[];
+    loading: "idle" | "pending" | "succeeded" | "failed";
 }
