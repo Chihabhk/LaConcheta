@@ -1,5 +1,6 @@
 {
     "Ensaladas": {
+        "name": "Ensaladas",
         "url": "",
         "data": [
             {
@@ -34,6 +35,7 @@
         "id": "5c978f62-d9ee-46c6-a7a5-9987c7e83d07"
     },
     "Entrantes Fríos": {
+        "name": "Entrantes Fríos",
         "url": "",
         "data": [
             {
@@ -82,14 +84,12 @@
                 "name": "Boquerones en vinagre",
                 "allergies": "",
                 "price": "6€",
-                "'id": "f3f3f3f3-3f3f-3f3f-3f3f-3f3f3f35555",
                 "id": "b48f7a8c-cd60-4266-b311-6e4e7b43d39a"
             },
             {
                 "name": "Boquerones a la andaluza",
                 "allergies": "",
                 "price": "6,5€",
-                "'id": "f3f3f3f3-3f3f-553f-3f3f-3f3f3f3f3f4f",
                 "id": "d43e86ef-0f09-444c-b3d2-3beef8f9d7ff"
             },
             {
@@ -102,6 +102,7 @@
         "id": "be3f6354-aaa3-4662-9c61-f5a9de0f296b"
     },
     "Entrantes Calientes": {
+        "name": "Entrantes Calientes",
         "url": "",
         "data": [
             {
@@ -279,14 +280,12 @@
                 "name": "Gyozas",
                 "allergies": "",
                 "price": "8€",
-                "'id": "f3f4f3f3-3f3f-3f3f-3f3f-3f3f3f3f3f8f",
                 "id": "db77bda1-d671-4f65-9617-1a60a8403aa5"
             },
             {
                 "name": "Gyozas de pollo",
                 "allergies": "",
                 "price": "8€",
-                "'id": "f345f3f3-3f3f-3f3f-3f3f-3f3f3f3f3f4f",
                 "id": "3f81b25a-323d-4385-ad2f-a2f919bfb68f"
             },
             {
@@ -305,6 +304,7 @@
         "id": "8ae1dd9e-3321-4595-890c-bacfef7e3973"
     },
     "Pescados": {
+        "name": "Pescados",
         "url": "",
         "data": [
             {
@@ -341,6 +341,7 @@
         "id": "8ac15649-9600-4664-b167-d3e439c0d342"
     },
     "Carnes": {
+        "name": "Carnes",
         "url": "",
         "data": [
             {
@@ -454,6 +455,7 @@
         "id": "0f486682-43b5-443c-803f-c5d237847d48"
     },
     "Paellas": {
+        "name": "Paellas",
         "url": "",
         "data": [
             {
@@ -516,6 +518,7 @@
         "id": "98b9c627-02a3-48b9-b4e0-e5554c55683a"
     },
     "Arroces": {
+        "name": "Arroces",
         "url": "",
         "data": [
             {
@@ -557,6 +560,7 @@
         "id": "350c23b9-f294-4d86-bc6d-de2838cf4823"
     },
     "Postres": {
+        "name": "Postres",
         "url": "",
         "data": [
             {
@@ -641,6 +645,7 @@
         "id": "69a9c39c-c21d-42d6-94ec-56a3107255f4"
     },
     "Bocadillos": {
+        "name": "Bocadillos",
         "url": "",
         "data": [
             {

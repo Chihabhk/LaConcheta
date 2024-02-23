@@ -9,6 +9,7 @@ export interface Item {
 }
 export interface Category {
     id: string;
+    name: string;
     data: Item[];
     url: string;
 }

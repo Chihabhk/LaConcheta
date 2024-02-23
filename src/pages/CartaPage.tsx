@@ -1,26 +1,25 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { Swiper, SwiperSlide } from "swiper/react";
 import ItemCard from "../Components/ItemCard";
 import { MenuState } from "../types";
+import { useDocumentTitle } from "../hooks/useDocumentTitle";
 
 const CartaPage = () => {
-    const menuCategories = useSelector(
-        (state: MenuState) => state.menuCategories
+    useDocumentTitle("Carta de la casa");
+    const { menuCategories, loading } = useSelector(
+        (state: MenuState) => state
     );
-    console.log(typeof menuCategories);
     return (
-        <Swiper>
-            {menuCategories.length > 0
-                ? menuCategories.map((category) =>
-                      category.data.map((item) => (
-                          <SwiperSlide key={item.id}>
-                              <ItemCard item={item}></ItemCard>
-                          </SwiperSlide>
-                      ))
-                  )
-                : undefined}
-        </Swiper>
+        <div className="swiper-container">
+            {loading === "succeeded" &&
+                menuCategories.map((category) =>
+                    category.data.map((item) => (
+                        <div key={item.id} className="swiper-slide">
+                            <ItemCard item={item} />
+                        </div>
+                    ))
+                )}
+        </div>
     );
 };
 

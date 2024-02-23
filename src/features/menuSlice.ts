@@ -3,7 +3,7 @@ import { MenuState } from "../types";
 import menuData from "../db/menu.json";
 
 export const fetchMenu = createAsyncThunk("menu/fetchMenu", async () => {
-    const response = menuData;
+    const response = await menuData;
     return response;
 });
 
