@@ -8,7 +8,7 @@ const CartaPage = () => {
     const menuCategories = useSelector(
         (state: MenuState) => state.menuCategories
     );
-
+    console.log(typeof menuCategories);
     return (
         <Swiper>
             {menuCategories.length > 0
