@@ -7,8 +7,8 @@ import {
     CardActions,
 } from "@mui/joy";
 import { Add, Remove } from "@mui/icons-material";
-import { addItemToCart, removeItemFromCart } from "../features/menuSlice";
-import { useAppDispatch } from "../store/store";
+import { addItemToCart, removeItemFromCart } from "../features/menuSlice.ts";
+import { useAppDispatch } from "../store/store.ts";
 
 const ItemCard = ({ item }) => {
     const dispatch = useAppDispatch();

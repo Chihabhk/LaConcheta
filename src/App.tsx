@@ -1,23 +1,23 @@
 import "./App.css";
 import React from "react";
+import { Suspense, useEffect } from "react";
 import { HashRouter as Router, Routes, Route } from "react-router-dom";
-import { lazy, Suspense, useEffect } from "react";
 import { useSelector } from "react-redux";
+import { CircularProgress, Box } from "@mui/joy";
 import { NonAuthRoutes } from "./routes/routes.js";
 import { fetchMenu } from "./features/menuSlice.ts";
-import { CircularProgress, Box } from "@mui/joy";
 import { MenuState } from "./types.js";
 import { useAppDispatch } from "./store/store.ts";
-
-const Layout = lazy(() => import("./Components/Layout.jsx"));
+import Layout from "./Components/Layout.jsx";
 
 function App() {
     const dispatch = useAppDispatch();
     const menuCategories = useSelector(
         (state: MenuState) => state.menuCategories
     );
+
     useEffect(() => {
-        if (Object.keys(menuCategories).length === 0) {
+        if (!menuCategories) {
             dispatch(fetchMenu());
         }
     }, [dispatch, menuCategories]);

@@ -1,9 +1,10 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { MenuState } from "../types";
+import menuData from "../db/menu.json";
 
 export const fetchMenu = createAsyncThunk("menu/fetchMenu", async () => {
-    const response = await fetch("../db/menu.json");
-    return await response.json();
+    const response = menuData;
+    return response;
 });
 
 const initialState = {
@@ -22,7 +23,7 @@ export const menuSlice = createSlice({
                 (cartItem) => cartItem.id === item.id
             );
             if (existingItem) {
-                existingItem.quantity += 1;
+                existingItem.quantity = (existingItem.quantity || 0) + 1;
             } else {
                 state.cartItems.push({ ...item, quantity: 1 });
             }
@@ -33,7 +34,7 @@ export const menuSlice = createSlice({
             const existingItem = state.cartItems.find(
                 (cartItem) => cartItem.id === item.id
             );
-            if (existingItem) {
+            if (existingItem?.quantity) {
                 existingItem.quantity -= 1;
                 if (existingItem.quantity <= 0) {
                     const index = state.cartItems.findIndex(
@@ -60,13 +61,18 @@ export const menuSlice = createSlice({
             localStorage.setItem("cartItems", JSON.stringify(state.cartItems));
         },
     },
+
     extraReducers: (builder) => {
         builder
-            /*.addCase(getAllCategories.pending, (state) => {
-                state.menuCategories = {}; //! This breaks the useEffect[menuCategories] (infinite loop) to get the categories from the App.ts
-            })*/
+            .addCase(fetchMenu.pending, (state) => {
+                state.loading = "pending";
+            })
             .addCase(fetchMenu.fulfilled, (state, action) => {
-                return action.payload;
+                state.menuCategories = Object.values(action.payload);
+                state.loading = "succeeded";
+            })
+            .addCase(fetchMenu.rejected, (state) => {
+                state.loading = "failed";
             });
     },
 });

@@ -1,10 +1,11 @@
 export interface Item {
     id: string;
     name: string;
-    description: string;
+    description?: string;
+    allergies?: string;
     price: string;
-    quantity: number;
-    url: string;
+    quantity?: number;
+    url?: string;
 }
 export interface Category {
     id: string;

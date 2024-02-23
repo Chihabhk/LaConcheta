@@ -1,3 +1,4 @@
+import React from "react";
 import { useState } from "react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
@@ -10,17 +11,18 @@ import {
     Badge,
     IconButton,
     Button,
-    Autocomplete,
     Menu,
 } from "@mui/joy";
 import { Instagram, Phone, Search, ShoppingBasket } from "@mui/icons-material";
 
-import Cuenta from "../Components/Cuenta.tsx";
+import Cuenta from "./Cuenta.tsx";
+import { MenuState } from "../types.ts";
 
 const Header = () => {
     const [isDrawerOpen, setIsDrawerOpen] = useState(false);
-    const { cartItems } = useSelector((state) => state.menu);
+    const cartItems = useSelector((state: MenuState) => state.cartItems);
     const navigate = useNavigate();
+
     const handleLogoOnClick = () => {
         navigate("/");
     };
@@ -66,7 +68,7 @@ const Header = () => {
                 </Typography>
                 <IconButton onClick={handleCartIconClick}>
                     <Badge
-                        badgeContent={cartItems.length}
+                        badgeContent={cartItems?.length}
                         anchorOrigin={{ vertical: "top", horizontal: "right" }}
                         sx={{
                             "& .MuiBadge-badge": {
@@ -92,7 +94,7 @@ const Header = () => {
                     onClose={() => setIsDrawerOpen(false)}
                     size="md">
                     <ModalClose />
-                    {cartItems.length > 0 ? (
+                    {cartItems?.length > 0 ? (
                         <Cuenta />
                     ) : (
                         <>
@@ -106,7 +108,7 @@ const Header = () => {
                                     alignContent: "center",
                                     gap: "2rem",
                                 }}>
-                                <Typography level="title-lg" align="center">
+                                <Typography level="title-lg">
                                     Tu carrito está vacío
                                 </Typography>
                                 <Typography
@@ -134,9 +136,9 @@ const Header = () => {
                                             );
                                     }}>
                                     <Typography
-                                        color="#fff"
                                         level="body-lg"
-                                        fontWeight="bold">
+                                        fontWeight="bold"
+                                        sx={{ color: "white" }}>
                                         Añadir platos
                                     </Typography>
                                 </Button>
@@ -148,13 +150,12 @@ const Header = () => {
             <Menu
                 size="sm"
                 onClose={() => setSearchDrawer(false)}
-                anchor="top"
                 open={isSearchDrawerOpen}>
-                <Autocomplete getOptionLabel={(option) => option.name || ""} />
+                {/* <Autocomplete getOptionLabel={(option) => option.name || ""} /> */}
             </Menu>
 
             <Box
-                variant="plain"
+                color="plain"
                 sx={{
                     display: "flex",
                     alignItems: "center",

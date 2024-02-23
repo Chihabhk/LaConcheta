@@ -1,14 +1,14 @@
 import { lazy, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
-const NotFoundPage = lazy(() => import("../pages/NotFoundPage"));
+import CartaPage from "../pages/CartaPage.tsx";
 
-const CartaPage = lazy(() => import("../pages/CartaPage.tsx"));
+const NotFoundPage = lazy(() => import("../pages/NotFoundPage"));
 
 const RedirectToCategories = () => {
     const navigate = useNavigate();
     useEffect(() => {
-        navigate("/carta/Entrantes%20Calientes");
+        navigate("/carta");
     }, [navigate]);
     return null;
 };
@@ -18,7 +18,7 @@ const routes = [
         component: RedirectToCategories,
     },
     {
-        path: "/carta/:categoryName",
+        path: "/carta",
         component: CartaPage,
     },
     {

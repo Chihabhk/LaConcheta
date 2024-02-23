@@ -1,10 +1,9 @@
-import App from "./App.tsx";
-
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { Provider } from "react-redux";
-import { store } from "./store/store.ts";
 import { CssVarsProvider } from "@mui/joy/styles";
+import { store } from "./store/store.ts";
+import App from "./App.tsx";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
