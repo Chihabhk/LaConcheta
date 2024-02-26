@@ -3,7 +3,7 @@ import { MenuState } from "../types";
 import menuData from "../db/menu.json";
 
 export const fetchMenu = createAsyncThunk("menu/fetchMenu", async () => {
-    const response = await menuData;
+    const response = await JSON.stringify(menuData);
     return response;
 });
 
@@ -68,7 +68,7 @@ export const menuSlice = createSlice({
                 state.loading = "pending";
             })
             .addCase(fetchMenu.fulfilled, (state, action) => {
-                state.menuCategories = Object.values(action.payload);
+                state.menuCategories = JSON.parse(action.payload);
                 state.loading = "succeeded";
             })
             .addCase(fetchMenu.rejected, (state) => {

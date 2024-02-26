@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Suspense } from "react";
 import { useSelector } from "react-redux";
 import ItemCard from "../Components/ItemCard";
 import { MenuState } from "../types";
@@ -10,16 +10,9 @@ const CartaPage = () => {
         (state: MenuState) => state
     );
     return (
-        <div className="swiper-container">
-            {loading === "succeeded" &&
-                menuCategories.map((category) =>
-                    category.data.map((item) => (
-                        <div key={item.id} className="swiper-slide">
-                            <ItemCard item={item} />
-                        </div>
-                    ))
-                )}
-        </div>
+        <Suspense>
+            <ItemCard item={menuCategories[3].data[2]} />
+        </Suspense>
     );
 };
 
