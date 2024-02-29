@@ -1,3 +1,4 @@
+import React from "react";
 import { useSelector } from "react-redux";
 import {
     Typography,
@@ -9,10 +10,11 @@ import {
 import { Add, Remove } from "@mui/icons-material";
 import { addItemToCart, removeItemFromCart } from "../features/menuSlice.ts";
 import { useAppDispatch } from "../store/store.ts";
+import { Item, MenuState } from "../types.ts";
 
-const ItemCard = ({ item }) => {
+const ItemCard = ({ item }: { item: Item }) => {
     const dispatch = useAppDispatch();
-    const { cartItems } = useSelector((state) => state.menu);
+    const { cartItems } = useSelector((state: MenuState) => state);
     const itemInCart = cartItems.find((cartItem) => cartItem.id === item.id);
     const quantity = itemInCart ? itemInCart.quantity : 0;
     return (
@@ -57,23 +59,25 @@ const ItemCard = ({ item }) => {
                     }}>
                     <IconButton
                         size="sm"
-                        variant={quantity > 0 ? "solid" : ""}
-                        color={quantity > 0 ? "warning" : ""}
+                        variant={quantity && quantity > 0 ? "solid" : undefined}
+                        color={quantity && quantity > 0 ? "warning" : undefined}
                         aria-label="Delete from cart"
                         onClick={() => dispatch(removeItemFromCart(item))}>
                         <Remove />
                     </IconButton>
                     <Typography
-                        level="body-2"
+                        level="body-md"
                         color="warning"
-                        fontStyle={quantity === 0 ? "italic" : "bold"}
+                        fontStyle={
+                            quantity && quantity === 0 ? "italic" : "bold"
+                        }
                         fontSize={16}>
-                        {quantity}
+                        {quantity || 0}
                     </Typography>
                     <IconButton
                         size="sm"
-                        variant={quantity > 0 ? "solid" : ""}
-                        color={quantity > 0 ? "warning" : ""}
+                        variant={quantity && quantity > 0 ? "solid" : undefined}
+                        color={quantity && quantity > 0 ? "warning" : undefined}
                         aria-label="Add to cart"
                         onClick={() => dispatch(addItemToCart(item))}>
                         <Add />

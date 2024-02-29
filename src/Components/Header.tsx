@@ -108,7 +108,9 @@ const Header = () => {
                                     alignContent: "center",
                                     gap: "2rem",
                                 }}>
-                                <Typography level="title-lg">
+                                <Typography
+                                    level="title-lg"
+                                    textAlign={"center"}>
                                     Tu carrito está vacío
                                 </Typography>
                                 <Typography
@@ -130,10 +132,7 @@ const Header = () => {
                                         setIsDrawerOpen(false);
                                         !window.location.hash.startsWith(
                                             "#/carta/"
-                                        ) &&
-                                            navigate(
-                                                "/carta/Entrantes%20Calientes"
-                                            );
+                                        ) && navigate("/carta");
                                     }}>
                                     <Typography
                                         level="body-lg"

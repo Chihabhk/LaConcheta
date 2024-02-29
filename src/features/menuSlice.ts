@@ -68,7 +68,8 @@ export const menuSlice = createSlice({
                 state.loading = "pending";
             })
             .addCase(fetchMenu.fulfilled, (state, action) => {
-                state.menuCategories = JSON.parse(action.payload);
+                let menu = JSON.parse(action.payload);
+                state.menuCategories = Object.values(menu);
                 state.loading = "succeeded";
             })
             .addCase(fetchMenu.rejected, (state) => {
