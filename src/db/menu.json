@@ -6,7 +6,7 @@
             {
                 "name": "Ensalada de la casa",
                 "description": "Lechuga, tomate, maíz, huevo, esparragos, aceitunas, atún y zanahorias",
-                "allergies": "",
+                "allergies": "pescado, ",
                 "price": "8€",
                 "id": "edf15fdf-e657-494d-9f98-c9a9aebc6e0f"
             },
@@ -254,7 +254,7 @@
             },
             {
                 "name": "Crujientes de queso",
-                "allergies": "Queso azul, queso brie y queso blanco",
+                "description": "Queso azul, queso brie y queso blanco",
                 "price": "6€",
                 "id": "34639294-c1a2-470b-ad81-0720746a0943"
             },

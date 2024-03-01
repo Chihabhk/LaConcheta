@@ -24,21 +24,37 @@ const ItemCard = ({ item }: { item: Item }) => {
             sx={{
                 cursor: "pointer",
                 marginBottom: 1,
-                backgroundColor: "#F2E3CA",
                 boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
             }}>
             <CardContent>
                 <Typography
                     level="h2"
-                    color="warning"
                     fontSize={18}
-                    fontFamily={"Arial, sans-serif"}>
+                    fontFamily={"Arial, sans-serif"}
+                    sx={{ color: "black" }}>
                     {item.name}
                 </Typography>
                 <Typography sx={{ color: "black" }} level="body-sm">
                     {item.description}
                 </Typography>
             </CardContent>
+            {item.allergies && (
+                <CardContent>
+                    <Typography>Allergies:</Typography>
+                    {item.allergies.split(",").map((allergy, index) => (
+                        <IconButton key={index} size="sm" disabled>
+                            {" "}
+                            <img
+                                src={`/path/to/icons/${allergy.trim()}.png`}
+                                onError={(e) => {
+                                    e.currentTarget.style.display = "none";
+                                }}
+                                alt={allergy.trim()}
+                            />
+                        </IconButton>
+                    ))}
+                </CardContent>
+            )}
             <CardContent
                 orientation="horizontal"
                 sx={{
@@ -46,9 +62,11 @@ const ItemCard = ({ item }: { item: Item }) => {
                     alignItems: "center",
                     justifyContent: "space-between",
                 }}>
-                <Typography level="body-md" color="warning" fontWeight={"bold"}>
+                <Typography level="body-md" fontWeight={"bold"}>
                     Precio:
-                    <Typography level="body-md">{" " + item.price}</Typography>
+                    <Typography level="body-md" sx={{ color: "black" }}>
+                        {" " + item.price}
+                    </Typography>
                 </Typography>
                 <CardActions
                     sx={{

@@ -21,10 +21,7 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
     <React.StrictMode>
         <Provider store={store}>
-            <CssVarsProvider
-                defaultMode="system"
-                theme={theme}
-                disableNestedContext>
+            <CssVarsProvider theme={theme} disableNestedContext>
                 <App />
             </CssVarsProvider>
         </Provider>
