@@ -14,7 +14,7 @@ import { Item, MenuState } from "../types.ts";
 
 const ItemCard = ({ item }: { item: Item }) => {
     const dispatch = useAppDispatch();
-    const { cartItems } = useSelector((state: MenuState) => state);
+    const { cartItems } = useSelector((state: MenuState) => state.menu);
     const itemInCart = cartItems.find((cartItem) => cartItem.id === item.id);
     const quantity = itemInCart ? itemInCart.quantity : 0;
     return (

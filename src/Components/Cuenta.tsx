@@ -15,7 +15,7 @@ const Cuenta = () => {
     const [modalOpen, setModalOpen] = useState(false);
     const [btnDisabled, setBtnDisabled] = useState(true);
     const [selectedItems, setSelectedItems] = useState<Item[]>([]);
-    const cartItems = useSelector((state: MenuState) => state.cartItems);
+    const cartItems = useSelector((state: MenuState) => state.menu.cartItems);
     const total: number = calculateTotal(
         selectedItems.length > 0 ? selectedItems : cartItems
     );

@@ -15,7 +15,9 @@ export interface Category {
 }
 
 export interface MenuState {
-    menuCategories: Category[];
-    cartItems: Item[];
-    loading: "idle" | "pending" | "succeeded" | "failed";
+    menu: {
+        menuCategories: Category[];
+        cartItems: Item[];
+        loading: "idle" | "pending" | "succeeded" | "failed";
+    };
 }

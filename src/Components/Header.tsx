@@ -13,25 +13,21 @@ import {
     Button,
     Menu,
 } from "@mui/joy";
-import { Instagram, Phone, Search, ShoppingBasket } from "@mui/icons-material";
+import { Instagram, Phone, ShoppingBasket } from "@mui/icons-material";
 
 import Cuenta from "./Cuenta.tsx";
 import { MenuState } from "../types.ts";
 
 const Header = () => {
     const [isDrawerOpen, setIsDrawerOpen] = useState(false);
-    const cartItems = useSelector((state: MenuState) => state.cartItems);
+    const cartItems = useSelector((state: MenuState) => state.menu.cartItems);
     const navigate = useNavigate();
 
     const handleLogoOnClick = () => {
         navigate("/");
     };
-    const [isSearchDrawerOpen, setSearchDrawer] = useState(false);
     const handleCartIconClick = () => {
         setIsDrawerOpen(true);
-    };
-    const handleSearchOnClick = () => {
-        // setSearchDrawer(true);
     };
 
     return (
@@ -40,19 +36,15 @@ const Header = () => {
                 component="header"
                 sx={{
                     display: "flex",
-                    justifyContent: "space-evenly",
-                    padding: ".3rem .2rem",
+                    justifyContent: "space-around",
+                    alignItems: "center",
+                    padding: ".4rem 2em",
                     position: "sticky",
                     top: "0",
                     zIndex: 1100,
                     backgroundColor: "rgba(45, 33, 24, 1)",
                     backdropFilter: "blur(20px)",
                 }}>
-                <IconButton onClick={handleSearchOnClick} size={"lg"}>
-                    <Search
-                        sx={{ color: "white", transform: "rotate(70deg)" }}
-                    />
-                </IconButton>
                 <Typography
                     level="h1"
                     onClick={handleLogoOnClick}
@@ -71,6 +63,7 @@ const Header = () => {
                         badgeContent={cartItems?.length}
                         anchorOrigin={{ vertical: "top", horizontal: "right" }}
                         sx={{
+                            alignSelf: "center",
                             "& .MuiBadge-badge": {
                                 fontWeight: "bold",
                                 fontFamily: "Arial, sans-serif",
@@ -146,13 +139,6 @@ const Header = () => {
                     )}
                 </Drawer>
             </Box>
-            <Menu
-                size="sm"
-                onClose={() => setSearchDrawer(false)}
-                open={isSearchDrawerOpen}>
-                {/* <Autocomplete getOptionLabel={(option) => option.name || ""} /> */}
-            </Menu>
-
             <Box
                 color="plain"
                 sx={{
@@ -165,7 +151,7 @@ const Header = () => {
                     top: "3.5em",
                     zIndex: 1000,
                     p: ".4em",
-                    backgroundColor: "rgba(162, 125, 94, 1)",
+                    backgroundColor: "#2D2118",
                 }}>
                 <Typography
                     level="title-md"
@@ -182,7 +168,7 @@ const Header = () => {
                     href="https://www.instagram.com/laconchetarestaurante/"
                     variant="solid"
                     sx={{
-                        backgroundColor: "#8d6749",
+                        backgroundColor: "#df9a66",
                     }}>
                     <Instagram
                         sx={{
@@ -205,7 +191,7 @@ const Header = () => {
                     href="tel:962121602"
                     variant="solid"
                     sx={{
-                        backgroundColor: "#8d6749",
+                        backgroundColor: "#df9a66",
                     }}
                     startDecorator={<Phone sx={{ color: "white" }} />}>
                     <Typography

@@ -1,5 +1,4 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { MenuState } from "../types";
 import menuData from "../db/menu.json";
 
 export const fetchMenu = createAsyncThunk("menu/fetchMenu", async () => {
@@ -11,7 +10,7 @@ const initialState = {
     menuCategories: [],
     cartItems: JSON.parse(localStorage.getItem("cartItems") as string) || [],
     loading: "idle",
-} satisfies MenuState as MenuState;
+};
 
 export const menuSlice = createSlice({
     name: "menu",
@@ -68,9 +67,9 @@ export const menuSlice = createSlice({
                 state.loading = "pending";
             })
             .addCase(fetchMenu.fulfilled, (state, action) => {
+                state.loading = "succeeded";
                 let menu = JSON.parse(action.payload);
                 state.menuCategories = Object.values(menu);
-                state.loading = "succeeded";
             })
             .addCase(fetchMenu.rejected, (state) => {
                 state.loading = "failed";
