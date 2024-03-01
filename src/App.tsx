@@ -1,4 +1,5 @@
 import "./App.css";
+import "swiper/css";
 import React from "react";
 import { Suspense, useEffect } from "react";
 import { HashRouter as Router, Routes, Route } from "react-router-dom";

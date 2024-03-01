@@ -6,7 +6,7 @@
             {
                 "name": "Ensalada de la casa",
                 "description": "Lechuga, tomate, maíz, huevo, esparragos, aceitunas, atún y zanahorias",
-                "allergies": "pescado, ",
+                "allergies": "",
                 "price": "8€",
                 "id": "edf15fdf-e657-494d-9f98-c9a9aebc6e0f"
             },
