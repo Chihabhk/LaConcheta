@@ -1,10 +1,11 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination, Navigation, HashNavigation } from "swiper/modules";
+import { Pagination } from "swiper/modules";
 
 import ItemCard from "../Components/ItemCard.tsx";
 import { MenuState } from "../types";
+import "swiper/css";
 import "swiper/css/pagination";
 
 const CartaPage = () => {
@@ -13,25 +14,21 @@ const CartaPage = () => {
     );
     const pagination = {
         clickable: true,
-        renderBullet: function (index) {
-            return "<span>" + menuCategories[index].name + "</span>";
+        dynamicBullets: true,
+        renderBullet: function (index, className) {
+            return "<span class='" + className + "'>" + (index + 1) + "</span>";
         },
     };
+
     return (
         <main>
             {loading === "succeeded" && (
                 <Swiper
-                    hashNavigation={{
-                        watchState: true,
-                        replaceState: true,
-                    }}
+                    modules={[Pagination]}
                     pagination={pagination}
-                    navigation={true}
-                    style={{ padding: ".5rem" }}
                     spaceBetween={50}
                     slidesPerView={1}
-                    autoHeight={true}
-                    modules={[Pagination, Navigation, HashNavigation]}>
+                    autoHeight={true}>
                     {menuCategories.map((category) => (
                         <SwiperSlide key={category.id}>
                             {" "}

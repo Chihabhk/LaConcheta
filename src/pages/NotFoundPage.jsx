@@ -19,8 +19,12 @@ const NotFoundPage = () => {
             <Typography level="h1" variant="plain">
                 404 - Página no encontrada
             </Typography>
-            <Button onClick={() => navigate("/")} color="#eac14f">
-                Ir a la página principal
+            <Button
+                onClick={() => navigate("/")}
+                variant="soft"
+                color="danger"
+                sx={{ mt: 5 }}>
+                <Typography> Ir a la página principal</Typography>
             </Button>
         </Sheet>
     );

@@ -10,7 +10,6 @@ const RedirectToCategories = () => {
     useEffect(() => {
         navigate("/carta");
     }, [navigate]);
-    return null;
 };
 const routes = [
     {
