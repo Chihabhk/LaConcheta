@@ -7,7 +7,7 @@ import ItemCard from "../Components/ItemCard.tsx";
 import { MenuState } from "../types";
 import "swiper/css";
 import "swiper/css/pagination";
-
+import "../styles/swiper.css";
 const CartaPage = () => {
     const { menuCategories, loading } = useSelector(
         (state: MenuState) => state.menu
@@ -16,7 +16,13 @@ const CartaPage = () => {
         clickable: true,
         dynamicBullets: true,
         renderBullet: function (index, className) {
-            return "<span class='" + className + "'>" + (index + 1) + "</span>";
+            return (
+                "<span class='" +
+                className +
+                "'>" +
+                menuCategories[index].name +
+                "</span>"
+            );
         },
     };
 
@@ -24,6 +30,8 @@ const CartaPage = () => {
         <main>
             {loading === "succeeded" && (
                 <Swiper
+                    className="mySwiper"
+                    style={{ padding: "20px" }}
                     modules={[Pagination]}
                     pagination={pagination}
                     spaceBetween={50}
