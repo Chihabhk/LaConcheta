@@ -1,17 +1,14 @@
-.mySwiper {
-    position: relative;
-    margin-top: "2em";
-
-    .swiper-pagination {
-        position: absolute;
-        top: 0;
-        width: 100%;
-        text-align: center;
-    }
+.swiper-wrapper {
+    margin-top: 2rem;
 }
+
+.swiper-pagination {
+    top: 0 !important;
+    height: fit-content;
+}
+
 .swiper-pagination-bullet {
     position: absolute;
-    top: 0;
     width: auto;
     height: auto;
     padding: 0.8em;
@@ -25,5 +22,6 @@
 
 .swiper-pagination-bullet-active {
     color: #fff;
-    background: #007aff;
+    background: #df9a66;
+    filter: contrast(0.5);
 }
