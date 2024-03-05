@@ -6,7 +6,8 @@ import ItemCard from "../Components/ItemCard.tsx";
 import { MenuState } from "../types";
 import "swiper/css";
 import "swiper/css/pagination";
-import "../styles/swiper.css";
+import { Typography } from "@mui/joy";
+import { ArrowBack, ArrowForward } from "@mui/icons-material";
 
 const CartaPage = () => {
     const { menuCategories, loading } = useSelector(
@@ -18,13 +19,23 @@ const CartaPage = () => {
             {loading === "succeeded" && (
                 <>
                     <Swiper
-                        style={{ padding: "20px" }}
+                        style={{ padding: ".4em" }}
                         modules={[Pagination]}
                         spaceBetween={50}
                         slidesPerView={1}
                         autoHeight={true}>
                         {menuCategories.map((category) => (
                             <SwiperSlide key={category.id}>
+                                <Typography
+                                    startDecorator={<ArrowBack />}
+                                    endDecorator={<ArrowForward />}
+                                    level="h2"
+                                    sx={{
+                                        justifyContent: "center",
+                                        mb: 0.8,
+                                    }}>
+                                    {category.name}
+                                </Typography>
                                 {category.data.map((item) => (
                                     <ItemCard key={item.id} item={item} />
                                 ))}
