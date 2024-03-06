@@ -71,7 +71,7 @@ export default function CuentaHeader({ total }: { total: number }) {
                         <Typography
                             level="body-sm"
                             sx={{
-                                textAlign: "justify",
+                                textAlign: "left",
                                 fontSize: 13,
                             }}
                             startDecorator={
