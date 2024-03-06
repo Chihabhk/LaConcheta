@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import AspectRatio from "@mui/joy/AspectRatio";
 import Box from "@mui/joy/Box";
 import IconButton from "@mui/joy/IconButton";
@@ -16,12 +16,10 @@ import GitHubIcon from "@mui/icons-material/GitHub";
 import ColorLensRoundedIcon from "@mui/icons-material/ColorLensRounded";
 
 export default function ColorInversionFooter() {
-    const [color, setColor] = useState("neutral");
     return (
         <Sheet
             component={"footer"}
             variant="solid"
-            color={color}
             invertedColors
             sx={{
                 flexGrow: 1,
@@ -30,21 +28,7 @@ export default function ColorInversionFooter() {
                 bottom: 0,
             }}>
             <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
-                <IconButton
-                    variant="soft"
-                    size="sm"
-                    onClick={() => {
-                        const colors = [
-                            "primary",
-                            "neutral",
-                            "danger",
-                            "success",
-                            "warning",
-                        ];
-
-                        const nextColorIndex = colors.indexOf(color) + 1;
-                        setColor(colors[nextColorIndex] ?? colors[0]);
-                    }}>
+                <IconButton variant="soft" size="sm">
                     <ColorLensRoundedIcon fontSize="small" />
                 </IconButton>
                 <Divider orientation="vertical" />

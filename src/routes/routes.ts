@@ -1,20 +1,10 @@
-import { lazy, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
-
 import CartaPage from "../pages/CartaPage.tsx";
+import NotFoundPage from "../pages/NotFoundPage.tsx";
 
-const NotFoundPage = lazy(() => import("../pages/NotFoundPage"));
-
-const RedirectToCategories = () => {
-    const navigate = useNavigate();
-    useEffect(() => {
-        navigate("/carta");
-    }, [navigate]);
-};
 const routes = [
     {
         path: "/",
-        component: RedirectToCategories,
+        component: CartaPage,
     },
     {
         path: "/carta",

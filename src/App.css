@@ -9,18 +9,19 @@
     margin: 0;
     padding: 0;
 }
-body {
-    margin: auto;
-    width: min(100vw, 500px);
-    background-color: #df9a66;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    font-family: "Dancing Script", sans-serif;
-}
 
 #root {
     display: flex;
     flex-direction: column;
     box-sizing: border-box;
+}
+
+body {
+    margin: auto;
+    width: min(100vw, 500px);
+    background-color: rgba(233, 172, 75, 0.4);
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    font-family: "Dancing Script", sans-serif;
 }

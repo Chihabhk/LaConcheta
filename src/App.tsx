@@ -1,13 +1,12 @@
 import "./App.css";
-import "swiper/css";
 import React from "react";
 import { Suspense, useEffect } from "react";
 import { HashRouter as Router, Routes, Route } from "react-router-dom";
 import { CircularProgress, Box } from "@mui/joy";
-import { NonAuthRoutes } from "./routes/routes.js";
+import { NonAuthRoutes } from "./routes/routes.ts";
 import { fetchMenu } from "./features/menuSlice.ts";
 import { useAppDispatch } from "./store/store.ts";
-import Layout from "./Components/Layout.jsx";
+import Layout from "./Components/Layout.tsx";
 
 function App() {
     const dispatch = useAppDispatch();

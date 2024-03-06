@@ -24,6 +24,7 @@ const ItemCard = ({ item }: { item: Item }) => {
             sx={{
                 cursor: "pointer",
                 marginBottom: 1,
+                // backgroundColor: "rgba(223, 154, 102, 0.4)",
                 boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
             }}>
             <CardContent>
