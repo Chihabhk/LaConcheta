@@ -54,7 +54,7 @@ const CartaPage = () => {
 
                     <Swiper
                         modules={[Thumbs]}
-                        onSwiper={setThumbsSwiper}
+                        // onSwiper={setThumbsSwiper}
                         watchSlidesProgress
                         onSlideChange={() => console.log("slide change")}>
                         {menuCategories.map((category) => (
