@@ -1,16 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination } from "swiper/modules";
-import ItemCard from "../Components/ItemCard.tsx";
-import { MenuState } from "../types";
+import { Navigation, Pagination, Thumbs } from "swiper";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
-import { Typography } from "@mui/joy";
+import { Chip, Typography } from "@mui/joy";
 import { ArrowBack, ArrowForward } from "@mui/icons-material";
+import ItemCard from "../Components/ItemCard";
+import { MenuState } from "../types";
 
 const CartaPage = () => {
+    const [thumbsSwiper, setThumbsSwiper] = useState(null);
+
     const { menuCategories, loading } = useSelector(
         (state: MenuState) => state.menu
     );
@@ -20,22 +22,21 @@ const CartaPage = () => {
             {loading === "succeeded" && (
                 <>
                     <Swiper
+                        modules={[Thumbs, Pagination, Navigation]}
+                        thumbs={{ swiper: thumbsSwiper }}
                         style={{ padding: ".4em" }}
-                        modules={[Pagination, Navigation]}
                         spaceBetween={50}
                         slidesPerView={1}
                         autoHeight={true}
-                        navigation={true}
-                        navigation-next-el=".custom-next-button"
-                        navigation-prev-el=".custom-prev-button">
+                        navigation={{
+                            nextEl: ".custom-next-button",
+                            prevEl: ".custom-prev-button",
+                        }}>
                         {menuCategories.map((category) => (
                             <SwiperSlide key={category.id}>
                                 <Typography
                                     level="h2"
-                                    sx={{
-                                        justifyContent: "center",
-                                        mb: 0.8,
-                                    }}>
+                                    sx={{ justifyContent: "center", mb: 0.8 }}>
                                     {category.name}
                                 </Typography>
                                 {category.data.map((item) => (
@@ -43,12 +44,24 @@ const CartaPage = () => {
                                 ))}
                             </SwiperSlide>
                         ))}
-                        <div className="pagination-next-button">
-                            <ArrowBack />
-                        </div>
-                        <div className="pagination-prev-button">
+                        <div className="custom-next-button">
                             <ArrowForward />
                         </div>
+                        <div className="custom-prev-button">
+                            <ArrowBack />
+                        </div>
+                    </Swiper>
+
+                    <Swiper
+                        modules={[Thumbs]}
+                        onSwiper={setThumbsSwiper}
+                        watchSlidesProgress
+                        onSlideChange={() => console.log("slide change")}>
+                        {menuCategories.map((category) => (
+                            <SwiperSlide key={category.id}>
+                                <Chip variant="outlined">{category.name}</Chip>
+                            </SwiperSlide>
+                        ))}
                     </Swiper>
                 </>
             )}
