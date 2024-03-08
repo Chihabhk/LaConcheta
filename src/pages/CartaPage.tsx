@@ -7,7 +7,7 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { Chip, Typography } from "@mui/joy";
 import { ArrowBack, ArrowForward } from "@mui/icons-material";
-import ItemCard from "../Components/ItemCard";
+import ItemCard from "../Components/ItemCard.tsx";
 import { MenuState } from "../types";
 
 const CartaPage = () => {
