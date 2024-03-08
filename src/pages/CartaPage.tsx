@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
-import { Swiper, SwiperSlide } from "swiper/react";
+import { Swiper } from "swiper/react";
+import { SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Thumbs } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
@@ -11,7 +12,9 @@ import ItemCard from "../Components/ItemCard.tsx";
 import { MenuState } from "../types";
 
 const CartaPage = () => {
-    const [thumbsSwiper, setThumbsSwiper] = useState(null);
+    const [thumbsSwiper, setThumbsSwiper] = useState<typeof Swiper | null>(
+        null
+    );
 
     const { menuCategories, loading } = useSelector(
         (state: MenuState) => state.menu
@@ -23,7 +26,7 @@ const CartaPage = () => {
                 <>
                     <Swiper
                         modules={[Thumbs, Pagination, Navigation]}
-                        thumbs={{ swiper: thumbsSwiper }}
+                        thumbs={thumbsSwiper}
                         style={{ padding: ".4em" }}
                         spaceBetween={50}
                         slidesPerView={1}
@@ -54,13 +57,13 @@ const CartaPage = () => {
 
                     <Swiper
                         modules={[Thumbs]}
-                        // onSwiper={setThumbsSwiper}
+                        onSwiper={setThumbsSwiper}
                         watchSlidesProgress
                         onSlideChange={() => console.log("slide change")}>
                         {menuCategories.map((category) => (
-                            <SwiperSlide key={category.id}>
-                                <Chip variant="outlined">{category.name}</Chip>
-                            </SwiperSlide>
+                            <Chip key={category.id} variant="outlined">
+                                {category.name}
+                            </Chip>
                         ))}
                     </Swiper>
                 </>
