@@ -4,6 +4,7 @@ import { Controller } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { MenuState } from "../types";
 import { Chip } from "@mui/joy";
+import ItemCard from "../Components/ItemCard";
 
 const CartaPage = () => {
     const menuCategories = useSelector(
@@ -35,12 +36,8 @@ const CartaPage = () => {
                 {menuCategories.map((Category) => {
                     return (
                         <SwiperSlide key={Category.id}>
-                            {Category.data.map((menuItem) => {
-                                return (
-                                    <Chip key={menuItem.id}>
-                                        {menuItem.name}
-                                    </Chip>
-                                );
+                            {Category.data.map((item) => {
+                                return <ItemCard item={item}></ItemCard>;
                             })}
                         </SwiperSlide>
                     );
