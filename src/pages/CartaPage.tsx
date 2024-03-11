@@ -1,73 +1,51 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
-import { Swiper } from "swiper/react";
-import { SwiperSlide } from "swiper/react";
-import { Navigation, Pagination, Thumbs } from "swiper/modules";
-import "swiper/css";
-import "swiper/css/pagination";
-import "swiper/css/navigation";
-import { Chip, Typography } from "@mui/joy";
-import { ArrowBack, ArrowForward } from "@mui/icons-material";
-import ItemCard from "../Components/ItemCard.tsx";
+import { Controller } from "swiper/modules";
+import { Swiper, SwiperSlide } from "swiper/react";
 import { MenuState } from "../types";
+import { Chip } from "@mui/joy";
 
 const CartaPage = () => {
-    const [thumbsSwiper, setThumbsSwiper] = useState<typeof Swiper | null>(
-        null
+    const menuCategories = useSelector(
+        (state: MenuState) => state.menu.menuCategories
     );
-
-    const { menuCategories, loading } = useSelector(
-        (state: MenuState) => state.menu
-    );
+    const [firstSwiper, setFirstSwiper] = useState(null);
+    const [secondSwiper, setSecondSwiper] = useState(null);
 
     return (
         <main>
-            {loading === "succeeded" && (
-                <>
-                    <Swiper
-                        modules={[Thumbs, Pagination, Navigation]}
-                        thumbs={thumbsSwiper}
-                        style={{ padding: ".4em" }}
-                        spaceBetween={50}
-                        slidesPerView={1}
-                        autoHeight={true}
-                        navigation={{
-                            nextEl: ".custom-next-button",
-                            prevEl: ".custom-prev-button",
-                        }}>
-                        {menuCategories.map((category) => (
-                            <SwiperSlide key={category.id}>
-                                <Typography
-                                    level="h2"
-                                    sx={{ justifyContent: "center", mb: 0.8 }}>
-                                    {category.name}
-                                </Typography>
-                                {category.data.map((item) => (
-                                    <ItemCard key={item.id} item={item} />
-                                ))}
-                            </SwiperSlide>
-                        ))}
-                        <div className="custom-next-button">
-                            <ArrowForward />
-                        </div>
-                        <div className="custom-prev-button">
-                            <ArrowBack />
-                        </div>
-                    </Swiper>
+            <Swiper
+                modules={[Controller]}
+                slidesPerView={"auto"}
+                onSwiper={(swiper) => setFirstSwiper}
+                controller={{ control: secondSwiper }}>
+                {menuCategories.map((Category) => {
+                    return (
+                        <SwiperSlide>
+                            <Chip key={Category.id}>{Category.name}</Chip>
+                        </SwiperSlide>
+                    );
+                })}
+            </Swiper>
 
-                    <Swiper
-                        modules={[Thumbs]}
-                        onSwiper={setThumbsSwiper}
-                        watchSlidesProgress
-                        onSlideChange={() => console.log("slide change")}>
-                        {menuCategories.map((category) => (
-                            <Chip key={category.id} variant="outlined">
-                                {category.name}
-                            </Chip>
-                        ))}
-                    </Swiper>
-                </>
-            )}
+            <Swiper
+                modules={[Controller]}
+                onSwiper={(swiper) => setSecondSwiper}
+                controller={{ control: firstSwiper }}>
+                {menuCategories.map((Category) => {
+                    return (
+                        <SwiperSlide key={Category.id}>
+                            {Category.data.map((menuItem) => {
+                                return (
+                                    <Chip key={menuItem.id}>
+                                        {menuItem.name}
+                                    </Chip>
+                                );
+                            })}
+                        </SwiperSlide>
+                    );
+                })}
+            </Swiper>
         </main>
     );
 };
