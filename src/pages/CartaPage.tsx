@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
-import { Controller } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { Controller } from "swiper/modules";
 import { MenuState } from "../types";
 import { Chip } from "@mui/joy";
-import ItemCard from "../Components/ItemCard";
+import ItemCard from "../Components/ItemCard.tsx";
 
 const CartaPage = () => {
     const menuCategories = useSelector(
@@ -22,8 +22,8 @@ const CartaPage = () => {
                 controller={{ control: secondSwiper }}>
                 {menuCategories.map((Category) => {
                     return (
-                        <SwiperSlide>
-                            <Chip key={Category.id}>{Category.name}</Chip>
+                        <SwiperSlide key={Category.id}>
+                            <Chip>{Category.name}</Chip>
                         </SwiperSlide>
                     );
                 })}
@@ -37,7 +37,11 @@ const CartaPage = () => {
                     return (
                         <SwiperSlide key={Category.id}>
                             {Category.data.map((item) => {
-                                return <ItemCard item={item}></ItemCard>;
+                                return (
+                                    <ItemCard
+                                        key={item.id}
+                                        item={item}></ItemCard>
+                                );
                             })}
                         </SwiperSlide>
                     );
