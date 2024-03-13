@@ -43,6 +43,4 @@ La aplicación ahora debería estar ejecutándose en http://localhost:3000.
 📜 Licencia
 Este proyecto está licenciado bajo los términos de la licencia MIT.
 
-## Capturas de pantalla
 
-![Captura 1](https://laconcheta.es/laconcheta.es_.png)
