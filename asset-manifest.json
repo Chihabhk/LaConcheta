@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/static/css/main.e423545a.css",
-    "main.js": "/static/js/main.542f3a77.js",
+    "main.js": "/static/js/main.ee1968c4.js",
     "static/media/DancingScript-VariableFont_wght.ttf": "/static/media/DancingScript-VariableFont_wght.d02a1ee17643667e9808.ttf",
     "index.html": "/index.html",
     "main.e423545a.css.map": "/static/css/main.e423545a.css.map",
-    "main.542f3a77.js.map": "/static/js/main.542f3a77.js.map"
+    "main.ee1968c4.js.map": "/static/js/main.ee1968c4.js.map"
   },
   "entrypoints": [
     "static/css/main.e423545a.css",
-    "static/js/main.542f3a77.js"
+    "static/js/main.ee1968c4.js"
   ]
 }
