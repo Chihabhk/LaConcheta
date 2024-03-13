@@ -20,7 +20,7 @@ const CartaPage = () => {
         <main>
             <Swiper
                 modules={[Controller]}
-                slidesPerView={"auto"}
+                slidesPerView={3}
                 centeredSlides
                 onSwiper={setFirstSwiper}
                 controller={{ control: secondSwiper }}>

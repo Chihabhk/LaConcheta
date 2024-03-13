@@ -4,25 +4,40 @@ import { Instagram } from "@mui/icons-material";
 
 export default function Footer() {
     return (
-        <footer>
-            <Typography>LaConcheta</Typography>
-            <Typography>Síguenos para más contenido</Typography>
+        <footer
+            style={{
+                backgroundColor: "rgba(45, 33, 24, 1)",
+                position: "static",
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                justifyContent: "center",
+                // width: "100%",
+                // padding: "1rem",
+            }}>
+            <Typography color="neutral">LaConcheta</Typography>
+            <Typography color="neutral">Síguenos para más contenido</Typography>
             <IconButton
                 component="a"
                 target="_blank"
                 href="https://www.instagram.com/laconchetarestaurante/"
                 variant="solid"
-                sx={
-                    {
-                        // backgroundColor: "#df9a66",
-                    }
-                }>
+                sx={{
+                    alignSelf: "center",
+                    // mr: "2em",
+                    backgroundColor: "#df9a66",
+                }}>
                 <Instagram
-                    sx={{
-                        color: "white",
-                    }}
+                    sx={
+                        {
+                            // color: "white",
+                        }
+                    }
                 />
             </IconButton>
+            <Typography color="neutral">
+                Todos los derechos reservados.
+            </Typography>
             {/*Encuentranos en la presa...*/}
             {/*Conócenos*/}
         </footer>
