@@ -14,7 +14,7 @@ export default function Footer() {
                 justifyContent: "center",
                 // width: "100%",
             }}>
-            <Typography color="neutral">LaConcheta</Typography>
+            <Typography color="neutral">La Concheta</Typography>
             <Typography color="neutral">Síguenos para más contenido</Typography>
             <IconButton
                 component="a"
