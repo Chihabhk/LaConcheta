@@ -13,7 +13,6 @@ export default function Footer() {
                 alignItems: "center",
                 justifyContent: "center",
                 // width: "100%",
-                // padding: "1rem",
             }}>
             <Typography color="neutral">LaConcheta</Typography>
             <Typography color="neutral">Síguenos para más contenido</Typography>
