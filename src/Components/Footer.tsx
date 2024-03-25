@@ -12,7 +12,6 @@ export default function Footer() {
                 flexDirection: "column",
                 alignItems: "center",
                 justifyContent: "center",
-                // width: "100%",
             }}>
             <Typography color="neutral">La Concheta</Typography>
             <Typography color="neutral">Síguenos para más contenido</Typography>
@@ -25,13 +24,7 @@ export default function Footer() {
                     alignSelf: "center",
                     backgroundColor: "#df9a66",
                 }}>
-                <Instagram
-                    sx={
-                        {
-                            // color: "white",
-                        }
-                    }
-                />
+                <Instagram />
             </IconButton>
             <Typography color="neutral">
                 Todos los derechos reservados.
