@@ -23,7 +23,6 @@ export default function Footer() {
                 variant="solid"
                 sx={{
                     alignSelf: "center",
-                    // mr: "2em",
                     backgroundColor: "#df9a66",
                 }}>
                 <Instagram
@@ -37,8 +36,6 @@ export default function Footer() {
             <Typography color="neutral">
                 Todos los derechos reservados.
             </Typography>
-            {/*Encuentranos en la presa...*/}
-            {/*Conócenos*/}
         </footer>
     );
 }
