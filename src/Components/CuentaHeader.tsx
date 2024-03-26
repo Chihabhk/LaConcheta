@@ -44,7 +44,7 @@ export default function CuentaHeader({ total }: { total: number }) {
                 transition="0.2s ease"
                 sx={{
                     [`& .${accordionClasses.root}`]: {
-                        marginTop: "0.5rem",
+                        marginTop: "0.49rem",
                         transition: "0.2s ease",
                         '& button:not([aria-expanded="true"])': {
                             transition: "0.2s ease",
