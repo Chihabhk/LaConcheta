@@ -14,7 +14,9 @@ export default function Footer() {
                 justifyContent: "center",
             }}>
             <Typography color="neutral">La Concheta</Typography>
-            <Typography color="neutral">Síguenos para más contenido</Typography>
+            <Typography color="neutral">
+                Síguenos para más contenido.
+            </Typography>
             <IconButton
                 component="a"
                 target="_blank"
