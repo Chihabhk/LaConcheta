@@ -17,7 +17,10 @@ const CartaPage = () => {
     const [secondSwiper, setSecondSwiper] = useState<SwiperClass | null>(null);
 
     return (
-        <main>
+        <main
+            style={{
+                width: "100%",
+            }}>
             <Swiper
                 modules={[Controller]}
                 slidesPerView={3}
