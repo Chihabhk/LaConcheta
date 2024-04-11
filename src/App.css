@@ -10,12 +10,6 @@
     padding: 0;
 }
 
-#root {
-    display: flex;
-    flex-direction: column;
-    box-sizing: border-box;
-}
-
 body {
     margin: auto;
     width: min(100vw, 500px);
@@ -24,4 +18,9 @@ body {
     justify-content: center;
     flex-direction: column;
     font-family: "Dancing Script", sans-serif;
+    > div#root {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+    }
 }

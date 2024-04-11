@@ -7,9 +7,9 @@ export default function Footer() {
         <footer
             style={{
                 backgroundColor: "rgba(45, 33, 24, 1)",
-                position: "static",
+                position: "sticky",
+                bottom: "0",
                 display: "flex",
-                flexDirection: "column",
                 alignItems: "center",
                 justifyContent: "center",
             }}>

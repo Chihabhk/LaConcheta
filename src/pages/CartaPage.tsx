@@ -20,6 +20,7 @@ const CartaPage = () => {
         <main
             style={{
                 width: "100%",
+                height: "minmax(500vh,50px)",
             }}>
             <Swiper
                 modules={[Controller]}
@@ -35,6 +36,7 @@ const CartaPage = () => {
             </Swiper>
 
             <Swiper
+                style={{ display: "flex", flexGrow: "1" }}
                 modules={[Controller]}
                 onSwiper={setSecondSwiper}
                 controller={{ control: firstSwiper }}
