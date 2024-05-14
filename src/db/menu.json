@@ -309,31 +309,36 @@
         "data": [
             {
                 "name": "Parrillada del mar",
-                "allergens": "",
+                "description": "Una selección de pescados y mariscos variados a la parrilla",
+                "allergies": "",
                 "price": "28€",
                 "id": "27d15593-6cb1-46be-8503-5c4efa160fa7"
             },
             {
                 "name": "Dorada",
-                "allergens": "",
+                "description": "Dorada a la plancha",
+                "allergies": "",
                 "price": "14€",
                 "id": "f4689d1b-582c-476d-be0f-379bd5389eaa"
             },
             {
                 "name": "Emperador",
-                "allergens": "",
+                "description": "Emperador a la plancha",
+                "allergies": "",
                 "price": "16€",
                 "id": "25cc2156-ab5d-4589-9461-9fc23e37e8ce"
             },
             {
                 "name": "Lubina",
-                "allergens": "",
+                "description": "Lubina a la plancha",
+                "allergies": "",
                 "price": "16€",
                 "id": "0eea54fd-9b8d-4edf-a828-70cf756f0af7"
             },
             {
                 "name": "Rodabayo",
-                "allergens": "",
+                "description": "Rodabayo a la plancha",
+                "allergies": "",
                 "price": "16€",
                 "id": "cd2fa930-7360-4f91-9754-01b23864cb3e"
             }
